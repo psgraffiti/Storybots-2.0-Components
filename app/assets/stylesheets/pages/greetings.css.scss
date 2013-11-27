@@ -1,0 +1,26 @@
+// Place all the styles related to the greetings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#header {
+    font-family: $lucida-grande;
+    font-size: 25px;
+
+    h2 {
+        font-size: 15px;
+    }
+}
+
+#footer {
+    font-family: $lucida-grande;
+    font-size: 12px;
+
+    h2 {
+        font-size: 9px;
+    }
+}
+
+p {
+    font-family: $lucida-grande;
+    font-size: 9px;
+}

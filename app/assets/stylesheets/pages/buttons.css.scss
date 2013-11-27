@@ -1,0 +1,46 @@
+.contain {
+    @include outer-container;
+}
+.tablelike {
+    li {
+        @include list(2);
+    }
+}
+
+button {
+    @include btn();
+}
+
+button[color="black"] {
+    @include btn(#2F3443);
+}
+
+button[color="black2"] {
+    @include btn(raised, #2F3443);
+}
+
+button[color="white"] {
+    @include btn(#f5f4ec);
+}
+
+button[style="raised"] {
+    @include btn(raised);
+}
+
+button[style="raised1"] {
+    @include btn(raised, #f5f4ec);
+}
+
+button[style="link"] {
+    @include btn(link);
+}
+button[color="link2"] {
+    @include btn(link, #2F3443);
+}
+button[color="link3"] {
+    @include btn(link, #f5f4ec);
+}
+
+buttongroup {
+    @include btn-group();
+}

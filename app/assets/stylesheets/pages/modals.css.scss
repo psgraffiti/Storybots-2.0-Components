@@ -1,0 +1,3 @@
+@include modal(small);
+@include modal(large, #074A7B, $modal-border, #F5F4EC);
+@include modal(size, 950px);

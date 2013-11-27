@@ -1,0 +1,254 @@
+//
+// Buttons
+// -------------------------------------------------------------------
+
+@mixin btn($style: flat, $color: $btn-color) {
+
+	// If only color was specified
+	@if type-of($style) == color {
+		$color: $style;
+		$style: flat;
+	}
+
+	@if $style == flat {
+		@include btn-flat($color);
+	}
+	@else if $style == raised {
+		@include btn-raised($color);
+	}
+	@else if $style == link {
+		@include btn-link($color);
+	}
+
+	@include user-select(none);
+	@include inline-block;
+
+	margin: 5px;
+	border: 0px;
+
+	cursor: pointer;
+
+	&:focus {
+		outline-width: 0px;
+	}
+
+	&:disabled,
+	&[disabled] {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+}
+
+//
+// Flat Button
+// -------------------------------------------------------------------
+
+@mixin btn-flat($color) {
+
+	$hover-color: tint($color, 30%);
+	$text-color: $btn-text-color;
+
+	// If the button color is light, make text color light and what not
+	@if lightness($color) > 50% {
+		$hover-color: shade($color, 20%);
+		$text-color: $btn-text-dark;
+	}
+
+	$shadow-color: shade($hover-color, 10%);
+
+	@include pad(10px 15px);
+	border-radius: 5px;
+	background-color: $color;
+
+	font-family: ProximaNova;
+	font-size: 15px;
+	font-weight: normal;
+	font-style: normal;
+	color: $text-color;
+
+	&[toggle-type=dropdown] {
+		margin-bottom: 0px;
+	}
+
+	&.hover,
+	&:hover {
+		background-color: $hover-color;
+
+		&.active,
+		&:active {
+			box-shadow: 0px 1px 5px 3px $shadow-color inset;
+		}
+	}
+
+	&:disabled,
+	&[disabled] {
+
+		&:hover,
+		&:focus {
+			background-color: $color;
+
+			&:active {
+				box-shadow: none;
+			}
+		}
+  	}
+}
+
+//
+// Raised Button
+// -------------------------------------------------------------------
+
+@mixin btn-raised($color) {
+
+	$border-color:	tint($color, 35%);
+	$shadow-color: 	shade($color, 15%);
+	$hover-color:  	$border-color;
+	$grad-top: 		$border-color;
+	$grad-bottom: 	$color;
+	$text-color: 	$btn-text-color;
+
+	@if lightness($color) > 50% {
+		$border-color: 	darken($color, 30%);
+		$shadow-color: 	shade($border-color, 15%);
+		$hover-color:  	shade($color, 5%);
+		$grad-top: 		$color;
+		$grad-bottom: 	$border-color;
+		$text-color: 	$btn-text-dark;
+	}
+
+	@include linear-gradient($grad-top, $grad-bottom);
+
+	padding: 10px 45px 0px 45px;
+	border-radius: 15px;
+	border: 1px solid $border-color;
+	box-shadow: 0px 5px 0px $shadow-color;
+
+	position: relative;
+
+	font-family: AlphabetSoup;
+	font-size: 40px;
+    font-weight: bold;
+	color: $text-color;
+
+	&.hover,
+	&:hover {
+		@include linear-gradient($hover-color, $hover-color);
+		@if lightness($color) > 50% {
+			border-color: $hover-color
+		}
+
+		&.active,
+		&:active {
+			top: 3px;
+			box-shadow: 0px 2px 0px $shadow-color;
+		}
+	}
+
+	&:disabled,
+	&[disabled] {
+
+	    &:hover,
+		&:focus {
+			@include linear-gradient($grad-top, $grad-bottom);
+			border-color: $border-color;
+
+			&:active {
+				top: 0px;
+    			box-shadow: 0px 5px 0px $shadow-color;
+			}
+		}
+  	}
+}
+
+//
+// Link Button
+// -------------------------------------------------------------------
+
+@mixin btn-link($color) {
+	color: $color;
+	font-weight: normal;
+	cursor: pointer;
+	border-radius: 0;
+
+	&,
+	&:active,
+	&[disabled],
+	fieldset[disabled] & {
+		background-color: transparent;
+		box-shadow: none;
+	}
+
+	&:hover {
+		&:active {
+			border-color: transparent;
+		}
+	}
+
+	&:hover {
+		text-decoration: underline;
+		background-color: transparent;
+	}
+
+	&[disabled],
+	&[disabled] {
+
+		&:hover,
+		&:focus {
+			text-decoration: none;
+		}
+	}
+}
+
+//
+// Button Groups
+// -------------------------------------------------------------------
+
+@mixin btn-group() {
+
+	@include inline-block;
+	position: relative;
+	vertical-align: middle;
+
+	> button {
+		position:relative;
+		float: left;
+
+		&:hover,
+    	&:focus,
+    	&:active,
+    	&.active {
+    	  z-index: 2px;
+    	}
+
+    	&:focus {
+      		outline: none;
+    	}
+
+    	&:not(:first-child):not(:last-child) {
+    		border-radius: 0px;
+    		margin-right: 0px;
+    		margin-left: 0px;
+    	}
+
+    	&:first-child {
+    		margin-left: 0px;
+
+    		&:not(:last-child) {
+    			@include border-radius-right(0px);
+    			margin-right: 0px;
+    		}
+    	}
+
+    	&:last-child:not(:first-child) {
+    		@include border-radius-left(0px);
+    		margin-left: 0px;
+    	}
+	}
+
+	button + button,
+	button + buttongroup,
+	buttongroup + button,
+	buttongroup + buttongroup {
+		margin-left: -1px;
+	}
+}

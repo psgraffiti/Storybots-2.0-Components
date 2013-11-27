@@ -1,0 +1,170 @@
+//
+// Modal
+// --------------------------------------------------
+
+// .modal-open      - body class for killing the scroll
+// .modal           - container to scroll within
+// .modal-dialog    - positioning shell for the actual modal
+// .modal-content   - actual modal w/ bg and corners and shit
+
+.modal-open {
+    overflow: hidden;
+}
+
+// Modal background
+.modal-backdrop {
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: ($modal-z-index - 10);
+    background-color: $modal-backdrop-color;
+
+    // Fade for backdrop
+    &.fade { 
+        opacity: 0;
+        @include transition(opacity 0.3s ease-out);
+    }
+
+    &.in { 
+        opacity: 0.8;
+    }
+}
+
+.modal {
+
+    display: none;
+    overflow: auto;
+    overflow-y: auto;
+    position: fixed;
+    outline: none;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: $modal-z-index;
+
+    // Transition for Modal
+    &.fade {
+        > .modal-dialog {
+            @include transition(all 0.3s ease-out);
+        }
+    }
+
+    // Shell div to position the modal
+    .modal-dialog {
+
+            @include pad(default);
+            @include transform(translateX(-50%));
+            position: absolute;
+            left: 50%;
+            z-index: ($modal-z-index + 10);
+            width: auto;
+
+        // Actual modal
+        .modal-content {
+
+            position: relative;
+            border-radius: 10px;
+            box-shadow:0 3px 9px rgba(0,0,0,.5);
+            background-clip: padding-box;
+            outline: none;
+            background-color: $modal-background;
+            border: 1px solid $modal-background;
+
+            // Modal header
+            // Top section of the modal w/ title and dismiss
+            .modal-header {
+
+                @include pad(20px);
+                @include modal-font(header, $modal-text-color);
+                border-bottom: 1px solid $modal-border;
+
+                // Close icon
+                .close {
+
+                    @include pad(5px 8px);
+                    margin-top: -15px;
+                    margin-right: -15px;
+                    border-radius: 25px;
+                    float: right;
+                }
+
+                // Title text within header
+                .modal-title {
+                    margin: 0px;
+                }
+            }
+
+            // Modal body
+            // Where all modal content resides (sibling of .modal-header and .modal-footer)
+            .modal-body {
+
+                @include pad(20px);
+                position: relative;
+                @include modal-font(body, $modal-text-color);
+            }
+
+            // Footer (for actions)
+            .modal-footer {
+
+                @include pad(10px);
+                margin-top: 15px;
+                text-align: right; // right align buttons
+                border-top: 1px solid $modal-border;
+            }
+        }
+    }
+}
+
+//
+// Modal Mixin
+// --------------------------------------------------
+
+@mixin modal($id, $back-color: $modal-background, $border: $modal-border, $color: $modal-text-color, $width-size: auto) {
+
+    @if type-of($back-color) != color {
+        $border: $back-color;
+        $back-color: $modal-background;
+    }
+
+    @if type-of($border) != color {
+        $color: $border;
+        $border: $modal-border;
+    }
+
+    @if type-of($color) != color {
+        $width-size: $color;
+        $color: $modal-text-color;
+    }
+
+    .modal.#{$id} {
+
+        .modal-dialog.#{$id} {
+            width: $width-size;
+
+            .modal-content.#{$id} {
+
+                background-color: $back-color;
+                border: 1px solid $back-color;
+
+                .modal-header.#{$id} {
+
+                    @include modal-font(header, $color);
+                    @include pad(20px);
+                    border-bottom: 1px solid $border;
+                }
+
+                .modal-body.#{$id} {
+                    @include modal-font(body, $color);
+                }
+
+                .modal-footer.#{$id} {
+                    border-top: 1px solid $border;
+                }
+            }
+        }
+    }
+}

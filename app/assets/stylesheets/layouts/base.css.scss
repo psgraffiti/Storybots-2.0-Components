@@ -1,0 +1,55 @@
+//
+// Striped Backgrounds
+// -------------------------------------------------------------------
+@mixin striped-bkgrd($color: $code-background, $type: horizontal) {
+    @include background-size(50px, 50px); /* Controls the size of the stripes */
+
+    @if type-of($color) != color {
+        $type: $color;
+        $color: $code-background;
+    }
+
+    @if $type == angled {
+        @include linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+                                transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+                                transparent 75%, transparent, $fallback: $color);
+    }
+        
+    @if $type == angled-135 {
+        @include linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+                                transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+                                transparent 75%, transparent, $fallback: $color);
+    }
+
+    @if $type == horizontal {
+        @include linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent, $fallback: $color);
+    }
+}
+
+html {
+    background-color: #ABCEE1;
+}
+
+body {
+    font-family: ProximaNova;
+    color: #2F3442;
+}
+
+code {
+    display: block;
+    overflow: auto;
+    @include pad(20px);
+    
+    background-color: $code-background;
+    border: 1px solid #D8D8D8;
+
+    font-family: ProximaNova;
+    font-style: italic;
+    color: #2F3442;
+}
+
+table {
+    @include well();
+    @include striped-bkgrd(angled-135);
+    width: 80%;
+}

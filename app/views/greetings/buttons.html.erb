@@ -1,0 +1,151 @@
+<div class="content"><div class="main large">
+	<h3>Buttons</h3>
+		Use the mixin <i>btn()</i> for buttons. The default style is flat and the default color is Grassy Green (#19AE58).
+		Unless the style and/or color is provided, the default values will be used.
+		<br><br>
+		To use the mixin in CSS:
+		<br><br>
+<code><pre>
+button { 
+  @include btn(); 
+}
+
+...
+
+&lt;button&gt;Flat Button&lt;/button&gt;
+</pre></code>
+		<br><br>
+		<center>
+		<table><caption>@include btn() is equivalent to:</caption>
+			<tr>
+			<td>
+				<ul>
+					<li>@include btn(flat, #19AE58)</li>
+					<li>@include btn(#19AE58)</li>
+					<li>@include btn(flat).</li>
+				</ul>
+			</td>
+			<td><center>
+				Default Button:<br>
+				<button>Flat Button</button></center>
+			</td>
+			</tr>
+		</table>
+		<br><br>
+		<table><caption>Flat buttons in different colours:</caption>
+			<tr>
+				<td><button>Flat Button</button></td>
+				<td><center>@include btn();</center></td>
+			</tr>
+			<tr>
+				<td><button color="black">Dark Button</button></td>
+				<td><center>@include btn(#2F3443);</center></td>
+			</tr>
+			<tr>
+				<td><button color="white">Light Button</button></td>
+				<td><center>@include btn(#F5F4EC);</center></td>
+			</tr>
+		</table><br>
+		<table style="width:100%"><caption>Raised buttons in different colours:</caption>
+			<tr>
+				<td><button style="raised">Raised Button</button></td>
+				<td><center>@include btn(raised);</center></td>
+			</tr>
+			<tr>
+				<td><button color="black2">Dark Button</button></td>
+				<td><center>@include btn(raised, #2F3443);</center></td>
+			</tr>
+			<tr>
+				<td><button style="raised1">Light Button</button></td>
+				<td><center>@include btn(raised, #F5F4EC);</center></td>
+			</tr>
+		</table><br>
+		<table><caption>Link buttons in different colours:</caption>
+			<tr>
+				<td><button style="link">Link Button</button></td>
+				<td><center>@include btn(link);</center></td>
+			</tr>
+			<tr>
+				<td><button color="link2">Dark Button</button></td>
+				<td><center>@include btn(link, #2F3443);</center></td>
+			</tr>
+			<tr>
+				<td style="background-color:#777C88"><button color="link3">Light Button</button></td>
+				<td><center>@include btn(link, #F5F4EC);</center></td>
+			</tr>
+		</table>
+		</center>
+		<br><br>
+	</div>
+	<div class="main large"><h3>Button Groups</h3>
+		Use the mixin <i>btn-group()</i> for button groups. Use the <i>data-toggle="buttons"</i> attribute to enable radio button like behaviour.
+		<br><br>
+		To use the mixin in CSS:
+		<br><br>
+<code><pre>
+buttongroup { 
+  @include btn-group(); 
+}
+
+...
+
+&lt;buttongroup data-toggle="buttons"&gt;
+  &lt;button&gt;Button One&lt;/button&gt;
+  &lt;button&gt;Button Two&lt;/button&gt;
+  &lt;button&gt;Button Three&lt;/button&gt;
+&lt;/buttongroup&gt;
+</pre></code><br><br>
+
+		<buttongroup data-toggle="buttons">
+			<button>Choice 1</button>
+	    	<button>Choice 2</button>
+	    	<button>Choice 3</button>
+	    </buttongroup><br>
+		<buttongroup data-toggle="buttons">
+			<button>Choice 1</button>
+			<button>Choice 2</button>
+		</buttongroup><br>
+		<buttongroup data-toggle="buttons">
+			<button>Choice 1</button>
+		</buttongroup><br>
+		<buttongroup data-toggle="buttons">
+			<button style="raised1">1</button>
+	    	<button style="raised1">2</button>
+	    	<button style="raised1">3</button>
+	    </buttongroup><br>
+		<buttongroup data-toggle="buttons">
+			<button style="raised1">1</button>
+			<button style="raised1">2</button>
+		</buttongroup><br>
+		<buttongroup data-toggle="buttons">
+			<button style="raised1">1</button>
+		</buttongroup><br>
+
+	</div>
+	<div class="main large"><h3>Disabled Buttons</h3>
+		To disabled buttons, add attribute <i>disabled="disabled"</i>
+		<br><br>
+<code><pre>
+&lt;button disabled="disabled"&gt;Disabled&lt;/button&gt;
+</pre></code><br><br>
+		<button disabled="disabled">Disabled</button><br>
+		<button color="white" disabled="disabled">Button</button><br>
+		<button style="link" disabled="disabled">link button</button><br>
+		<button style="raised" disabled="disabled">button</button><br>
+		<button color="black2" disabled="disabled">Disabled Button</button><br>
+	</div>
+</div>
+<div class="sidebar"><b>Mixin Definition</b><br><br>
+	@mixin btn($style: flat, $color: $btn-color)<br><br>
+	Optional Parameters:<br>
+	<ol>
+		<li>style</li>
+		<li>color</li>
+	</ol>
+	Button Styles Available:<br>
+	<ul>
+		<li>flat</li>
+		<li>raised</li>
+		<li>link</li>
+	</ul>
+</div>

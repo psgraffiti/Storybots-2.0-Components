@@ -1,0 +1,184 @@
+.dropdown {
+	position: relative;
+}
+
+.dropdown-menu {
+	position: absolute;
+	top: 100%;
+	left: 0px;
+	display: none;
+	z-index: 1000;
+	padding: 5px 0px;
+	margin-bottom: 0px;
+
+	list-style: none;
+	border: 1px solid;
+	border-radius: 5px;
+	//box-shadow: 0px 0px 5px 1px tint($text-color, 60%);
+
+	li {
+		> a {
+			display: block;
+			padding: 3px 20px;
+			clear: both;
+
+			font-weight: normal;
+			text-decoration: none;
+			white-space: nowrap;
+
+			opacity: 1.0;
+
+			&:hover,
+			&:focus {
+				outline-width: 0px;
+				text-decoration: none;
+
+				&:active {
+					text-decoration: none;
+				}
+			}
+
+			&:disabled,
+			&[disabled] {
+		    	opacity: 0.5;
+		    	cursor: not-allowed;
+
+				&:hover,
+				&:focus { 
+					cursor: not-allowed;
+					text-decoration: none;
+					background-color: transparent;
+
+					&:active {
+						outline: 0px;
+						text-decoration: none;
+					    background-color: transparent;
+					    background-image: none;
+					    cursor: not-allowed;
+					}
+				}
+  			}
+  		}
+
+  		&.divider {
+			height: 1px;
+			margin: 9px 0px;
+			overflow: hidden;
+		}
+
+		&.header {
+			display: block;
+			padding: 3px 20px;
+			font-size: 12px;
+			line-height: 1.428571429;
+		}
+	}
+}
+
+//
+// Dropdown
+// -------------------------------------------------------------------
+
+@mixin dropdown-menu($back-color: $dropdown-background, $text-color: $dropdown-text-color, $use-caret: true) {
+
+	@if type-of($back-color) == bool {
+		$use-caret: $back-color;
+		$back-color: $dropdown-background;
+	}
+
+	@else if type-of($text-color) == bool {
+		$use-caret: $text-color;
+		$text-color: $dropdown-text-color;
+	}
+
+	background-color: $back-color;
+
+	@if $use-caret {
+
+		margin-top: 7px;
+
+		&::before {
+			@include inline-block();
+			position: absolute;
+			top: -7px;
+			left: 9px; //45%
+			border-right: 7px solid transparent;
+			border-bottom: 7px solid;
+			border-left: 7px solid transparent;
+			//border-bottom-color: rgba(0, 0, 0, 0.2);
+			content: '';
+		}
+
+		&::after {
+			@include inline-block();
+			position: absolute;
+			top: -6px;
+			left: 10px; //45.5%
+			border-right: 6px solid transparent;
+			border-bottom: 6px solid $back-color;
+			border-left: 6px solid transparent;
+			content: '';
+		}
+	}
+
+	@else {
+		margin-top: 0px;
+	}
+
+	li {
+		> a {
+			color: $text-color;
+
+			&:hover,
+			&:focus {
+				color: $back-color;
+				background-color: $text-color;
+
+				&:active {
+					background-color: $back-color;
+				}
+			}
+
+			&:disabled,
+			&[disabled] {
+
+				&:hover,
+				&:focus {  
+					color: $text-color;  
+				}
+  			}
+  		}
+
+  		&.divider {
+			background-color: tint($text-color, 70%);
+		}
+
+		&.header {
+			color: $text-color;
+		}
+	}
+}
+
+.is-open {
+	> .dropdown-menu {
+		display: block;
+	}
+}
+
+//
+// Caret (to be placed next to text)
+// -------------------------------------------------------------------
+
+@mixin caret($color) {
+
+  @include inline-block();
+  width: 0;
+  height: 0;
+
+  margin-left: 2px;
+  vertical-align: middle;
+
+  border-top:   4px solid $color;
+  border-right: 4px solid transparent;
+  border-left:  4px solid transparent;
+}

@@ -1,0 +1,86 @@
+//
+// Alphabet Soup
+// --------------------------------------------------------------------------
+
+@font-face { 
+	font-family: AlphabetSoup; 
+	src: url('/assets/Alphabet Soup Pro/AlphabetSoup.otf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+//
+// Proxima Nova
+// --------------------------------------------------------------------------
+
+@font-face { 
+	font-family: ProximaNova; 
+	src: url('/assets/Proxima Nova/Proxima Nova Regular/ProximaNova-Reg.otf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face { 
+	font-family: ProximaNova; 
+	src: url('/assets/Proxima Nova/Proxima Nova Semibold/ProximaNova-Sbold.otf');
+	font-weight: bold;
+}
+
+@font-face { 
+	font-family: ProximaNova; 
+	src: url('/assets/Proxima Nova/Proxima Nova Bold/ProximaNova-Bold.otf');
+	font-weight: bolder;
+}
+
+@font-face { 
+	font-family: ProximaNova; 
+	src: url('/assets/Proxima Nova/Proxima Nova Light/ProximaNova-Light.otf');
+	font-weight: lighter;
+}
+
+@font-face { 
+	font-family: ProximaNova; 
+	src: url('/assets/Proxima Nova/Proxima Nova Italic/ProximaNova-RegIt.otf');
+	font-style: italic;
+}
+
+//
+// Museo Sans Rounded
+// --------------------------------------------------------------------------
+
+@font-face { 
+	font-family: MuseoSans; 
+	src: url('/assets/Museo Sans Rounded/Museo Sans Rounded 900-desktop/MuseoSansRounded-900.otf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+//
+// Fonts for Modules
+// --------------------------------------------------------------------------
+
+@mixin nav-font() {
+	font-size: 		 15px;
+	font-family: 	 MuseoSans;
+	text-align: 	 center;
+	text-decoration: none;
+	color: 			 #2F3442;
+
+	&:hover {
+		color:#E4DCD3;
+	}
+}
+
+@mixin modal-font($type, $color: $modal-text-color) {
+	color: $color;
+
+	@if $type == header {
+		font-family: AlphabetSoup;
+		font-size: 17px;
+	}
+
+	@if type == body {
+		font-family: ProximaNova;
+		font-size: 12px;
+	}
+}

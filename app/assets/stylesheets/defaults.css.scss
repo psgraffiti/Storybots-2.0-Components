@@ -1,0 +1,96 @@
+//
+// Default Values
+// -------------------------------------------------------------------
+
+$code-background: #F0F0F0;
+
+//
+// Button Defaults
+// -------------------------------------------------------------------
+
+$btn-color: #19AE58;
+$btn-text-color: #F5F4EC;
+$btn-text-dark: #2F3443;
+
+//
+// Dropdown Defaults
+// -------------------------------------------------------------------
+
+$dropdown-background: #ECECF2;
+$dropdown-text-color: #6D707B;
+
+//
+// Modal Defaults
+// -------------------------------------------------------------------
+
+$modal-z-index: 1040;
+$modal-backdrop-color: #000000;
+$modal-background: #F5F4EC;
+$modal-border: #D8C8B2;
+$modal-text-color: #074B75;
+
+//
+// Navbar Defaults
+// -------------------------------------------------------------------
+
+$nav-link-padding: 10px 15px;
+$nav-link-hover-bg: #eee;
+$nav-disabled-link-color: #999;
+$nav-disabled-link-hover-color: #999;
+$link-color: #428bca;
+$link-hover-color: darken(#428bca, 15%);
+$nav-tabs-border-color: #ddd;
+$line-height-base: 1.428571429;
+$border-radius-base: 4px;
+$nav-tabs-justified-link-border-color: #ddd;
+$nav-tabs-justified-active-link-border-color: #fff;
+$nav-tabs-link-hover-border-color: #eee;
+$nav-tabs-active-link-hover-color: #555;
+$nav-tabs-active-link-hover-bg: #fff;
+$nav-tabs-active-link-hover-border-color: #ddd;
+$nav-pills-border-radius: 4px;
+$nav-pills-active-link-hover-color: #fff;
+$nav-pills-active-link-hover-bg: #428bca;
+
+$navbar-height: 50px;
+$navbar-margin-bottom: 20px;
+$line-height-computed: 20px;
+$navbar-padding-horizontal: floor(30px / 2);
+$navbar-default-brand-hover-bg: transparent;
+$navbar-default-color: #777;
+$navbar-default-link-color: #777;
+$navbar-default-link-hover-color: #333;
+$navbar-default-link-hover-bg: transparent;
+$zindex-navbar: 1000;
+$zindex-navbar-fixed: 1030;
+$font-size-large: 18px;
+$border-radius-base: 4px;
+$navbar-default-bg: #f8f8f8;
+$navbar-default-link-disabled-color: #ccc;
+$navbar-default-link-disabled-bg: transparent;
+$navbar-default-link-active-color: #555;
+$navbar-default-toggle-border-color: #ddd;
+$navbar-default-toggle-hover-bg: #ddd;
+$navbar-default-toggle-icon-bar-bg: #ccc;
+$navbar-inverse-bg: #222;
+$navbar-inverse-toggle-border-color: #333;
+$navbar-inverse-toggle-hover-bg: #333;
+$navbar-inverse-toggle-icon-bar-bg: #fff;
+$navbar-inverse-brand-hover-color: #fff;
+$navbar-inverse-brand-hover-bg: transparent;
+$navbar-inverse-color: #999;
+$navbar-inverse-link-color: #999;
+$navbar-inverse-link-hover-color: #fff;
+$navbar-inverse-link-hover-bg: transparent;
+$navbar-inverse-link-disabled-color: #444;
+$navbar-inverse-link-disabled-bg: transparent;
+$navbar-padding-vertical: (($navbar-height - $line-height-computed) / 2);
+$input-height-base: ($line-height-computed + (6px * 2) + 2);
+$navbar-default-border: darken($navbar-default-bg, 6.5%);
+$navbar-default-brand-color: $navbar-default-link-color;
+$navbar-default-brand-hover-color: darken($navbar-default-brand-color, 10%);
+$navbar-default-link-active-bg: darken($navbar-default-bg, 6.5%);
+$navbar-inverse-border: darken($navbar-inverse-bg, 10%);
+$navbar-inverse-link-active-bg: darken($navbar-inverse-bg, 10%);
+$navbar-inverse-brand-color: $navbar-inverse-link-color;
+$navbar-inverse-link-active-color: $navbar-inverse-link-hover-color;

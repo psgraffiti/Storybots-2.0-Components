@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sb2</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+    <div class="page">
+        <div id="header">
+            <h1>Here is the header for the page</h1>
+            <h2>Aww look. Another header</h2>
+        </div>
+    </div>
+
+    <div class="page"><nav>
+        <ul class="nav-items">
+            <li> <a class="btn-nav" href="/greetings/hello"><i class="fa fa-home"></i>Hello</a></li>
+            <li> <a class="btn-nav" href="/greetings/buttons"><i class="fa fa-youtube-play"></i>Buttons</a></li>
+            <li> <a class="btn-nav" href="/greetings/dropdowns"><i class="fa fa-bars"></i>Dropdowns</a></li>
+            <li> <a class="btn-nav" href="/greetings/modals"><i class="fa fa-archive"></i>Modals</a></li>
+            <li> <a class="btn-nav" href="/greetings/navbars"><i class="fa fa-beer"></i>Navbars</a></li>
+            <li> <a class="btn-nav" href="#">Link 6</a></li>
+        </ul>
+    </nav></div>
+
+</head>
+<body>
+<div class="page">
+    <%= yield %>
+</div>
+
+<div class="page">
+    <div id="footer">
+        <h1>Here is the footer for the page</h1>
+        <h2>Aww look. Another footer</h2>
+    </div>
+</div>
+
+</body>
+</html>
