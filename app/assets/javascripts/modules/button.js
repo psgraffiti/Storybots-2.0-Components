@@ -91,7 +91,7 @@ $(document).ready(function(){
 
     $(document).on('click.button.data-api', '[data-toggle^=button]', function (e) {
       var $btn = $(e.target)
-      if (!$btn.is('button')) $btn = $btn.closest('button')
+      if (!$btn.hasClass('btn')) $btn = $btn.closest('.btn')
       $btn.button('toggle')
       e.preventDefault()
     })

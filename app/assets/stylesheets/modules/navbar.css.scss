@@ -36,284 +36,44 @@ nav {
 // --------------------------------------------------
 
 .nav {
-  margin-bottom: 0;
-  padding-left: 0; // Override default ul/ol
-  list-style: none;
-  @include clearfix();
+    margin-bottom: 0;
+    padding-left: 0; // Override default ul/ol
+    list-style: none;
+    @include clearfix();
 
-  > li {
-    position: relative;
-    display: block;
-
-    > a {
-      position: relative;
-      display: block;
-      padding: $nav-link-padding;
-      &:hover,
-      &:focus {
-        text-decoration: none;
-        background-color: $nav-link-hover-bg;
-      }
-    }
-
-    // Disabled state sets text to gray and nukes hover/tab effects
-    &.disabled > a {
-      color: $nav-disabled-link-color;
-
-      &:hover,
-      &:focus {
-        color: $nav-disabled-link-hover-color;
-        text-decoration: none;
-        background-color: transparent;
-        cursor: not-allowed;
-      }
-    }
-  }
-
-  // Open dropdowns
-  .open > a {
-    &,
-    &:hover,
-    &:focus {
-      background-color: $nav-link-hover-bg;
-      border-color: $link-color;
-
-      .caret {
-        border-top-color: $link-hover-color;
-        border-bottom-color: $link-hover-color;
-      }
-    }
-  }
-
-  // Nav dividers (deprecated with v3.0.1)
-  //
-  // This should have been removed in v3 with the dropping of `.nav-list`, but
-  // we missed it. We don't currently support this anywhere, but in the interest
-  // of maintaining backward compatibility in case you use it, it's deprecated.
-  .nav-divider {
-    height: 1px;
-    margin: ((20/ 2) - 1) 0;
-    overflow: hidden;
-    background-color: #e5e5e5
-  }
-
-  // Prevent IE8 from misplacing imgs
-  //
-  // See https://github.com/h5bp/html5-boilerplate/issues/984#issuecomment-3985989
-  > li > a > img {
-    max-width: none;
-  }
-}
-
-
-// Tabs
-// -------------------------
-
-// Give the tabs something to sit on
-.nav-tabs {
-  border-bottom: 1px solid $nav-tabs-border-color;
-  > li {
-    float: left;
-    // Make the list-items overlay the bottom border
-    margin-bottom: -1px;
-
-    // Actual tabs (as links)
-    > a {
-      margin-right: 2px;
-      line-height: $line-height-base;
-      border: 1px solid transparent;
-      border-radius: $border-radius-base $border-radius-base 0 0;
-      &:hover {
-        border-color: $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color $nav-tabs-border-color;
-      }
-    }
-
-    // Active state, and it's :hover to override normal :hover
-    &.active > a {
-      &,
-      &:hover,
-      &:focus {
-        color: $nav-tabs-active-link-hover-color;
-        background-color: $nav-tabs-active-link-hover-bg;
-        border: 1px solid $nav-tabs-active-link-hover-border-color;
-        border-bottom-color: transparent;
-        cursor: default;
-      }
-    }
-  }
-  // pulling this in mainly for less shorthand
-  &.nav-justified {
-    //.nav-justified();
-    border-bottom: 0;
-      > li > a {
-        // Override margin from .nav-tabs
-        margin-right: 0;
-        border-radius: $border-radius-base;
-      }
-
-      > .active > a,
-      > .active > a:hover,
-      > .active > a:focus {
-        border: 1px solid $nav-tabs-justified-link-border-color;
-      }
-
-/*      @media (min-width: @screen-sm-min) {
-        > li > a {
-          border-bottom: 1px solid @nav-tabs-justified-link-border-color;
-          border-radius: $border-radius-base $border-radius-base 0 0;
-        }
-        > .active > a,
-        > .active > a:hover,
-        > .active > a:focus {
-          border-bottom-color: @nav-tabs-justified-active-link-border-color;
-        }
-      }*/
-  }
-}
-
-
-// Pills
-// -------------------------
-.nav-pills {
-  > li {
-    float: left;
-
-    // Links rendered as pills
-    > a {
-      border-radius: $nav-pills-border-radius;
-    }
-    + li {
-      margin-left: 2px;
-    }
-
-    // Active state
-    &.active > a {
-      &,
-      &:hover,
-      &:focus {
-        color: $nav-pills-active-link-hover-color;
-        background-color: $nav-pills-active-link-hover-bg;
-
-        .caret {
-          border-top-color: $nav-pills-active-link-hover-color;
-          border-bottom-color: $nav-pills-active-link-hover-color;
-        }
-      }
-    }
-  }
-}
-
-
-// Stacked pills
-.nav-stacked {
-  > li {
-    float: none;
-    + li {
-      margin-top: 2px;
-      margin-left: 0; // no need for this gap between nav items
-    }
-  }
-}
-
-
-// Nav variations
-// --------------------------------------------------
-
-// Justified nav links
-// -------------------------
-
-.nav-justified {
-  width: 100%;
-
-  > li {
-    float: none;
-     > a {
-      text-align: center;
-      margin-bottom: 5px;
-    }
-  }
-
-  > .dropdown .dropdown-menu {
-    top: auto;
-    left: auto;
-  }
-
-/*  @media (min-width: @screen-sm-min) {
     > li {
-      display: table-cell;
-      width: 1%;
-      > a {
-        margin-bottom: 0;
-      }
+        position: relative;
+        display: block;
+
+        > a {
+            position: relative;
+            display: block;
+            padding: $nav-link-padding;
+            &:hover,
+            &:focus {
+                text-decoration: none;
+                background-color: $nav-link-hover-bg;
+            }
+        }
+
+        // Disabled state sets text to gray and nukes hover/tab effects
+        &.disabled > a {
+            color: $nav-disabled-link-color;
+
+            &:hover,
+            &:focus {
+                color: $nav-disabled-link-hover-color;
+                text-decoration: none;
+                background-color: transparent;
+                cursor: not-allowed;
+            }
+        }
     }
-  }*/
-}
 
-// Move borders to anchors instead of bottom of list
-//
-// Mixin for adding on top the shared `.nav-justified` styles for our tabs
-.nav-tabs-justified {
-  border-bottom: 0;
-
-  > li > a {
-    // Override margin from .nav-tabs
-    margin-right: 0;
-    border-radius: $border-radius-base;
-  }
-
-  > .active > a,
-  > .active > a:hover,
-  > .active > a:focus {
-    border: 1px solid $nav-tabs-justified-link-border-color;
-  }
-
-/*  @media (min-width: @screen-sm-min) {
-    > li > a {
-      border-bottom: 1px solid $nav-tabs-justified-link-border-color;
-      border-radius: $border-radius-base $border-radius-base 0 0;
+    // Prevent IE8 from misplacing imgs
+    > li > a > img {
+        max-width: none;
     }
-    > .active > a,
-    > .active > a:hover,
-    > .active > a:focus {
-      border-bottom-color: $nav-tabs-justified-active-link-border-color;
-    }
-  }*/
-}
-
-
-// Tabbable tabs
-// -------------------------
-
-// Hide tabbable panes to start, show them when `.active`
-.tab-content {
-  > .tab-pane {
-    display: none;
-  }
-  > .active {
-    display: block;
-  }
-}
-
-
-// Dropdowns
-// -------------------------
-
-// Make dropdown carets use link color in navs
-.nav .caret {
-  border-top-color: $link-color;
-  border-bottom-color: $link-color;
-}
-.nav a:hover .caret {
-  border-top-color: $link-hover-color;
-  border-bottom-color: $link-hover-color;
-}
-
-// Specific dropdowns
-.nav-tabs .dropdown-menu {
-  // make dropdown border overlap tab border
-  margin-top: -1px;
-  // Remove the top rounded corners here since there is a hard edge above the menu
-  @include border-radius-top(0);
 }
 
 //
@@ -327,17 +87,20 @@ nav {
 // other navbar variations.
 
 .navbar {
-  position: relative;
-  min-height: $navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
-  margin-bottom: $navbar-margin-bottom;
-  border: 1px solid transparent;
+    position: relative;
+    margin-bottom: $navbar-margin-bottom;
+    border: 1px solid transparent;
 
-  // Prevent floats from breaking the navbar
-  @include clearfix();
+    // Prevent floats from breaking the navbar
+    @include clearfix();
 
-/*  @media (min-width: @grid-float-breakpoint) {
-    border-radius: @navbar-border-radius;
-  }*/
+    li.active {
+        color: $navbar-default-link-active-color;
+        background-color: $navbar-default-link-active-bg;
+    }
+    @include media($desktop) {
+        border-radius: $navbar-border-radius;
+    }
 }
 
 
@@ -347,11 +110,11 @@ nav {
 // styling of responsive aspects.
 
 .navbar-header {
-  @include clearfix();
+    @include clearfix();
 
-/*  @media (min-width: @grid-float-breakpoint) {
-    float: left;
-  }*/
+    @include media($desktop) {
+        float: left;
+    }
 }
 
 
@@ -366,62 +129,50 @@ nav {
 // content for the user's viewport.
 
 .navbar-collapse {
-  max-height: 340px;
-  overflow-x: visible;
-  padding-right: $navbar-padding-horizontal;
-  padding-left:  $navbar-padding-horizontal;
-  border-top: 1px solid transparent;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
-  @include clearfix();
-  -webkit-overflow-scrolling: touch;
+    @include clearfix();
+    @include transition(max-height 0.3s); //transition over max-height because doesn't work with height: auto
+    border-top: 1px solid transparent;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+    -webkit-overflow-scrolling: touch;
+    overflow: visible;
+    max-height: 1000px;
+    height: auto;
 
-  &.in {
-    overflow-y: auto;
-  }
-
-/*  @media (min-width: @grid-float-breakpoint) {
-    width: auto;
-    border-top: 0;
-    box-shadow: none;
-
-    &.collapse {
-      display: block !important;
-      height: auto !important;
-      padding-bottom: 0; // Override default setting
-      overflow: visible !important;
+    &.collapsed{
+        overflow: hidden;
+        border: 0px;
     }
 
-    &.in {
-      overflow-y: auto;
+    &.expanded {
+        @include media($tablet) {
+            .navbar-form {
+                padding-top: 5px;
+            }
+        }
     }
 
-    // Account for first and last children spacing
-    .navbar-nav.navbar-left:first-child {
-      margin-left: -$navbar-padding-horizontal;
+    @include media($desktop) {
+        width: auto;
+        border-top: 0;
+        box-shadow: none;
+
+        &.collapsed {
+            display: block;
+            height: auto;
+            max-height: 1000px;
+            padding-bottom: 0; // Override default setting
+            overflow: visible;
+        }
+
+        &.expanded {
+            height: auto;
+            max-height: 1000px;
+        }
+
+        .navbar-text:last-child {
+            margin-right: 0;
+        }
     }
-    .navbar-nav.navbar-right:last-child {
-      margin-right: -$navbar-padding-horizontal;
-    }
-    .navbar-text:last-child {
-      margin-right: 0;
-    }
-  }*/
-}
-
-
-// Both navbar header and collapse
-//
-// When a container is present, change the behavior of the header and collapse.
-
-.container > .navbar-header,
-.container > .navbar-collapse {
-  margin-right: -$navbar-padding-horizontal;
-  margin-left:  -$navbar-padding-horizontal;
-
-/*  @media (min-width: @grid-float-breakpoint) {
-    margin-right: 0;
-    margin-left:  0;
-  }*/
 }
 
 
@@ -433,58 +184,53 @@ nav {
 
 // Static top (unfixed, but 100% wide) navbar
 .navbar-static-top {
-  z-index: $zindex-navbar;
-  border-width: 0 0 1px;
+    z-index: $zindex-navbar;
+    border-width: 0 0 1px;
 
-/*  @media (min-width: @grid-float-breakpoint) {
-    border-radius: 0;
-  }*/
+    @include media($desktop) {
+        border-radius: 0;
+    }
 }
 
 // Fix the top/bottom navbars when screen real estate supports it
 .navbar-fixed-top,
 .navbar-fixed-bottom {
-  position: fixed;
-  right: 0;
-  left: 0;
-  z-index: $zindex-navbar-fixed;
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: $zindex-navbar-fixed;
 
-/*  // Undo the rounded corners
-  @media (min-width: @grid-float-breakpoint) {
-    border-radius: 0;
-  }*/
+    // Undo the rounded corners
+    @include media($desktop) {
+        border-radius: 0;
+  }
 }
 .navbar-fixed-top {
-  top: 0;
-  border-width: 0 0 1px;
+    top: 0;
+    border-width: 0 0 1px;
 }
 .navbar-fixed-bottom {
-  bottom: 0;
-  margin-bottom: 0; // override .navbar defaults
-  border-width: 1px 0 0;
+    bottom: 0;
+    margin-bottom: 0; // override .navbar defaults
+    border-width: 1px 0 0;
 }
 
 
 // Brand/project name
 
 .navbar-brand {
-  float: left;
-  padding: $navbar-padding-vertical $navbar-padding-horizontal;
-  font-size: $font-size-large;
-  line-height: $line-height-computed;
+    float: left;
+    padding: $navbar-padding-vertical $navbar-padding-horizontal;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: $font-size-large;
+    line-height: $line-height-computed;
 
-  &:hover,
-  &:focus {
-    text-decoration: none;
-  }
-
-/*  @media (min-width: @grid-float-breakpoint) {
-    .navbar > .container & {
-      margin-left: -$navbar-padding-horizontal;
+    &:hover,
+    &:focus {
+        text-decoration: none;
     }
-  }*/
 }
-
 
 // Navbar toggle
 //
@@ -492,29 +238,18 @@ nav {
 // JavaScript plugin.
 
 .navbar-toggle {
-  position: relative;
-  float: right;
-  margin-right: $navbar-padding-horizontal;
-  padding: 9px 10px;
-  @include navbar-vertical-align(34px);
-  background-color: transparent;
-  border: 1px solid transparent;
-  border-radius: $border-radius-base;
+    position: relative;
+    float: right;
+    margin-right: $navbar-padding-horizontal;
+    padding: 9px 10px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: $border-radius-base;
 
-  // Bars
-  .icon-bar {
-    display: block;
-    width: 22px;
-    height: 2px;
-    border-radius: 1px;
-  }
-  .icon-bar + .icon-bar {
-    margin-top: 4px;
-  }
-
-/*  @media (min-width: @grid-float-breakpoint) {
-    display: none;
-  }*/
+    // Added "!important" to apply to <button> (not just <a>)
+    @include media($desktop) {
+        display: none !important;
+    }
 }
 
 
@@ -524,53 +259,26 @@ nav {
 // the nav the full height of the horizontal nav (above 768px).
 
 .navbar-nav {
-  margin: ($navbar-padding-vertical / 2) -$navbar-padding-horizontal;
-
-  > li > a {
-    padding-top:    10px;
-    padding-bottom: 10px;
-    line-height: $line-height-computed;
-  }
-
-/*  @media (max-width: @screen-xs-max) {
-    // Dropdowns get custom display when collapsed
-    .open .dropdown-menu {
-      position: static;
-      float: none;
-      width: auto;
-      margin-top: 0;
-      background-color: transparent;
-      border: 0;
-      box-shadow: none;
-      > li > a,
-      .dropdown-header {
-        padding: 5px 15px 5px 25px;
-      }
-      > li > a {
+    > li > a {
+        padding-top:    10px;
+        padding-bottom: 10px;
         line-height: $line-height-computed;
-        &:hover,
-        &:focus {
-          background-image: none;
-        }
-      }
-    }*/
-  }
-
-/*  // Uncollapse the nav
-  @media (min-width: @grid-float-breakpoint) {
-    float: left;
-    margin: 0;
-
-    > li {
-      float: left;
-      > a {
-        padding-top: (($navbar-height - $line-height-computed) / 2);
-        padding-bottom: (($navbar-height - $line-height-computed) / 2);
-      }
     }
-  }
 
-}*/
+    // Uncollapse the nav
+    @include media($desktop) {
+        float: left;
+        margin: 0;
+
+        > li {
+            float: left;
+            > a {
+                padding-top: (($navbar-height - $line-height-computed) / 2);
+                padding-bottom: (($navbar-height - $line-height-computed) / 2);
+            }
+        }
+    }
+}
 
 
 // Component alignment
@@ -579,10 +287,14 @@ nav {
 // issues with parents and chaining. Only do this when the navbar is uncollapsed
 // though so that navbar contents properly stack and align in mobile.
 
-/*@media (min-width: @grid-float-breakpoint) {
-  .navbar-left  { .pull-left(); }
-  .navbar-right { .pull-right(); }
-}*/
+@include media($desktop) {
+    .navbar-left  { 
+        float: left !important;
+    }
+    .navbar-right { 
+        float: right !important; 
+    }
+}
 
 
 // Navbar form
@@ -591,352 +303,168 @@ nav {
 // our navbars.
 
 .navbar-form {
-  margin-left: -$navbar-padding-horizontal;
-  margin-right: -$navbar-padding-horizontal;
-  padding: 10px $navbar-padding-horizontal;
-  border-top: 1px solid transparent;
-  border-bottom: 1px solid transparent;
-  $shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.1);
-  @include box-shadow($shadow);
+    margin-top: 0px;
+    margin-bottom: 0px;
 
-  // Mixin behavior for optimum display
-  @include form-inline();
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    $shadow: inset 0px 1px 0px rgba(255,255,255,.1), 0px 1px 0px rgba(255,255,255,.1);
+    @include box-shadow($shadow);
 
-/*  .form-group {
-    @media (max-width: @screen-xs-max) {
-      margin-bottom: 5px;
+    display: block;
+
+    // Mixin behavior for optimum display
+    @include form-inline();
+
+    .form-group {
+        @include media($tablet) {
+            @include pad(5px);
+            margin-bottom: 5px;
+
+            .form-control {
+                width: 100%;
+            }
+        }
     }
-  }*/
 
-  // Vertically center in expanded, horizontal navbar
-  @include navbar-vertical-align($input-height-base);
-
-  // Undo 100% width for pull classes
-/*  @media (min-width: @grid-float-breakpoint) {
-    width: auto;
-    border: 0;
-    margin-left: 0;
-    margin-right: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    .box-shadow(none);
-  }*/
+    // Undo 100% width for pull classes
+    @include media($desktop) {
+        width: auto;
+        border: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        @include box-shadow(none);
+    }
 }
-
-
-// Dropdown menus
-
-// Menu position and menu carets
-.navbar-nav > li > .dropdown-menu {
-  margin-top: 0;
-  @include border-radius-top(0);
-}
-// Menu position and menu caret support for dropups via extra dropup class
-.navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
-  @include border-radius-bottom(0);
-}
-
-// Right aligned menus need alt position
-.navbar-nav.pull-right > li > .dropdown-menu,
-.navbar-nav > li > .dropdown-menu.pull-right {
-  left: auto;
-  right: 0;
-}
-
-
-// Buttons in navbars
-//
-// Vertically center a button within a navbar (when *not* in a form).
-
-.navbar-btn {
-  @include navbar-vertical-align($input-height-base);
-}
-
-
-// Text in navbars
-//
-// Add a class to make any element properly align itself vertically within the navbars.
-
-.navbar-text {
-  @include navbar-vertical-align($line-height-computed);
-
-/*  @media (min-width: @grid-float-breakpoint) {
-    float: left;
-    margin-left: $navbar-padding-horizontal;
-    margin-right: $navbar-padding-horizontal;
-  }*/
-}
-
-// Alternate navbars
-// --------------------------------------------------
 
 // Default navbar
 .navbar-default {
-  background-color: $navbar-default-bg;
-  border-color: $navbar-default-border;
-
-  .navbar-brand {
-    color: $navbar-default-brand-color;
-    &:hover,
-    &:focus {
-      color: $navbar-default-brand-hover-color;
-      background-color: $navbar-default-brand-hover-bg;
-    }
-  }
-
-  .navbar-text {
-    color: $navbar-default-color;
-  }
-
-  .navbar-nav {
-    > li > a {
-      color: $navbar-default-link-color;
-
-      &:hover,
-      &:focus {
-        color: $navbar-default-link-hover-color;
-        background-color: $navbar-default-link-hover-bg;
-      }
-    }
-    > .active > a {
-      &,
-      &:hover,
-      &:focus {
-        color: $navbar-default-link-active-color;
-        background-color: $navbar-default-link-active-bg;
-      }
-    }
-    > .disabled > a {
-      &,
-      &:hover,
-      &:focus {
-        color: $navbar-default-link-disabled-color;
-        background-color: $navbar-default-link-disabled-bg;
-      }
-    }
-  }
-
-  .navbar-toggle {
-    border-color: $navbar-default-toggle-border-color;
-    &:hover,
-    &:focus {
-      background-color: $navbar-default-toggle-hover-bg;
-    }
-    .icon-bar {
-      background-color: $navbar-default-toggle-icon-bar-bg;
-    }
-  }
-
-  .navbar-collapse,
-  .navbar-form {
+    background-color: $navbar-default-bg;
     border-color: $navbar-default-border;
-  }
 
-  // Dropdown menu items and carets
-  .navbar-nav {
-    // Caret should match text color on hover
-    > .dropdown > a:hover .caret,
-    > .dropdown > a:focus .caret {
-      border-top-color: $navbar-default-link-hover-color;
-      border-bottom-color: $navbar-default-link-hover-color;
-    }
-
-    // Remove background color from open dropdown
-    > .open > a {
-      &,
-      &:hover,
-      &:focus {
-        background-color: $navbar-default-link-active-bg;
-        color: $navbar-default-link-active-color;
-        .caret {
-          border-top-color: $navbar-default-link-active-color;
-          border-bottom-color: $navbar-default-link-active-color;
+    .navbar-brand {
+        color: $navbar-default-brand-color;
+        &:hover,
+        &:focus {
+            color: $navbar-default-brand-hover-color;
+            background-color: $navbar-default-brand-hover-bg;
         }
-      }
-    }
-    > .dropdown > a .caret {
-      border-top-color: $navbar-default-link-color;
-      border-bottom-color: $navbar-default-link-color;
     }
 
+    .navbar-text {
+        color: $navbar-default-color;
+    }
 
-/*    @media (max-width: @screen-xs-max) {
-      // Dropdowns get custom display when collapsed
-      .open .dropdown-menu {
+    .navbar-nav {
         > li > a {
-          color: $navbar-default-link-color;
-          &:hover,
-          &:focus {
-            color: $navbar-default-link-hover-color;
-            background-color: $navbar-default-link-hover-bg;
-          }
-        }
-        > .active > a {
-          &,
-          &:hover,
-          &:focus {
-            color: $navbar-default-link-active-color;
-            background-color: $navbar-default-link-active-bg;
-          }
+            color: $navbar-default-link-color;
+
+            &:hover,
+            &:focus {
+                color: $navbar-default-link-hover-color;
+                background-color: $navbar-default-link-hover-bg;
+            }
         }
         > .disabled > a {
-          &,
-          &:hover,
-          &:focus {
-            color: $navbar-default-link-disabled-color;
-            background-color: $navbar-default-link-disabled-bg;
-          }
+            &,
+            &:hover,
+            &:focus {
+                color: $navbar-default-link-disabled-color;
+                background-color: $navbar-default-link-disabled-bg;
+            }
         }
-      }
-    }*/
-  }
-
-
-  // Links in navbars
-  //
-  // Add a class to ensure links outside the navbar nav are colored correctly.
-
-  .navbar-link {
-    color: $navbar-default-link-color;
-    &:hover {
-      color: $navbar-default-link-hover-color;
     }
-  }
 
+    .navbar-toggle {
+        border-color: $navbar-default-toggle-border-color;
+        &:hover,
+        &:focus {
+            background-color: $navbar-default-toggle-hover-bg;
+        }
+        .icon-bar {
+            background-color: $navbar-default-toggle-icon-bar-bg;
+        }
+    }
+
+    .navbar-collapse,
+    .navbar-form {
+        border-color: $navbar-default-border;
+    }
+
+    // Links in navbars
+    //
+    // Add a class to ensure links outside the navbar nav are colored correctly.
+    .navbar-link {
+        color: $navbar-default-link-color;
+        &:hover {
+            color: $navbar-default-link-hover-color;
+        }
+    }
+
+    &.small {
+        .navbar-toggle {
+        float: none;
+        
+            // Added "!important" to apply to <button> (not just <a>)
+            @include media($desktop) {
+                display: inline-block !important;
+            }
+        }
+
+        @include media($desktop) {
+            .navbar-collapse {
+                display: none;
+            }
+        }
+    }
 }
 
-// Inverse navbar
+.main-navbar {
+    @include inline-block();
+    width: 100%;
+    height: 80px;
+    background-color: $black;
+    position: relative;
 
-.navbar-inverse {
-  background-color: $navbar-inverse-bg;
-  border-color: $navbar-inverse-border;
+    &.static-top {
+        position: absolute;
+        top: 0px;
+    }
 
-  .navbar-brand {
-    color: $navbar-inverse-brand-color;
-    &:hover,
-    &:focus {
-      color: $navbar-inverse-brand-hover-color;
-      background-color: $navbar-inverse-brand-hover-bg;
+    .navbar-left {
+        margin-left: 20px;
+        float: left;
     }
-  }
 
-  .navbar-text {
-    color: $navbar-inverse-color;
-  }
+    .navbar-right {
+        margin-right: 20px;
+        float: right;
+    }
 
-  .navbar-nav {
-    > li > a {
-      color: $navbar-inverse-link-color;
+    .navbar-left,
+    .navbar-right {
+        top: 50%;
+        @include transform(translateY(-50%));
+    }
 
-      &:hover,
-      &:focus {
-        color: $navbar-inverse-link-hover-color;
-        background-color: $navbar-inverse-link-hover-bg;
-      }
+    .btn {
+        @include pad(12px 15px);
+        margin: 0px;
+        font-size: 20px;
     }
-    > .active > a {
-      &,
-      &:hover,
-      &:focus {
-        color: $navbar-inverse-link-active-color;
-        background-color: $navbar-inverse-link-active-bg;
-      }
-    }
-    > .disabled > a {
-      &,
-      &:hover,
-      &:focus {
-        color: $navbar-inverse-link-disabled-color;
-        background-color: $navbar-inverse-link-disabled-bg;
-      }
-    }
-  }
 
-  // Darken the responsive nav toggle
-  .navbar-toggle {
-    border-color: $navbar-inverse-toggle-border-color;
-    &:hover,
-    &:focus {
-      background-color: $navbar-inverse-toggle-hover-bg;
-    }
-    .icon-bar {
-      background-color: $navbar-inverse-toggle-icon-bar-bg;
-    }
-  }
+    @include media($tablet) {
+        height: 50px;
 
-  .navbar-collapse,
-  .navbar-form {
-    border-color: darken($navbar-inverse-bg, 7%);
-  }
-
-  // Dropdowns
-  .navbar-nav {
-    > .open > a {
-      &,
-      &:hover,
-      &:focus {
-        background-color: $navbar-inverse-link-active-bg;
-        color: $navbar-inverse-link-active-color;
-      }
-    }
-    > .dropdown > a:hover .caret {
-      border-top-color: $navbar-inverse-link-hover-color;
-      border-bottom-color: $navbar-inverse-link-hover-color;
-    }
-    > .dropdown > a .caret {
-      border-top-color: $navbar-inverse-link-color;
-      border-bottom-color: $navbar-inverse-link-color;
-    }
-    > .open > a {
-      &,
-      &:hover,
-      &:focus {
-        .caret {
-          border-top-color: $navbar-inverse-link-active-color;
-          border-bottom-color: $navbar-inverse-link-active-color;
+        .navbar-left,
+        .navbar-right {
+            margin: 0px;
         }
-      }
+
+        .btn {
+            border-radius: 0px;
+        }
     }
-
-/*    @media (max-width: @screen-xs-max) {
-      // Dropdowns get custom display
-      .open .dropdown-menu {
-        > .dropdown-header {
-          border-color: $navbar-inverse-border;
-        }
-        > li > a {
-          color: $navbar-inverse-link-color;
-          &:hover,
-          &:focus {
-            color: $navbar-inverse-link-hover-color;
-            background-color: $navbar-inverse-link-hover-bg;
-          }
-        }
-        > .active > a {
-          &,
-          &:hover,
-          &:focus {
-            color: $navbar-inverse-link-active-color;
-            background-color: $navbar-inverse-link-active-bg;
-          }
-        }
-        > .disabled > a {
-          &,
-          &:hover,
-          &:focus {
-            color: $navbar-inverse-link-disabled-color;
-            background-color: $navbar-inverse-link-disabled-bg;
-          }
-        }
-      }
-    }*/
-  }
-
-  .navbar-link {
-    color: $navbar-inverse-link-color;
-    &:hover {
-      color: $navbar-inverse-link-hover-color;
-    }
-  }
-
 }

@@ -16,10 +16,10 @@
 ...
 
 &lt;div class="dropdown"&gt;
-  &lt;button class="dropdown-toggle" id="dropdownMenu1" toggle-type="dropdown"&gt;
+  &lt;a class="btn dropdown-toggle" id="dropdownMenu1" toggle-type="dropdown"&gt;
     Dropdown Button
     &lt;span class="caret"&gt;&lt;/span&gt;
-  &lt;/button&gt;
+  &lt;/a&gt;
   &lt;ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1"&gt;
     &lt;li class="header"&gt;Dropdown Header&lt;/li&gt;
       &lt;li&gt;&lt;a role="menuitem" href="#"&gt;Action&lt;/a&gt;&lt;/li&gt;
@@ -35,11 +35,11 @@
 
 </div></div>
 <div class="sidebar"><b>Mixin Definition</b><br><br>
-@mixin dropdown-menu($back-color: $dropdown-background, $text-color: $dropdown-text-color, $use-caret: true)<br><br>
+@mixin dropdown-menu($back-color: $default-dropdown-background, $text-color: $default-dropdown-text-color, $use-caret: true)<br><br>
   Optional Parameters:<br>
   <ol>
-    <li>background color (default is $dropdown-background)</li>
-    <li>text color (default is $text-color)</li>
+    <li>background color (default is $default-dropdown-background)</li>
+    <li>text color (default is $default-text-color)</li>
     <li>use caret (default is $use-caret)</li>
   </ol>
 </div>
@@ -56,10 +56,10 @@
     <tr>
         <td>
             <div class="dropdown">
-                <button class="dropdown-toggle" id="dropdownMenu1" toggle-type="dropdown">
+                <a class="btn dropdown-toggle" id="dropdownMenu1" toggle-type="dropdown">
                     Dropdown Button
                     <span class="caret"></span>
-                </button>
+                </a>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                     <li class="header">Dropdown Header</li>
                       <li><a role="menuitem" tabindex="-1" href="#">Action</a></li>
@@ -79,10 +79,10 @@
     <tr>
         <td>
             <div class="dropdown">
-                <button color="white" class="dropdown-toggle" id="dropdownMenu1" toggle-type="dropdown">
+                <a color="white" class="btn dropdown-toggle" id="dropdownMenu1" toggle-type="dropdown">
                     Dropdown Button
                     <span class="caret"></span>
-                </button>
+                </a>
                 <ul class="dropdown-menu light" role="menu" aria-labelledby="dropdownMenu1">
                     <li role="presentation" class="header">Dropdown Header</li>
                       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
@@ -102,10 +102,10 @@
     <tr>
         <td>
             <div class="dropdown">
-                <button color="black" class="dropdown-toggle" id="dropdownMenu1" toggle-type="dropdown">
+                <a color="black" class="btn dropdown-toggle" id="dropdownMenu1" toggle-type="dropdown">
                     Dropdown Button
                     <span class="caret"></span>
-                </button>
+                </a>
                 <ul class="dropdown-menu dark" role="menu" aria-labelledby="dropdownMenu1">
                     <li role="presentation" class="header">Dropdown Header</li>
                       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>

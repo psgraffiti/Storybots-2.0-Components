@@ -4,20 +4,32 @@ $(document).ready(function(){
     // DROPDOWN CLASS DEFINITION
     // =========================
 
+    var dropdownNav = '.responsive-nav'
     var backdrop = '.dropdown-backdrop'
     var toggle   = '[toggle-type=dropdown]'
+    var $navbar   = $('.main-navbar')
+    var navbarSM = '50px'
+
     var Dropdown = function (element) {
       var $el = $(element).on('click.dropdown', this.toggle)
     }
 
     Dropdown.prototype.toggle = function (e) {
       var $this = $(this)
+      if ($this.is('.disabled, :disabled')) return
+
+      if ($navbar.css('height') == navbarSM ){
+        $(dropdownNav).css('width', $navbar.css('width'))
+      }
+      else {
+        $(dropdownNav).css('width', 'auto')
+      }
+
       var $dropdownMenu = $this.next('.dropdown-menu')
+
       $dropdownMenu.css('min-width', $this.css('width'))
       $dropdownMenu.css('margin-right', $this.css('margin-right'))
       $dropdownMenu.css('margin-left', $this.css('margin-left'))
-
-      if ($this.is('.disabled, :disabled')) return
 
       var $parent = getParent($this)
       var isOpen = $parent.hasClass('is-open')
@@ -38,10 +50,35 @@ $(document).ready(function(){
           .toggleClass('is-open')
           .trigger('shown.dropdown')
 
+        if ($navbar.css('height') != navbarSM ){
+          determineMaxHeights($dropdownMenu.children('.column-menu'))
+          setMaxHeights($dropdownMenu.children('.column-menu'))
+        }
+        else {
+          resetMaxHeights($dropdownMenu.children('.column-menu'))
+        }
+
         $this.focus()
       }
 
+      $this
+        .toggleClass('active', $parent.hasClass('is-open'))
+        .toggleClass('hover', $parent.hasClass('is-open'))
+
       return false
+    }
+
+    Dropdown.prototype.toggleHeader = function (e) {
+      var $this = $(this)
+
+      if ($this.is('.disabled, :disabled')) return
+
+      var $siblings = $this.siblings()
+      $siblings
+        .toggleClass('is-open')
+
+      $this.children('.fa').toggleClass('fa-chevron-up')
+      $this.children('.fa').toggleClass('fa-chevron-down')
     }
 
     Dropdown.prototype.keydown = function (e) {
@@ -75,14 +112,36 @@ $(document).ready(function(){
       $items.eq(index).focus()
     }
 
+    $(window).resize(function(){
+      var $dropdownNav = $(dropdownNav)
+      if ($navbar.css('height') == navbarSM ){
+        $dropdownNav.css('width', $navbar.css('width'))
+        resetMaxHeights($dropdownNav.children('.column-menu'))
+      }
+      else {
+        $dropdownNav.css('width', 'auto')
+        $dropdownNav.each(function(index) {
+          var $dropdown = $dropdownNav.eq(index)
+          setMaxHeights($dropdown.children('.column-menu'))
+        })
+      }
+    })
+
     function clearMenus() {
       $(backdrop).remove()
       $(toggle).each(function (e) {
         var $parent = getParent($(this))
         if (!$parent.hasClass('is-open')) return
+        if ($(this).siblings('ul').hasClass(dropdownNav) && $navbar.css('height') == navbarSM) return
         $parent.trigger(e = $.Event('hide.dropdown'))
         if (e.isDefaultPrevented()) return
-        $parent.removeClass('is-open').trigger('hidden.dropdown')
+        $parent
+          .removeClass('is-open')
+          .trigger('hidden.dropdown')
+
+        $(this)
+          .removeClass('active')
+          .removeClass('hover')
       })
     }
 
@@ -97,6 +156,36 @@ $(document).ready(function(){
       var $parent = selector && $(selector)
 
       return $parent && $parent.length ? $parent : $this.parent()
+    }
+
+    function determineMaxHeights(elements) {
+      if($(elements).attr('my-height')) return;
+
+      var maxHeight = -1;
+      elements.each(function() {
+        if ($(this).height() > maxHeight)
+          maxHeight = $(this).height()
+      })
+      
+      elements.each(function() {
+        $(this).attr('my-height', maxHeight)
+      })
+    }
+
+    function setMaxHeights(elements) {
+      if($(elements).attr('my-height')) {
+        var maxHeight = $(elements).attr('my-height')
+
+        elements.each(function() {
+          $(this).height(maxHeight)
+        })
+      }
+    }
+
+    function resetMaxHeights(elements) {
+      elements.each(function() {
+        $(this).css('height', '')
+      })
     }
 
 
@@ -133,7 +222,9 @@ $(document).ready(function(){
     $(document)
       .on('click.dropdown', clearMenus)
       .on('click.dropdown', '.dropdown form', function (e) { e.stopPropagation() })
-      .on('click.dropdown'  , toggle, Dropdown.prototype.toggle)
+      .on('click.dropdown', '.dropdown-menu-table', function (e) { e.stopPropagation() })
+      .on('click.dropdown', toggle, Dropdown.prototype.toggle)
+      .on('click.header'  , '.dropdown-menu .header', Dropdown.prototype.toggleHeader)
       .on('keydown.dropdown', toggle + ', [role=menu]' , Dropdown.prototype.keydown)
 
   }(jQuery);

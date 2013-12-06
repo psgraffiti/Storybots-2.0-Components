@@ -2,32 +2,34 @@
 // Default Values
 // -------------------------------------------------------------------
 
-$code-background: #F0F0F0;
+$white: #F5F4EC;
+$black: #2F3443;
+$default-code-background: #F0F0F0;
 
 //
 // Button Defaults
 // -------------------------------------------------------------------
 
-$btn-color: #19AE58;
-$btn-text-color: #F5F4EC;
-$btn-text-dark: #2F3443;
+$default-btn-color: #19AE58;
+$default-btn-text-color: $white;
+$default-btn-text-dark: $black;
 
 //
 // Dropdown Defaults
 // -------------------------------------------------------------------
 
-$dropdown-background: #ECECF2;
-$dropdown-text-color: #6D707B;
+$default-dropdown-background: #ECECF2;
+$default-dropdown-text-color: #6D707B;
 
 //
 // Modal Defaults
 // -------------------------------------------------------------------
 
-$modal-z-index: 1040;
-$modal-backdrop-color: #000000;
-$modal-background: #F5F4EC;
-$modal-border: #D8C8B2;
-$modal-text-color: #074B75;
+$default-modal-z-index: 1040;
+$default-modal-backdrop-color: #000000;
+$default-modal-background: $white;
+$default-modal-border: #D8C8B2;
+$default-modal-text-color: #074B75;
 
 //
 // Navbar Defaults
@@ -52,8 +54,9 @@ $nav-pills-border-radius: 4px;
 $nav-pills-active-link-hover-color: #fff;
 $nav-pills-active-link-hover-bg: #428bca;
 
-$navbar-height: 50px;
+$navbar-height: 5px;
 $navbar-margin-bottom: 20px;
+$navbar-border-radius: $border-radius-base;
 $line-height-computed: 20px;
 $navbar-padding-horizontal: floor(30px / 2);
 $navbar-default-brand-hover-bg: transparent;
@@ -72,25 +75,9 @@ $navbar-default-link-active-color: #555;
 $navbar-default-toggle-border-color: #ddd;
 $navbar-default-toggle-hover-bg: #ddd;
 $navbar-default-toggle-icon-bar-bg: #ccc;
-$navbar-inverse-bg: #222;
-$navbar-inverse-toggle-border-color: #333;
-$navbar-inverse-toggle-hover-bg: #333;
-$navbar-inverse-toggle-icon-bar-bg: #fff;
-$navbar-inverse-brand-hover-color: #fff;
-$navbar-inverse-brand-hover-bg: transparent;
-$navbar-inverse-color: #999;
-$navbar-inverse-link-color: #999;
-$navbar-inverse-link-hover-color: #fff;
-$navbar-inverse-link-hover-bg: transparent;
-$navbar-inverse-link-disabled-color: #444;
-$navbar-inverse-link-disabled-bg: transparent;
 $navbar-padding-vertical: (($navbar-height - $line-height-computed) / 2);
 $input-height-base: ($line-height-computed + (6px * 2) + 2);
 $navbar-default-border: darken($navbar-default-bg, 6.5%);
 $navbar-default-brand-color: $navbar-default-link-color;
 $navbar-default-brand-hover-color: darken($navbar-default-brand-color, 10%);
 $navbar-default-link-active-bg: darken($navbar-default-bg, 6.5%);
-$navbar-inverse-border: darken($navbar-inverse-bg, 10%);
-$navbar-inverse-link-active-bg: darken($navbar-inverse-bg, 10%);
-$navbar-inverse-brand-color: $navbar-inverse-link-color;
-$navbar-inverse-link-active-color: $navbar-inverse-link-hover-color;

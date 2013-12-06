@@ -1,14 +1,12 @@
 .caret {
 	@include caret(#F5F4EC);
 }
-/*.dropdown {
-	@include dropdown();
-}*/
+
 .dropdown-menu {
-	@include dropdown-menu(false);
+	@include dropdown-menu($default-dropdown-background, $default-dropdown-text-color, false);
 }
 .use-caret {
-	@include dropdown-menu(true);
+	@include dropdown-menu($default-dropdown-background, $default-dropdown-text-color, true);
 }
 
 .dark {
@@ -20,5 +18,5 @@
 		@include caret(#2F3443);
 	}
 
-	@include dropdown-menu(#19AE58, true);
+	@include dropdown-menu(#19AE58, $default-dropdown-text-color, true);
 }

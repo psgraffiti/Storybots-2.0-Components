@@ -1,12 +1,12 @@
 //
 // Striped Backgrounds
 // -------------------------------------------------------------------
-@mixin striped-bkgrd($color: $code-background, $type: horizontal) {
+@mixin striped-bkgrd($color: $default-code-background, $type: horizontal) {
     @include background-size(50px, 50px); /* Controls the size of the stripes */
 
     @if type-of($color) != color {
         $type: $color;
-        $color: $code-background;
+        $color: $default-code-background;
     }
 
     @if $type == angled {
@@ -33,6 +33,7 @@ html {
 body {
     font-family: ProximaNova;
     color: #2F3442;
+    margin: 0px;
 }
 
 code {
@@ -40,7 +41,7 @@ code {
     overflow: auto;
     @include pad(20px);
     
-    background-color: $code-background;
+    background-color: $default-code-background;
     border: 1px solid #D8D8D8;
 
     font-family: ProximaNova;
@@ -52,4 +53,20 @@ table {
     @include well();
     @include striped-bkgrd(angled-135);
     width: 80%;
+}
+
+input {
+    &[type="text"] {
+        @include pad(10px);
+        border-radius: 5px;
+        border: solid 1px $white;
+    }
+}
+
+ul, ol {
+    margin: 0px;
+}
+
+.container {
+    display: inline-block;
 }

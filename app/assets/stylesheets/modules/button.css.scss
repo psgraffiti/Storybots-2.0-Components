@@ -2,41 +2,46 @@
 // Buttons
 // -------------------------------------------------------------------
 
-@mixin btn($style: flat, $color: $btn-color) {
+//partials (SASS)
+//update docs
 
-	// If only color was specified
-	@if type-of($style) == color {
-		$color: $style;
-		$style: flat;
-	}
+@mixin btn($style, $color) {
+/*@mixin btn($style: flat, $color: $default-btn-color) {
 
-	@if $style == flat {
-		@include btn-flat($color);
-	}
-	@else if $style == raised {
-		@include btn-raised($color);
-	}
-	@else if $style == link {
-		@include btn-link($color);
-	}
+    // If only color was specified
+    @if type-of($style) == color {
+        $color: $style;
+        $style: flat;
+    }*/
 
-	@include user-select(none);
-	@include inline-block;
+    @if $style == flat {
+        @include btn-flat($color);
+    }
+    @else if $style == raised {
+        @include btn-raised($color);
+    }
+    @else if $style == link {
+        @include btn-link($color);
+    }
 
-	margin: 5px;
-	border: 0px;
+    @include user-select(none);
+    @include inline-block;
 
-	cursor: pointer;
+    margin: 5px;
+    border: 0px;
 
-	&:focus {
-		outline-width: 0px;
-	}
+    text-decoration: none;
+    cursor: pointer;
 
-	&:disabled,
-	&[disabled] {
-		opacity: 0.5;
-		cursor: not-allowed;
-	}
+    &:focus {
+        outline-width: 0px;
+    }
+
+    &:disabled,
+    &[disabled] {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
 }
 
 //
@@ -45,53 +50,53 @@
 
 @mixin btn-flat($color) {
 
-	$hover-color: tint($color, 30%);
-	$text-color: $btn-text-color;
+    $hover-color: tint($color, 30%);
+    $text-color: $default-btn-text-color;
 
-	// If the button color is light, make text color light and what not
-	@if lightness($color) > 50% {
-		$hover-color: shade($color, 20%);
-		$text-color: $btn-text-dark;
-	}
+    // If the button color is light, make text color light and what not
+    @if lightness($color) > 50% {
+        $hover-color: shade($color, 20%);
+        $text-color: $default-btn-text-dark;
+    }
 
-	$shadow-color: shade($hover-color, 10%);
+    $shadow-color: shade($hover-color, 10%);
 
-	@include pad(10px 15px);
-	border-radius: 5px;
-	background-color: $color;
+    @include pad(10px 15px);
+    border-radius: 5px;
+    background-color: $color;
 
-	font-family: ProximaNova;
-	font-size: 15px;
-	font-weight: normal;
-	font-style: normal;
-	color: $text-color;
+    font-family: ProximaNova;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    color: $text-color;
 
-	&[toggle-type=dropdown] {
-		margin-bottom: 0px;
-	}
+    &[toggle-type=dropdown] {
+        margin-bottom: 0px;
+    }
 
-	&.hover,
-	&:hover {
-		background-color: $hover-color;
+    &.hover,
+    &:hover {
+        background-color: $hover-color;
 
-		&.active,
-		&:active {
-			box-shadow: 0px 1px 5px 3px $shadow-color inset;
-		}
-	}
+        &.active,
+        &:active {
+            box-shadow: 0px 1px 5px 3px $shadow-color inset;
+        }
+    }
 
-	&:disabled,
-	&[disabled] {
+    &:disabled,
+    &[disabled] {
 
-		&:hover,
-		&:focus {
-			background-color: $color;
+        &:hover,
+        &:focus {
+            background-color: $color;
 
-			&:active {
-				box-shadow: none;
-			}
-		}
-  	}
+            &:active {
+                box-shadow: none;
+            }
+        }
+    }
 }
 
 //
@@ -100,103 +105,114 @@
 
 @mixin btn-raised($color) {
 
-	$border-color:	tint($color, 35%);
-	$shadow-color: 	shade($color, 15%);
-	$hover-color:  	$border-color;
-	$grad-top: 		$border-color;
-	$grad-bottom: 	$color;
-	$text-color: 	$btn-text-color;
+    $border-color:  tint($color, 35%);
+    $shadow-color:  shade($color, 15%);
+    $hover-color:   $border-color;
+    $grad-top:      $border-color;
+    $grad-bottom:   $color;
+    $text-color:    $default-btn-text-color;
 
-	@if lightness($color) > 50% {
-		$border-color: 	darken($color, 30%);
-		$shadow-color: 	shade($border-color, 15%);
-		$hover-color:  	shade($color, 5%);
-		$grad-top: 		$color;
-		$grad-bottom: 	$border-color;
-		$text-color: 	$btn-text-dark;
-	}
+    @if lightness($color) > 50% {
+        $border-color:  darken($color, 30%);
+        $shadow-color:  shade($border-color, 15%);
+        $hover-color:   shade($color, 5%);
+        $grad-top:      $color;
+        $grad-bottom:   $border-color;
+        $text-color:    $default-btn-text-dark;
+    }
 
-	@include linear-gradient($grad-top, $grad-bottom);
+    @include linear-gradient($grad-top, $grad-bottom);
 
-	padding: 10px 45px 0px 45px;
-	border-radius: 15px;
-	border: 1px solid $border-color;
-	box-shadow: 0px 5px 0px $shadow-color;
+    padding: 10px 45px 0px 45px;
+    border-radius: 15px;
+    border: 1px solid $border-color;
+    box-shadow: 0px 5px 0px $shadow-color;
 
-	position: relative;
+    position: relative;
 
-	font-family: AlphabetSoup;
-	font-size: 40px;
+    font-family: AlphabetSoup;
+    font-size: 40px;
     font-weight: bold;
-	color: $text-color;
+    color: $text-color;
 
-	&.hover,
-	&:hover {
-		@include linear-gradient($hover-color, $hover-color);
-		@if lightness($color) > 50% {
-			border-color: $hover-color
-		}
+    &.hover,
+    &:hover {
+        @include linear-gradient($hover-color, $hover-color);
+        @if lightness($color) > 50% {
+            border-color: $hover-color
+        }
 
-		&.active,
-		&:active {
-			top: 3px;
-			box-shadow: 0px 2px 0px $shadow-color;
-		}
-	}
+        &.active,
+        &:active {
+            top: 3px;
+            box-shadow: 0px 2px 0px $shadow-color;
+        }
+    }
 
-	&:disabled,
-	&[disabled] {
+    &:disabled,
+    &[disabled] {
 
-	    &:hover,
-		&:focus {
-			@include linear-gradient($grad-top, $grad-bottom);
-			border-color: $border-color;
+        &:hover,
+        &:focus {
+            @include linear-gradient($grad-top, $grad-bottom);
+            border-color: $border-color;
 
-			&:active {
-				top: 0px;
-    			box-shadow: 0px 5px 0px $shadow-color;
-			}
-		}
-  	}
+            &:active {
+                top: 0px;
+                box-shadow: 0px 5px 0px $shadow-color;
+            }
+        }
+    }
 }
 
 //
-// Link Button
+// Link Button (Not needed)
 // -------------------------------------------------------------------
 
 @mixin btn-link($color) {
-	color: $color;
-	font-weight: normal;
-	cursor: pointer;
-	border-radius: 0;
+    color: $color;
+    font-weight: normal;
+    cursor: pointer;
+    border-radius: 0;
 
-	&,
-	&:active,
-	&[disabled],
-	fieldset[disabled] & {
-		background-color: transparent;
-		box-shadow: none;
-	}
+    &,
+    &:active,
+    &[disabled],
+    fieldset[disabled] & {
+        background-color: transparent;
+        box-shadow: none;
+    }
 
-	&:hover {
-		&:active {
-			border-color: transparent;
-		}
-	}
+    &.hover,
+    &:hover {
+        &.active,
+        &:active {
+            border-color: transparent;
+            box-shadow: none;
+        }
+    }
 
-	&:hover {
-		text-decoration: underline;
-		background-color: transparent;
-	}
+    &.hover,
+    &:hover {
+        text-decoration: underline;
+        background-color: transparent;
+    }
 
-	&[disabled],
-	&[disabled] {
+    &:disabled,
+    &[disabled] {
 
-		&:hover,
-		&:focus {
-			text-decoration: none;
-		}
-	}
+        &:hover,
+        &:focus {
+            text-decoration: none;
+        }
+    }
+
+    &.navbar-brand,
+    &.dropdown-toggle {
+        &:hover {
+            text-decoration: none;
+        }
+    }
 }
 
 //
@@ -205,50 +221,80 @@
 
 @mixin btn-group() {
 
-	@include inline-block;
-	position: relative;
-	vertical-align: middle;
+    @include inline-block;
+    position: relative;
+    vertical-align: middle;
 
-	> button {
-		position:relative;
-		float: left;
+    > .btn {
+        position:relative;
+        float: left;
 
-		&:hover,
-    	&:focus,
-    	&:active,
-    	&.active {
-    	  z-index: 2px;
-    	}
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+          z-index: 2;
+        }
 
-    	&:focus {
-      		outline: none;
-    	}
+        &:focus {
+            outline: none;
+        }
 
-    	&:not(:first-child):not(:last-child) {
-    		border-radius: 0px;
-    		margin-right: 0px;
-    		margin-left: 0px;
-    	}
+        &:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+            border-radius: 0px;
+            margin-right: 0px;
+            margin-left: 0px;
+        }
 
-    	&:first-child {
-    		margin-left: 0px;
+        &:first-child {
+            margin-left: 0px;
 
-    		&:not(:last-child) {
-    			@include border-radius-right(0px);
-    			margin-right: 0px;
-    		}
-    	}
+            &:not(:last-child):not(.dropdown-toggle) {
+                @include border-radius-right(0px);
+                margin-right: 0px;
+            }
+        }
 
-    	&:last-child:not(:first-child) {
-    		@include border-radius-left(0px);
-    		margin-left: 0px;
-    	}
-	}
+        &:last-child:not(:first-child) {
+            @include border-radius-left(0px);
+            margin-left: 0px;
+        }
+    }
 
-	button + button,
-	button + buttongroup,
-	buttongroup + button,
-	buttongroup + buttongroup {
-		margin-left: -1px;
-	}
+    .btn + .btn,
+    .btn + .btn-group,
+    .btn-group + .btn,
+    .btn-group + .btn-group {
+        margin-left: -1px;
+    }
+
+    // Need .dropdown-toggle since :last-child doesn't apply given a .dropdown-menu immediately after it
+    > .btn:last-child:not(:first-child),
+    > .dropdown-toggle:not(:first-child) {
+        @include border-radius-left(0px);
+    }
+
+    // Custom edits for including btn-groups within btn-groups (useful for including dropdown buttonss within a btn--group)
+    > .btn-group {
+        float: left;
+    }
+
+    > .btn-group:not(:first-child):not(:last-child) > .btn {
+        border-radius: 0;
+    }
+
+    > .btn-group:first-child:not(:last-child) {
+        > .btn:last-child,
+        > .dropdown-toggle {
+            @include border-radius-right(0px);
+        }
+    }
+
+    > .btn-group:last-child > .btn:first-child {
+        @include border-radius-left(0px);
+    }
+
+    > .btn-group:last-child > .btn:last-child {
+        @include border-radius-left(0px);
+    }
 }

@@ -7,40 +7,40 @@
     }
 }
 
-button {
-    @include btn();
+.btn {
+    @include btn(flat, $default-btn-color);
 }
 
-button[color="black"] {
-    @include btn(#2F3443);
+.btn[color="black"] {
+    @include btn(flat, #2F3443);
 }
 
-button[color="black2"] {
+.btn[color="black2"] {
     @include btn(raised, #2F3443);
 }
 
-button[color="white"] {
-    @include btn(#f5f4ec);
+.btn[color="white"] {
+    @include btn(flat, #f5f4ec);
 }
 
-button[style="raised"] {
-    @include btn(raised);
+.btn[style="raised"] {
+    @include btn(raised, $default-btn-color);
 }
 
-button[style="raised1"] {
+.btn[style="raised1"] {
     @include btn(raised, #f5f4ec);
 }
 
-button[style="link"] {
-    @include btn(link);
+.btn[style="link"] {
+    @include btn(link, $default-btn-color);
 }
-button[color="link2"] {
+.btn[color="link2"] {
     @include btn(link, #2F3443);
 }
-button[color="link3"] {
+.btn[color="link3"] {
     @include btn(link, #f5f4ec);
 }
 
-buttongroup {
+.btn-group {
     @include btn-group();
 }

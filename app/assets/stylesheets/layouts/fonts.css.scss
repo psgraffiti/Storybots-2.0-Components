@@ -71,7 +71,7 @@
 	}
 }
 
-@mixin modal-font($type, $color: $modal-text-color) {
+@mixin modal-font($type, $color: $default-modal-text-color) {
 	color: $color;
 
 	@if $type == header {

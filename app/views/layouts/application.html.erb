@@ -5,7 +5,64 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+</head>
+<body>
+    <div class="main-navbar">
+    <div class="btn-group navbar-left">
+        <a class="btn"><i class="fa fa-home"></i></a>
+        <div class="btn-group">
+            <a class="btn dropdown-toggle" id="dropdown-menu-nav" toggle-type="dropdown"><i class="fa fa-bars"></i></a>
+            <ul class="dropdown-menu use-caret dropdown-menu-table responsive-nav" role="menu" aria-labelledby="dropdown-menu-nav">
+                <li class="column-menu">
+                    <ul>
+                    <li class="header">Components <i class="fa fa-chevron-down"></i></li>
+                    <li> <a class="btn-nav" href="/greetings/hello"><i class="fa fa-home"></i>Hello</a></li>
+                    <li> <a class="btn-nav" href="/greetings/buttons"><i class="fa fa-youtube-play"></i>Buttons</a></li>
+                    <li> <a class="btn-nav" href="/greetings/dropdowns"><i class="fa fa-bars"></i>Dropdowns</a></li>
+                    <li> <a class="btn-nav" href="/greetings/modals"><i class="fa fa-archive"></i>Modals</a></li>
+                    <li> <a class="btn-nav" href="/greetings/navbars"><i class="fa fa-beer"></i>Navbars</a></li>
+                    <li> <a class="btn-nav" href="#">Link 6</a></li>
+                    </ul>
+                </li>
+                <li class="column-menu">
+                    <ul>
+                    <li class="header">Column Two <i class="fa fa-chevron-down"></i></li>    
+                    <li>Item</li>
+                    <li>Item</li>
+                    <li>Item</li>
+                    <li>Item</li>
+                    </ul>
+                </li>
+                <li class="footer-menu">
+                    <ul>
+                    <li class="header">Footer</li>
+                    <li>One</li>
+                    <li>Two</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="btn-group navbar-right">
+        <a class="btn">Another Button</a>
+        <div class="btn-group">
+            <a class="btn dropdown-toggle" id="dropdown-menu-nav-2" toggle-type="dropdown">More Dropdown</a>
+            <ul class="dropdown-menu use-caret dropdown-menu-table responsive-nav" role="menu" aria-labelledby="dropdown-menu-nav-2">
+                <li class="column-menu">
+                    <ul>
+                    <li>Menu</li>
+                    <li>Menu</li>
+                    <li>Menu</li>
+                    <li>Menu</li>
+                    <li>Menu</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    </div>
 
+<div class="page">
     <div class="page">
         <div id="header">
             <h1>Here is the header for the page</h1>
@@ -13,6 +70,7 @@
         </div>
     </div>
 
+<!--  This was the old nav bar
     <div class="page"><nav>
         <ul class="nav-items">
             <li> <a class="btn-nav" href="/greetings/hello"><i class="fa fa-home"></i>Hello</a></li>
@@ -22,11 +80,7 @@
             <li> <a class="btn-nav" href="/greetings/navbars"><i class="fa fa-beer"></i>Navbars</a></li>
             <li> <a class="btn-nav" href="#">Link 6</a></li>
         </ul>
-    </nav></div>
-
-</head>
-<body>
-<div class="page">
+    </nav></div> -->
     <%= yield %>
 </div>
 

@@ -1,53 +1,186 @@
-<div class="content"><div class="main">
-	<div class="navbar navbar-default" role="navigation">
-		<!-- Brand and toggle get grouped for better mobile display -->
-<!-- 		<div class="navbar-header">
-		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-		  <span class="sr-only">Toggle navigation</span>
-		  <span class="icon-bar"></span>
-		  <span class="icon-bar"></span>
-		  <span class="icon-bar"></span>
-		</button>
-		<a class="navbar-brand" href="#">Brand</a>
-		</div> -->
+<div class="content large"><div class="main large">
+    <h3>Navbars</h3>
+        Navbars are responsive components. They begin collapsed in mobile views and become horizontal as the available viewport width increases. When collapsed, a toggle button is used to display the contents of the navbar. This button is only visible in smaller viewports.
+        
+        <br><br>
+        <div class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <a color="white" type="button" class="btn navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse"><i class="fa fa-bars"></i></a>
+                <a color="link2" class="btn navbar-brand" href="#">Brand</a>
+            </div>
 
-	<!-- Collect the nav links, forms, and other content for toggling -->
-<!-- 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
-	    <ul class="nav navbar-nav">
-	      <li class="active"><a href="#">Link</a></li>
-	      <li><a href="#">Link</a></li>
-	      <li class="dropdown">
-	        <a href="#" class="dropdown-toggle" toggle-type="dropdown">Dropdown <b class="caret"></b></a>
-	        <ul class="dropdown-menu">
-	          <li><a href="#">Action</a></li>
-	          <li><a href="#">Another action</a></li>
-	          <li><a href="#">Something else here</a></li>
-	          <li class="divider"></li>
-	          <li><a href="#">Separated link</a></li>
-	          <li class="divider"></li>
-	          <li><a href="#">One more separated link</a></li>
-	        </ul>
-	      </li>
-	    </ul>
-	    <form class="navbar-form navbar-left" role="search">
-	      <div class="form-group">
-	        <input type="text" class="form-control" placeholder="Search">
-	      </div>
-	      <button type="submit" class="btn btn-default">Submit</button>
-	    </form>
-	    <ul class="nav navbar-nav navbar-right">
-	      <li><a href="#">Link</a></li>
-	      <li class="dropdown">
-	        <a href="#" class="dropdown-toggle" toggle-type="dropdown">Dropdown <b class="caret"></b></a>
-	        <ul class="dropdown-menu">
-	          <li><a href="#">Action</a></li>
-	          <li><a href="#">Another action</a></li>
-	          <li><a href="#">Something else here</a></li>
-	          <li class="divider"></li>
-	          <li><a href="#">Separated link</a></li>
-	        </ul>
-	      </li>
-	    </ul>
-<!-- 	</div> --><!-- /.navbar-collapse -->
-</div>
+            <div class="expanded navbar-collapse" id="example-navbar-collapse">
+                <ul class="nav navbar-nav">
+                  <li><a class="btn" color="link2">Link</a></li>
+                  <li><a class="btn" color="link2">Link</a></li>
+                  <li class="dropdown">
+                    <a color="link2" class="btn dropdown-toggle" toggle-type="dropdown">Dropdown <i class="fa fa-caret-down"></i></a>
+                    <ul class="dropdown-menu">
+                      <li><a>Action</a></li>
+                      <li><a>Another action</a></li>
+                      <li><a>Something else here</a></li>
+                      <li class="divider"></li>
+                      <li><a>Separated link</a></li>
+                      <li class="divider"></li>
+                      <li><a>One more separated link</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <form class="navbar-form navbar-right" role="search">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <a class="btn" color="white" type="submit">Submit</a>
+                  </div>
+                </form>
+            </div>
+        </div>
+
+        Code for the above navbar:
+        <br><br>
+
+<code><pre>
+&lt;div class="navbar navbar-default" role="navigation">
+
+&lt;!-- Brand and toggle get grouped for better mobile display -->
+  &lt;div class="navbar-header">
+    &lt;a color="white" type="button" class="btn navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">&lt;i class="fa fa-bars">&lt;/i>&lt;/a>
+    &lt;a color="link2" class="btn navbar-brand" href="#">Brand&lt;/a>
+  &lt;/div>
+
+&lt;!-- Collect the nav links, forms, and other content for toggling -->
+  &lt;div class="expanded navbar-collapse" id="example-navbar-collapse">
+    &lt;ul class="nav navbar-nav">
+      &lt;li>&lt;button color="link2" href="#">Link&lt;/a>&lt;/li>
+      &lt;li>&lt;button color="link2" href="#">Link&lt;/a>&lt;/li>
+      &lt;li class="dropdown">
+        &lt;a color="link2" href="#" class="btn dropdown-toggle" toggle-type="dropdown">Dropdown &lt;i class="fa fa-caret-down">&lt;/i>&lt;/a>
+        &lt;ul class="dropdown-menu">
+          &lt;li>&lt;a href="#">Action&lt;/a>&lt;/li>
+          &lt;li>&lt;a href="#">Another action&lt;/a>&lt;/li>
+          &lt;li>&lt;a href="#">Something else here&lt;/a>&lt;/li>
+          &lt;li class="divider">&lt;/li>
+          &lt;li>&lt;a href="#">Separated link&lt;/a>&lt;/li>
+          &lt;li class="divider">&lt;/li>
+          &lt;li>&lt;a href="#">One more separated link&lt;/a>&lt;/li>
+        &lt;/ul>
+      &lt;/li>
+    &lt;/ul>
+    &lt;form class="navbar-form navbar-right" role="search">
+      &lt;div class="form-group">
+        &lt;input type="text" class="form-control" placeholder="Search">
+        &lt;a class="btn" color="white" type="submit">Submit&lt;/a>
+      &lt;/div>
+    &lt;/form>
+  &lt;/div> &lt;!-- /.navbar-collapse -->
+&lt;/div>
+</pre></code>
+
+    <br><br>
+    The classes <i>navbar-right</i> and <i>navbar-left</i> can be used to position elements in the navbar.<br>
+    Elements in the <i>navbar-header</i> wrapper will always be visible, while elements in the <i>navbar-collapse</i> wrapper are collapsable.<br>
+    When in smaller viewports, dropdowns are embedded in the navbar when expanded.
+    <br><br>
+    Use class <i>active</i> to highlight elements in the navbar.
+    <br><br>
+
+    <div class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <a color="white" type="button" class="btn navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></a>
+            <a color="link2" class="btn navbar-brand" href="#">Name Here</a>
+        </div>
+
+        <div class="expanded navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a class="btn" color="link2">Link</a></li>
+              <li><a class="btn" color="link2">Link</a></li>
+              <li class="active"><a class="btn" color="link2">Link</a></li>
+              <li class="active"><a class="btn" color="link2">Link</a></li>
+              <li><a class="btn" color="link2">Link</a></li>
+              <li class="active"><a class="btn" color="link2">Link</a></li>
+              <li class="dropdown">
+                <a color="link2" class="btn dropdown-toggle" toggle-type="dropdown">Dropdown <i class="fa fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
+                  <li><a>Action</a></li>
+                  <li><a>Another action</a></li>
+                  <li><a>Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a>Separated link</a></li>
+                  <li class="divider"></li>
+                  <li><a>One more separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="navbar-form navbar-left" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <a class="btn" color="link2" type="submit">Submit</a>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a class="btn" color="link2">Link</a></li>
+              <li class="dropdown active">
+                <a color="link2" class="btn dropdown-toggle" toggle-type="dropdown">Dropdown <i class="fa fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
+                  <li><a>Action</a></li>
+                  <li><a>Another action</a></li>
+                  <li><a>Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a>Separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+        </div>
+    </div>
+<code><pre>
+&lt;div class="expanded navbar-collapse" id="example-navbar-collapse">
+  &lt;ul class="nav navbar-nav">
+    &lt;li class="active">&lt;a class="btn" color="link2" href="#">Link&lt;/a>&lt;/li>
+    &lt;li>&lt;a class="btn" color="link2" href="#">Link&lt;/a>&lt;/li>
+    . . .
+</pre></code>
+
+    <br>
+    The classes <i>navbar-static-top</i>, <i>navbar-fixed-top</i>, and <i>navbar-fixed-bottom</i> can be used to position the navbar on the page.
+    <br><br>
+
+<code><pre>
+&lt;div class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+</pre></code>
+
+    <br><br>
+    It is not necessary to have the header portion of the navbar, nor it is necessary to have the navbar toggle open and closed in smaller viewports.
+    <br><br>
+
+    <div class="navbar navbar-default" role="navigation">
+        <div class="expanded">
+            <ul class="nav navbar-nav">
+              <li><a class="btn" color="link2">Link</a></li>
+              <li><a class="btn" color="link2">Link</a></li>
+            </ul>
+            <form class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+                <a class="btn" color="white" type="submit">Submit</a>
+              </div>
+            </form>
+        </div>
+    </div>
+
+<code><pre>
+&lt;div class="navbar navbar-default" role="navigation">
+  &lt;div class="expanded">
+    &lt;ul class="nav navbar-nav">
+      &lt;li>&lt;a class="btn" color="link2" href="#">Link&lt;/a>&lt;/li>
+      &lt;li>&lt;a class="btn" color="link2" href="#">Link&lt;/a>&lt;/li>
+    &lt;/ul>
+    &lt;form class="navbar-form navbar-right" role="search">
+      &lt;div class="form-group">
+        &lt;input type="text" class="form-control" placeholder="Search">
+        &lt;a class="btn" color="white" type="submit">Submit&lt;/a>
+      &lt;/div>
+    &lt;/form>
+  &lt;/div>
+&lt;/div>
+</pre></code>
+
 </div></div>

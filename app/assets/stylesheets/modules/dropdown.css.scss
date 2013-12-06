@@ -1,168 +1,366 @@
 .dropdown {
-	position: relative;
+    position: relative;
+}
+
+.dropdown-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 990;
 }
 
 .dropdown-menu {
-	position: absolute;
-	top: 100%;
-	left: 0px;
-	display: none;
-	z-index: 1000;
-	padding: 5px 0px;
-	margin-bottom: 0px;
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    display: none;
+    z-index: 1000;
+    padding: 5px 0px;
+    margin-bottom: 0px;
 
-	list-style: none;
-	border: 1px solid;
-	border-radius: 5px;
-	//box-shadow: 0px 0px 5px 1px tint($text-color, 60%);
+    list-style: none;
+    border: 1px solid;
+    border-radius: 5px;
+    //box-shadow: 0px 0px 5px 1px tint($text-color, 60%);
 
-	li {
-		> a {
-			display: block;
-			padding: 3px 20px;
-			clear: both;
+    li {
+        > a {
+            display: block;
+            padding: 3px 20px;
+            clear: both;
 
-			font-weight: normal;
-			text-decoration: none;
-			white-space: nowrap;
+            font-weight: normal;
+            text-decoration: none;
+            white-space: nowrap;
 
-			opacity: 1.0;
+            opacity: 1.0;
 
-			&:hover,
-			&:focus {
-				outline-width: 0px;
-				text-decoration: none;
+            &:hover,
+            &:focus {
+                outline-width: 0px;
+                text-decoration: none;
 
-				&:active {
-					text-decoration: none;
-				}
-			}
+                &:active {
+                    text-decoration: none;
+                }
+            }
 
-			&:disabled,
-			&[disabled] {
-		    	opacity: 0.5;
-		    	cursor: not-allowed;
+            &:disabled,
+            &[disabled] {
+                opacity: 0.5;
+                cursor: not-allowed;
 
-				&:hover,
-				&:focus { 
-					cursor: not-allowed;
-					text-decoration: none;
-					background-color: transparent;
+                &:hover,
+                &:focus { 
+                    cursor: not-allowed;
+                    text-decoration: none;
+                    background-color: transparent;
 
-					&:active {
-						outline: 0px;
-						text-decoration: none;
-					    background-color: transparent;
-					    background-image: none;
-					    cursor: not-allowed;
-					}
-				}
-  			}
-  		}
+                    &:active {
+                        outline: 0px;
+                        text-decoration: none;
+                        background-color: transparent;
+                        background-image: none;
+                        cursor: not-allowed;
+                    }
+                }
+            }
+        }
 
-  		&.divider {
-			height: 1px;
-			margin: 9px 0px;
-			overflow: hidden;
-		}
+        &.divider {
+            height: 1px;
+            margin: 9px 0px;
+            overflow: hidden;
+        }
 
-		&.header {
-			display: block;
-			padding: 3px 20px;
-			font-size: 12px;
-			line-height: 1.428571429;
-		}
-	}
+        &.header {
+            display: block;
+            padding: 3px 20px;
+            font-size: 12px;
+            line-height: 1.428571429;
+        }
+    }
 }
+
+.is-open {
+    > .dropdown-menu {
+        display: block;
+    }
+}
+
+.dropdown-menu-table {
+    @include pad(0px);
+    white-space: nowrap;
+    width: auto;
+    left: -43px;
+    
+    .column-menu {
+        @include pad();
+        @include inline-block();
+        margin: 0px;
+        vertical-align: top;
+        border: 0px;
+
+        i {
+            display: none;
+        }
+        
+        &:not(:first-child):not(:last-child) {
+            border-left: 1px solid $black;
+        }
+
+        > ul {
+            @include pad(10px);
+
+            li {
+                list-style-type: none;
+                display: block;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .footer-menu {
+        display: block;
+        background-color: $black;
+        color: $white;
+
+        > ul {
+            @include pad(10px);
+
+            li {
+                list-style-type: none;
+                display: inline;
+            }
+        }
+    }
+
+    @include media($tablet) {
+        left: -100%;
+        top: 85%;
+        border: 1px solid tint($white, 60%);
+        border-radius: 0px;
+        overflow-x: hidden;
+
+        .column-menu {
+            @include pad(0px);
+            display: block;
+            width: 100%;
+            vertical-align: top;
+
+            i {
+                @include inline-block();
+                float: right;
+            }
+            
+            &:not(:first-child):not(:last-child) {
+                border: 0px;
+            }
+            
+            > ul {
+                @include pad(0px);
+
+                li {
+                    @include pad(10px);
+                    list-style-type: none;
+                    border-bottom: 1px solid tint($white, 60%);
+
+                    // If there is a header, hide the items below it until the header is clicked
+                    &.header ~ li {
+                        display: none;
+                    }
+
+                    &.is-open,
+                    &.header,
+                    &.header ~ li.is-open {
+                        display: block
+                    }
+
+                    &.header {
+                        background-color: tint($white, 60%);
+                        border-bottom: 1px solid $default-dropdown-background;
+                    }
+                }
+            }
+        }
+
+        .footer-menu {
+            background-color: transparent;
+            color: $black;
+
+            > ul {
+                @include pad(0px);
+
+                li {
+                    @include pad(10px);
+                    list-style-type: none;
+                    display: block;
+                    border-bottom: 1px solid tint($white, 60%);
+
+                    &:last-child {
+                        border-bottom: 0px;
+                    }
+
+                    &.header {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        &.use-caret {
+            margin-top: 9px;
+        }
+    }
+}
+
+@include media($tablet) {
+    .nav,
+    .navbar {
+        .dropdown-menu {
+            position: relative;
+            border: 0px;
+            border-radius: 0px;
+            margin-bottom: 5px;
+        }
+    }
+}
+
+//@include media($desktop) {
+    .navbar-right {
+        .dropdown-menu {
+            right: 0;
+            left: auto;
+        }
+    }
+    .navbar-left {
+        .dropdown-menu {
+            right: auto;
+        }
+    }
+//}
 
 //
 // Dropdown
 // -------------------------------------------------------------------
 
-@mixin dropdown-menu($back-color: $dropdown-background, $text-color: $dropdown-text-color, $use-caret: true) {
+@mixin dropdown-menu($back-color, $text-color, $use-caret) {
+/*@mixin dropdown-menu($back-color: $default-dropdown-background, $text-color: $default-dropdown-text-color, $use-caret: true) {
 
-	@if type-of($back-color) == bool {
-		$use-caret: $back-color;
-		$back-color: $dropdown-background;
-	}
+    @if type-of($back-color) == bool {
+        $use-caret: $back-color;
+        $back-color: $default-dropdown-background;
+    }
 
-	@else if type-of($text-color) == bool {
-		$use-caret: $text-color;
-		$text-color: $dropdown-text-color;
-	}
+    @else if type-of($text-color) == bool {
+        $use-caret: $text-color;
+        $text-color: $default-dropdown-text-color;
+    }*/
 
-	background-color: $back-color;
+    background-color: $back-color;
 
-	@if $use-caret {
+    @if $use-caret {
 
-		margin-top: 7px;
+        margin-top: 7px;
 
-		&::before {
-			@include inline-block();
-			position: absolute;
-			top: -7px;
-			left: 9px; //45%
-			border-right: 7px solid transparent;
-			border-bottom: 7px solid;
-			border-left: 7px solid transparent;
-			//border-bottom-color: rgba(0, 0, 0, 0.2);
-			content: '';
-		}
+        &::before {
+            @include inline-block();
+            position: absolute;
+            top: -7px;
+            left: 9px; //45%
+            border-right: 7px solid transparent;
+            border-bottom: 7px solid;
+            border-left: 7px solid transparent;
+            //border-bottom-color: rgba(0, 0, 0, 0.2);
+            content: '';
+        }
 
-		&::after {
-			@include inline-block();
-			position: absolute;
-			top: -6px;
-			left: 10px; //45.5%
-			border-right: 6px solid transparent;
-			border-bottom: 6px solid $back-color;
-			border-left: 6px solid transparent;
-			content: '';
-		}
-	}
+        &::after {
+            @include inline-block();
+            position: absolute;
+            top: -6px;
+            left: 10px; //45.5%
+            border-right: 6px solid transparent;
+            border-bottom: 6px solid $back-color;
+            border-left: 6px solid transparent;
+            content: '';
+        }
 
-	@else {
-		margin-top: 0px;
-	}
+        &.dropdown-menu-table {
+            &::before {
+                @include inline-block();
+                position: absolute;
+                top: -7px;
+                left: 56px;
+                border-right: 7px solid transparent;
+                border-bottom: 7px solid;
+                border-left: 7px solid transparent;
+                //border-bottom-color: rgba(0, 0, 0, 0.2);
+                content: '';
+            }
 
-	li {
-		> a {
-			color: $text-color;
+            &::after {
+                @include inline-block();
+                position: absolute;
+                top: -6px;
+                left: 57px;
+                border-right: 6px solid transparent;
+                border-bottom: 6px solid $back-color;
+                border-left: 6px solid transparent;
+                content: '';
+            }
 
-			&:hover,
-			&:focus {
-				color: $back-color;
-				background-color: $text-color;
+            @include media($tablet) {
+                &::before,
+                &::after, {
+                    display: none;
+                    border: 0px;
+                }
+            }
+        }
 
-				&:active {
-					background-color: $back-color;
-				}
-			}
+        
+    }
 
-			&:disabled,
-			&[disabled] {
+    @else {
+        margin-top: 0px;
+    }
 
-				&:hover,
-				&:focus {  
-					color: $text-color;  
-				}
-  			}
-  		}
+    li {
+        > a {
+            color: $text-color;
 
-  		&.divider {
-			background-color: tint($text-color, 70%);
-		}
+            &:hover,
+            &:focus {
+                outline-width: 0px;
+                color: $back-color;
+                background-color: $text-color;
 
-		&.header {
-			color: $text-color;
-		}
-	}
-}
+                &:active {
+                    background-color: $back-color;
+                }
+            }
 
-.is-open {
-	> .dropdown-menu {
-		display: block;
-	}
+            &:disabled,
+            &[disabled] {
+
+                &:hover,
+                &:focus {  
+                    color: $text-color;  
+                }
+            }
+        }
+
+        &.divider {
+            background-color: tint($text-color, 70%);
+        }
+
+        &.header {
+            color: $text-color;
+        }
+    }
 }
 
 //

@@ -19,8 +19,8 @@
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: ($modal-z-index - 10);
-    background-color: $modal-backdrop-color;
+    z-index: ($default-modal-z-index - 10);
+    background-color: $default-modal-backdrop-color;
 
     // Fade for backdrop
     &.fade { 
@@ -44,7 +44,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: $modal-z-index;
+    z-index: $default-modal-z-index;
 
     // Transition for Modal
     &.fade {
@@ -60,7 +60,7 @@
             @include transform(translateX(-50%));
             position: absolute;
             left: 50%;
-            z-index: ($modal-z-index + 10);
+            z-index: ($default-modal-z-index + 10);
             width: auto;
 
         // Actual modal
@@ -71,16 +71,16 @@
             box-shadow:0 3px 9px rgba(0,0,0,.5);
             background-clip: padding-box;
             outline: none;
-            background-color: $modal-background;
-            border: 1px solid $modal-background;
+            background-color: $default-modal-background;
+            border: 1px solid $default-modal-background;
 
             // Modal header
             // Top section of the modal w/ title and dismiss
             .modal-header {
 
                 @include pad(20px);
-                @include modal-font(header, $modal-text-color);
-                border-bottom: 1px solid $modal-border;
+                @include modal-font(header, $default-modal-text-color);
+                border-bottom: 1px solid $default-modal-border;
 
                 // Close icon
                 .close {
@@ -104,7 +104,7 @@
 
                 @include pad(20px);
                 position: relative;
-                @include modal-font(body, $modal-text-color);
+                @include modal-font(body, $default-modal-text-color);
             }
 
             // Footer (for actions)
@@ -113,7 +113,7 @@
                 @include pad(10px);
                 margin-top: 15px;
                 text-align: right; // right align buttons
-                border-top: 1px solid $modal-border;
+                border-top: 1px solid $default-modal-border;
             }
         }
     }
@@ -123,22 +123,23 @@
 // Modal Mixin
 // --------------------------------------------------
 
-@mixin modal($id, $back-color: $modal-background, $border: $modal-border, $color: $modal-text-color, $width-size: auto) {
+@mixin modal($id, $back-color, $border, $color, $width-size: auto) {
+/*@mixin modal($id, $back-color: $default-modal-background, $border: $default-modal-border, $color: $default-modal-text-color, $width-size: auto) {
 
     @if type-of($back-color) != color {
         $border: $back-color;
-        $back-color: $modal-background;
+        $back-color: $default-modal-background;
     }
 
     @if type-of($border) != color {
         $color: $border;
-        $border: $modal-border;
+        $border: $default-modal-border;
     }
 
     @if type-of($color) != color {
         $width-size: $color;
-        $color: $modal-text-color;
-    }
+        $color: $default-modal-text-color;
+    }*/
 
     .modal.#{$id} {
 
