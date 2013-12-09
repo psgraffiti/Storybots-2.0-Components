@@ -51,7 +51,6 @@ $(document).ready(function(){
           .trigger('shown.dropdown')
 
         if ($navbar.css('height') != navbarSM ){
-          determineMaxHeights($dropdownMenu.children('.column-menu'))
           setMaxHeights($dropdownMenu.children('.column-menu'))
         }
         else {
@@ -112,10 +111,10 @@ $(document).ready(function(){
       $items.eq(index).focus()
     }
 
-    $(window).resize(function(){
+    $(window).resize(function(){debugger
       var $dropdownNav = $(dropdownNav)
       if ($navbar.css('height') == navbarSM ){
-        $dropdownNav.css('width', $navbar.css('width'))
+        $dropdownNav.css('width', $(window).width())
         resetMaxHeights($dropdownNav.children('.column-menu'))
       }
       else {
@@ -173,13 +172,14 @@ $(document).ready(function(){
     }
 
     function setMaxHeights(elements) {
-      if($(elements).attr('my-height')) {
-        var maxHeight = $(elements).attr('my-height')
-
-        elements.each(function() {
-          $(this).height(maxHeight)
-        })
+      if(!$(elements).attr('my-height')) {
+        determineMaxHeights(elements)
       }
+      var maxHeight = $(elements).attr('my-height')
+
+      elements.each(function() {
+        $(this).height(maxHeight)
+      })
     }
 
     function resetMaxHeights(elements) {

@@ -103,7 +103,7 @@
         vertical-align: top;
         border: 0px;
 
-        i {
+        .fa {
             display: none;
         }
         
@@ -143,6 +143,7 @@
         border: 1px solid tint($white, 60%);
         border-radius: 0px;
         overflow-x: hidden;
+        white-space: normal;
 
         .column-menu {
             @include pad(0px);
@@ -150,7 +151,7 @@
             width: 100%;
             vertical-align: top;
 
-            i {
+            .fa {
                 @include inline-block();
                 float: right;
             }
