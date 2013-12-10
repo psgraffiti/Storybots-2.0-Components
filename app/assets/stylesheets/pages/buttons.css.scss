@@ -1,46 +1,46 @@
 .contain {
-    @include outer-container;
+  @include outer-container;
 }
 .tablelike {
-    li {
-        @include list(2);
-    }
+  li {
+    @include list(2);
+  }
 }
 
 .btn {
-    @include btn(flat, $default-btn-color);
+  @include btn(flat, $default-btn-color);
 }
 
 .btn[color="black"] {
-    @include btn(flat, #2F3443);
+  @include btn(flat, #2F3443);
 }
 
 .btn[color="black2"] {
-    @include btn(raised, #2F3443);
+  @include btn(raised, #2F3443);
 }
 
 .btn[color="white"] {
-    @include btn(flat, #f5f4ec);
+  @include btn(flat, #f5f4ec);
 }
 
 .btn[style="raised"] {
-    @include btn(raised, $default-btn-color);
+  @include btn(raised, $default-btn-color);
 }
 
 .btn[style="raised1"] {
-    @include btn(raised, #f5f4ec);
+  @include btn(raised, #f5f4ec);
 }
 
 .btn[style="link"] {
-    @include btn(link, $default-btn-color);
+  @include btn(link, $default-btn-color);
 }
 .btn[color="link2"] {
-    @include btn(link, #2F3443);
+  @include btn(link, #2F3443);
 }
 .btn[color="link3"] {
-    @include btn(link, #f5f4ec);
+  @include btn(link, #f5f4ec);
 }
 
 .btn-group {
-    @include btn-group();
+  @include btn-group();
 }

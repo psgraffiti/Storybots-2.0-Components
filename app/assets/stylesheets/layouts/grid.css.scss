@@ -3,85 +3,85 @@
 // -------------------------------------------------------------------
 
 .page {
-    @include outer-container;
-    @include pad(10px);
-    background-color: #589EC3;
+  @include outer-container;
+  @include pad(10px);
+  background-color: #589EC3;
 
-    .content {
-        @include span-columns(8);
-        @include pad();
-        background-color: #E4DCD3;
+  .content {
+    @include span-columns(8);
+    @include pad();
+    background-color: #E4DCD3;
 
-        &:not(:last-child) {
-            margin-bottom: 10px;
-        }
-
-        &.large {
-            @include fill-parent;
-        }
-
-        @include media($tablet) {
-            @include span-columns(8);
-        }
-
-        @include media($mobile) {
-            @include span-columns(4);
-        }
-
-        .main {
-            @include span-columns(4 of 8);
-            @include omega(2n);
-            @include pad();
-            background-color: #F5F4EC;
-
-            &:not(:last-child) {
-                margin-bottom: 10px;
-            }
-
-            &.large {
-                @include span-columns(8 of 8);
-            }
-
-            @include media($mobile) {
-                @include span-columns(4);
-            }
-        }
-
-        .sub {
-            @include span-columns(4 of 8);
-            @include omega(2n);
-            @include pad();
-            background-color: #F5F4EC;
-
-            @include media($mobile) {
-                @include span-columns(4);
-            }
-        }
+    &:not(:last-child) {
+      margin-bottom: 10px;
     }
 
-    .sidebar {
+    &.large {
+      @include fill-parent;
+    }
+
+    @include media($tablet) {
+      @include span-columns(8);
+    }
+
+    @include media($mobile) {
+      @include span-columns(4);
+    }
+
+    .main {
+      @include span-columns(4 of 8);
+      @include omega(2n);
+      @include pad();
+      background-color: #F5F4EC;
+
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+
+      &.large {
+        @include span-columns(8 of 8);
+      }
+
+      @include media($mobile) {
         @include span-columns(4);
-        @include pad();
-        background-color: #E4DCD3;
-        margin-right: 0px;
-
-        @include media($tablet) {
-            @include span-columns(8);
-        }
-
-        .list-items {
-            li {
-                @include fill-parent();
-                text-align: center;
-                background-color: #F5F4EC;
-            }
-        }
+      }
     }
+
+    .sub {
+      @include span-columns(4 of 8);
+      @include omega(2n);
+      @include pad();
+      background-color: #F5F4EC;
+
+      @include media($mobile) {
+        @include span-columns(4);
+      }
+    }
+  }
+
+  .sidebar {
+    @include span-columns(4);
+    @include pad();
+    background-color: #E4DCD3;
+    margin-right: 0px;
+
+    @include media($tablet) {
+      @include span-columns(8);
+    }
+
+    .list-items {
+      li {
+        @include fill-parent();
+        text-align: center;
+        background-color: #F5F4EC;
+      }
+    }
+  }
 }
 
 
 .list-items {
-    li {
-        @include list(3);
-    }
+  li {
+    @include list(3);
+  }
 }

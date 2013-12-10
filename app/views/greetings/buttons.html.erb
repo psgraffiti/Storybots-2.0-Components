@@ -1,12 +1,12 @@
 <div class="content"><div class="main large">
-	<h3>Buttons</h3>
-		Use the mixin <i>btn()</i> and class <i>.btn</i> for buttons. The default style is flat and the default color is Grassy Green (#19AE58).
-		Unless the style and/or color is provided, the default values will be used.
-		<br><br>
-		To use the mixin in CSS:
-		<br><br>
-		<a href="#" class="btn">anchor?</a>
-<code><pre>
+  <h3>Buttons</h3>
+  Use the mixin <i>btn()</i> and class <i>.btn</i> for buttons. The default style is flat and the default color is Grassy Green (#19AE58).
+  Unless the style and/or color is provided, the default values will be used.
+  <br><br>
+  To use the mixin in CSS:
+  <br><br>
+  
+  <code><pre>
 .btn { 
   @include btn(); 
 }
@@ -15,75 +15,75 @@
 
 &lt;a class="btn" href="#">Flat Button&lt;/a>
 </pre></code>
-		<br><br>
-		<center>
-		<table><caption>@include btn() is equivalent to:</caption>
-			<tr>
-			<td>
-				<ul>
-					<li>@include btn(flat, #19AE58)</li>
-					<li>@include btn(#19AE58)</li>
-					<li>@include btn(flat).</li>
-				</ul>
-			</td>
-			<td><center>
-				Default Button:<br>
-				<a>Flat Button</a></center>
-			</td>
-			</tr>
-		</table>
-		<br><br>
-		<table><caption>Flat buttons in different colours:</caption>
-			<tr>
-				<td><a class="btn">Flat Button</a></td>
-				<td><center>@include btn();</center></td>
-			</tr>
-			<tr>
-				<td><a class="btn"color="black">Dark Button</a></td>
-				<td><center>@include btn(#2F3443);</center></td>
-			</tr>
-			<tr>
-				<td><a class="btn"color="white">Light Button</a></td>
-				<td><center>@include btn(#F5F4EC);</center></td>
-			</tr>
-		</table><br>
-		<table style="width:100%"><caption>Raised buttons in different colours:</caption>
-			<tr>
-				<td><a class="btn" style="raised">Raised Button</a></td>
-				<td><center>@include btn(raised);</center></td>
-			</tr>
-			<tr>
-				<td><a class="btn" color="black2">Dark Button</a></td>
-				<td><center>@include btn(raised, #2F3443);</center></td>
-			</tr>
-			<tr>
-				<td><a class="btn" style="raised1">Light Button</a></td>
-				<td><center>@include btn(raised, #F5F4EC);</center></td>
-			</tr>
-		</table><br>
-		<table><caption>Link buttons in different colours:</caption>
-			<tr>
-				<td><a class="btn" style="link">Link Button</a></td>
-				<td><center>@include btn(link);</center></td>
-			</tr>
-			<tr>
-				<td><a class="btn" color="link2">Dark Button</a></td>
-				<td><center>@include btn(link, #2F3443);</center></td>
-			</tr>
-			<tr>
-				<td style="background-color:#777C88"><a class="btn" color="link3">Light Button</a></td>
-				<td><center>@include btn(link, #F5F4EC);</center></td>
-			</tr>
-		</table>
-		</center>
-		<br><br>
-	</div>
-	<div class="main large"><h3>Button Groups</h3>
-		Use the mixin <i>btn-group()</i> for button groups. Use the <i>data-toggle="buttons"</i> attribute to enable radio button like behaviour.
-		<br><br>
-		To use the mixin in CSS:
-		<br><br>
-<code><pre>
+<br><br>
+<center>
+  <table><caption>@include btn() is equivalent to:</caption>
+    <tr>
+      <td>
+        <ul>
+          <li>@include btn(flat, #19AE58)</li>
+          <li>@include btn(#19AE58)</li>
+          <li>@include btn(flat).</li>
+        </ul>
+      </td>
+      <td><center>
+        Default Button:<br>
+        <a>Flat Button</a></center>
+      </td>
+    </tr>
+  </table>
+  <br><br>
+  <table><caption>Flat buttons in different colours:</caption>
+    <tr>
+      <td><a class="btn">Flat Button</a></td>
+      <td><center>@include btn();</center></td>
+    </tr>
+    <tr>
+      <td><a class="btn"color="black">Dark Button</a></td>
+      <td><center>@include btn(#2F3443);</center></td>
+    </tr>
+    <tr>
+      <td><a class="btn"color="white">Light Button</a></td>
+      <td><center>@include btn(#F5F4EC);</center></td>
+    </tr>
+  </table><br>
+  <table style="width:100%"><caption>Raised buttons in different colours:</caption>
+    <tr>
+      <td><a class="btn" style="raised">Raised Button</a></td>
+      <td><center>@include btn(raised);</center></td>
+    </tr>
+    <tr>
+      <td><a class="btn" color="black2">Dark Button</a></td>
+      <td><center>@include btn(raised, #2F3443);</center></td>
+    </tr>
+    <tr>
+      <td><a class="btn" style="raised1">Light Button</a></td>
+      <td><center>@include btn(raised, #F5F4EC);</center></td>
+    </tr>
+  </table><br>
+  <table><caption>Link buttons in different colours:</caption>
+    <tr>
+      <td><a class="btn" style="link">Link Button</a></td>
+      <td><center>@include btn(link);</center></td>
+    </tr>
+    <tr>
+      <td><a class="btn" color="link2">Dark Button</a></td>
+      <td><center>@include btn(link, #2F3443);</center></td>
+    </tr>
+    <tr>
+      <td style="background-color:#777C88"><a class="btn" color="link3">Light Button</a></td>
+      <td><center>@include btn(link, #F5F4EC);</center></td>
+    </tr>
+  </table>
+</center>
+<br><br>
+</div>
+<div class="main large"><h3>Button Groups</h3>
+  Use the mixin <i>btn-group()</i> for button groups. Use the <i>data-toggle="buttons"</i> attribute to enable radio button like behaviour.
+  <br><br>
+  To use the mixin in CSS:
+  <br><br>
+  <code><pre>
 .btn-group { 
   @include btn-group(); 
 }
@@ -97,57 +97,61 @@
 &lt;/div&gt;
 </pre></code><br><br>
 
-		<div class="btn-group" data-toggle="buttons">
-			<a class="btn">Choice 1</a>
-	    	<a class="btn">Choice 2</a>
-	    	<a class="btn">Choice 3</a>
-	    </div><br>
-		<div class="btn-group" data-toggle="buttons">
-			<a class="btn">Choice 1</a>
-			<a class="btn">Choice 2</a>
-		</div><br>
-		<div class="btn-group" data-toggle="buttons">
-			<a class="btn">Choice 1</a>
-		</div><br>
-		<div class="btn-group" data-toggle="buttons">
-			<a class="btn" style="raised1">1</a>
-	    	<a class="btn" style="raised1">2</a>
-	    	<a class="btn" style="raised1">3</a>
-	    </div><br>
-		<div class="btn-group" data-toggle="buttons">
-			<a class="btn" style="raised1">1</a>
-			<a class="btn" style="raised1">2</a>
-		</div><br>
-		<div class="btn-group" data-toggle="buttons">
-			<a class="btn" style="raised1">1</a>
-		</div><br>
+<div class="btn-group" data-toggle="buttons">
+  <a class="btn">Choice 1</a>
+  <a class="btn">Choice 2</a>
+  <a class="btn">Choice 3</a>
+</div><br>
+<div class="btn-group" data-toggle="buttons">
+  <a class="btn">Choice 1</a>
+  <a class="btn">Choice 2</a>
+</div><br>
+<div class="btn-group" data-toggle="buttons">
+  <a class="btn">Choice 1</a>
+</div><br>
+<div class="btn-group" data-toggle="buttons">
+  <a class="btn" style="raised1">1</a>
+  <a class="btn" style="raised1">2</a>
+  <a class="btn" style="raised1">3</a>
+</div><br>
+<div class="btn-group" data-toggle="buttons">
+  <a class="btn" style="raised1">1</a>
+  <a class="btn" style="raised1">2</a>
+</div><br>
+<div class="btn-group" data-toggle="buttons">
+  <a class="btn" style="raised1">1</a>
+</div>
+<br>
+</div>
 
-	</div>
-	<div class="main large"><h3>Disabled Buttons</h3>
-		To disabled buttons, add attribute <i>disabled="disabled"</i>
-		<br><br>
-<code><pre>
+<div class="main large"><h3>Disabled Buttons</h3>
+  To disabled buttons, add attribute <i>disabled="disabled"</i>
+  <br><br>
+  <code><pre>
 &lt;a class="btn" disabled="disabled"&gt;Disabled&lt;/a&gt;
-</pre></code><br><br>
-		<a class="btn" disabled="disabled">Disabled</a><br>
-		<a class="btn" color="white" disabled="disabled">Button</a><br>
-		<a class="btn" style="link" disabled="disabled">link button</a><br>
-		<a class="btn" style="raised" disabled="disabled">button</a><br>
-		<a class="btn" color="black2" disabled="disabled">Disabled Button</a><br>
-	</div>
+  </pre></code>
+
+  <br><br>
+
+  <a class="btn" disabled="disabled">Disabled</a><br>
+  <a class="btn" color="white" disabled="disabled">Button</a><br>
+  <a class="btn" style="link" disabled="disabled">link button</a><br>
+  <a class="btn" style="raised" disabled="disabled">button</a><br>
+  <a class="btn" color="black2" disabled="disabled">Disabled Button</a><br>
+</div>
 </div>
 <div class="sidebar"><b>Mixin Definition</b><br><br>
-	@mixin btn($style: flat, $color: $default-btn-color)<br><br>
-	Optional Parameters:<br>
-	<ol>
-		<li>style</li>
-		<li>color</li>
-	</ol>
-	<br>
-	Button Styles Available:<br>
-	<ul>
-		<li>flat</li>
-		<li>raised</li>
-		<li>link</li>
-	</ul>
+  @mixin btn($style: flat, $color: $default-btn-color)<br><br>
+  Optional Parameters:<br>
+  <ol>
+    <li>style</li>
+    <li>color</li>
+  </ol>
+  <br>
+  Button Styles Available:<br>
+  <ul>
+    <li>flat</li>
+    <li>raised</li>
+    <li>link</li>
+  </ul>
 </div>

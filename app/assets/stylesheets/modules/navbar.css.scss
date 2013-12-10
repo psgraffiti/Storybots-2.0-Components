@@ -1,30 +1,30 @@
 nav {
-	@include outer-container();
-	background-color: #e4dcd3;
+  @include outer-container();
+  background-color: #e4dcd3;
 
-    .nav-items {
-        @include clearfix;
-        @include pad(0px);
+  .nav-items {
+    @include clearfix;
+    @include pad(0px);
 
-        a {
-            @include nav-font();
-            //@include fill-parent();
-            display: block;
-        }
-
-        li {
-            @include list(6);
-            background-color: inherit;
-
-            &:hover {
-                background-color: #f5f4ec;
-            }
-        }
-
-        i {
-            padding-right: 5px;
-        }
+    a {
+      @include nav-font();
+      //@include fill-parent();
+      display: block;
     }
+
+    li {
+      @include list(6);
+      background-color: inherit;
+
+      &:hover {
+        background-color: #f5f4ec;
+      }
+    }
+
+    i {
+      padding-right: 5px;
+    }
+  }
 }
 
 //
@@ -36,44 +36,44 @@ nav {
 // --------------------------------------------------
 
 .nav {
-    margin-bottom: 0;
-    padding-left: 0; // Override default ul/ol
-    list-style: none;
-    @include clearfix();
+  margin-bottom: 0;
+  padding-left: 0; // Override default ul/ol
+  list-style: none;
+  @include clearfix();
 
-    > li {
-        position: relative;
-        display: block;
+  > li {
+    position: relative;
+    display: block;
 
-        > a {
-            position: relative;
-            display: block;
-            padding: $nav-link-padding;
-            &:hover,
-            &:focus {
-                text-decoration: none;
-                background-color: $nav-link-hover-bg;
-            }
-        }
-
-        // Disabled state sets text to gray and nukes hover/tab effects
-        &.disabled > a {
-            color: $nav-disabled-link-color;
-
-            &:hover,
-            &:focus {
-                color: $nav-disabled-link-hover-color;
-                text-decoration: none;
-                background-color: transparent;
-                cursor: not-allowed;
-            }
-        }
+    > a {
+      position: relative;
+      display: block;
+      padding: $nav-link-padding;
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        background-color: $nav-link-hover-bg;
+      }
     }
 
-    // Prevent IE8 from misplacing imgs
-    > li > a > img {
-        max-width: none;
+    // Disabled state sets text to gray and nukes hover/tab effects
+    &.disabled > a {
+      color: $nav-disabled-link-color;
+
+      &:hover,
+      &:focus {
+        color: $nav-disabled-link-hover-color;
+        text-decoration: none;
+        background-color: transparent;
+        cursor: not-allowed;
+      }
     }
+  }
+
+  // Prevent IE8 from misplacing imgs
+  > li > a > img {
+    max-width: none;
+  }
 }
 
 //
@@ -87,20 +87,20 @@ nav {
 // other navbar variations.
 
 .navbar {
-    position: relative;
-    margin-bottom: $navbar-margin-bottom;
-    border: 1px solid transparent;
+  position: relative;
+  margin-bottom: $navbar-margin-bottom;
+  border: 1px solid transparent;
 
-    // Prevent floats from breaking the navbar
-    @include clearfix();
+  // Prevent floats from breaking the navbar
+  @include clearfix();
 
-    li.active {
-        color: $navbar-default-link-active-color;
-        background-color: $navbar-default-link-active-bg;
-    }
-    @include media($desktop) {
-        border-radius: $navbar-border-radius;
-    }
+  li.active {
+    color: $navbar-default-link-active-color;
+    background-color: $navbar-default-link-active-bg;
+  }
+  @include media($desktop) {
+    border-radius: $navbar-border-radius;
+  }
 }
 
 
@@ -110,11 +110,11 @@ nav {
 // styling of responsive aspects.
 
 .navbar-header {
-    @include clearfix();
+  @include clearfix();
 
-    @include media($desktop) {
-        float: left;
-    }
+  @include media($desktop) {
+    float: left;
+  }
 }
 
 
@@ -129,50 +129,50 @@ nav {
 // content for the user's viewport.
 
 .navbar-collapse {
-    @include clearfix();
-    @include transition(max-height 0.3s); //transition over max-height because doesn't work with height: auto
-    border-top: 1px solid transparent;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
-    -webkit-overflow-scrolling: touch;
-    overflow: visible;
-    max-height: 1000px;
-    height: auto;
+  @include clearfix();
+  @include transition(max-height 0.3s); //transition over max-height because doesn't work with height: auto
+  border-top: 1px solid transparent;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+  -webkit-overflow-scrolling: touch;
+  overflow: visible;
+  max-height: 1000px;
+  height: auto;
 
-    &.collapsed{
-        overflow: hidden;
-        border: 0px;
+  &.collapsed{
+    overflow: hidden;
+    border: 0px;
+  }
+
+  &.expanded {
+    @include media($tablet) {
+      .navbar-form {
+        padding-top: 5px;
+      }
+    }
+  }
+
+  @include media($desktop) {
+    width: auto;
+    border-top: 0;
+    box-shadow: none;
+
+    &.collapsed {
+      display: block;
+      height: auto;
+      max-height: 1000px;
+      padding-bottom: 0; // Override default setting
+      overflow: visible;
     }
 
     &.expanded {
-        @include media($tablet) {
-            .navbar-form {
-                padding-top: 5px;
-            }
-        }
+      height: auto;
+      max-height: 1000px;
     }
 
-    @include media($desktop) {
-        width: auto;
-        border-top: 0;
-        box-shadow: none;
-
-        &.collapsed {
-            display: block;
-            height: auto;
-            max-height: 1000px;
-            padding-bottom: 0; // Override default setting
-            overflow: visible;
-        }
-
-        &.expanded {
-            height: auto;
-            max-height: 1000px;
-        }
-
-        .navbar-text:last-child {
-            margin-right: 0;
-        }
+    .navbar-text:last-child {
+      margin-right: 0;
     }
+  }
 }
 
 
@@ -184,52 +184,52 @@ nav {
 
 // Static top (unfixed, but 100% wide) navbar
 .navbar-static-top {
-    z-index: $zindex-navbar;
-    border-width: 0 0 1px;
+  z-index: $zindex-navbar;
+  border-width: 0 0 1px;
 
-    @include media($desktop) {
-        border-radius: 0;
-    }
+  @include media($desktop) {
+    border-radius: 0;
+  }
 }
 
 // Fix the top/bottom navbars when screen real estate supports it
 .navbar-fixed-top,
 .navbar-fixed-bottom {
-    position: fixed;
-    right: 0;
-    left: 0;
-    z-index: $zindex-navbar-fixed;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: $zindex-navbar-fixed;
 
-    // Undo the rounded corners
-    @include media($desktop) {
-        border-radius: 0;
+  // Undo the rounded corners
+  @include media($desktop) {
+    border-radius: 0;
   }
 }
 .navbar-fixed-top {
-    top: 0;
-    border-width: 0 0 1px;
+  top: 0;
+  border-width: 0 0 1px;
 }
 .navbar-fixed-bottom {
-    bottom: 0;
-    margin-bottom: 0; // override .navbar defaults
-    border-width: 1px 0 0;
+  bottom: 0;
+  margin-bottom: 0; // override .navbar defaults
+  border-width: 1px 0 0;
 }
 
 
 // Brand/project name
 
 .navbar-brand {
-    float: left;
-    padding: $navbar-padding-vertical $navbar-padding-horizontal;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    font-size: $font-size-large;
-    line-height: $line-height-computed;
+  float: left;
+  padding: $navbar-padding-vertical $navbar-padding-horizontal;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: $font-size-large;
+  line-height: $line-height-computed;
 
-    &:hover,
-    &:focus {
-        text-decoration: none;
-    }
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
 }
 
 // Navbar toggle
@@ -238,18 +238,18 @@ nav {
 // JavaScript plugin.
 
 .navbar-toggle {
-    position: relative;
-    float: right;
-    margin-right: $navbar-padding-horizontal;
-    padding: 9px 10px;
-    background-color: transparent;
-    border: 1px solid transparent;
-    border-radius: $border-radius-base;
+  position: relative;
+  float: right;
+  margin-right: $navbar-padding-horizontal;
+  padding: 9px 10px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: $border-radius-base;
 
-    // Added "!important" to apply to <button> (not just <a>)
-    @include media($desktop) {
-        display: none !important;
-    }
+  // Added "!important" to apply to <button> (not just <a>)
+  @include media($desktop) {
+    display: none !important;
+  }
 }
 
 
@@ -259,25 +259,25 @@ nav {
 // the nav the full height of the horizontal nav (above 768px).
 
 .navbar-nav {
-    > li > a {
-        padding-top:    10px;
-        padding-bottom: 10px;
-        line-height: $line-height-computed;
-    }
+  > li > a {
+    padding-top:    10px;
+    padding-bottom: 10px;
+    line-height: $line-height-computed;
+  }
 
-    // Uncollapse the nav
-    @include media($desktop) {
-        float: left;
-        margin: 0;
+  // Uncollapse the nav
+  @include media($desktop) {
+    float: left;
+    margin: 0;
 
-        > li {
-            float: left;
-            > a {
-                padding-top: (($navbar-height - $line-height-computed) / 2);
-                padding-bottom: (($navbar-height - $line-height-computed) / 2);
-            }
-        }
+    > li {
+      float: left;
+      > a {
+        padding-top: (($navbar-height - $line-height-computed) / 2);
+        padding-bottom: (($navbar-height - $line-height-computed) / 2);
+      }
     }
+  }
 }
 
 
@@ -288,12 +288,12 @@ nav {
 // though so that navbar contents properly stack and align in mobile.
 
 @include media($desktop) {
-    .navbar-left  { 
-        float: left !important;
-    }
-    .navbar-right { 
-        float: right !important; 
-    }
+  .navbar-left  { 
+    float: left !important;
+  }
+  .navbar-right { 
+    float: right !important; 
+  }
 }
 
 
@@ -303,168 +303,168 @@ nav {
 // our navbars.
 
 .navbar-form {
-    margin-top: 0px;
-    margin-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 
-    border-top: 1px solid transparent;
-    border-bottom: 1px solid transparent;
-    $shadow: inset 0px 1px 0px rgba(255,255,255,.1), 0px 1px 0px rgba(255,255,255,.1);
-    @include box-shadow($shadow);
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  $shadow: inset 0px 1px 0px rgba(255,255,255,.1), 0px 1px 0px rgba(255,255,255,.1);
+  @include box-shadow($shadow);
 
-    display: block;
+  display: block;
 
-    // Mixin behavior for optimum display
-    @include form-inline();
+  // Mixin behavior for optimum display
+  @include form-inline();
 
-    .form-group {
-        @include media($tablet) {
-            @include pad(5px);
-            margin-bottom: 5px;
+  .form-group {
+    @include media($tablet) {
+      @include pad(5px);
+      margin-bottom: 5px;
 
-            .form-control {
-                width: 100%;
-            }
-        }
+      .form-control {
+        width: 100%;
+      }
     }
+  }
 
-    // Undo 100% width for pull classes
-    @include media($desktop) {
-        width: auto;
-        border: 0px;
-        margin-left: 0px;
-        margin-right: 0px;
-        padding-top: 0px;
-        padding-bottom: 0px;
-        @include box-shadow(none);
-    }
+  // Undo 100% width for pull classes
+  @include media($desktop) {
+    width: auto;
+    border: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    @include box-shadow(none);
+  }
 }
 
 // Default navbar
 .navbar-default {
-    background-color: $navbar-default-bg;
+  background-color: $navbar-default-bg;
+  border-color: $navbar-default-border;
+
+  .navbar-brand {
+    color: $navbar-default-brand-color;
+    &:hover,
+    &:focus {
+      color: $navbar-default-brand-hover-color;
+      background-color: $navbar-default-brand-hover-bg;
+    }
+  }
+
+  .navbar-text {
+    color: $navbar-default-color;
+  }
+
+  .navbar-nav {
+    > li > a {
+      color: $navbar-default-link-color;
+
+      &:hover,
+      &:focus {
+        color: $navbar-default-link-hover-color;
+        background-color: $navbar-default-link-hover-bg;
+      }
+    }
+    > .disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $navbar-default-link-disabled-color;
+        background-color: $navbar-default-link-disabled-bg;
+      }
+    }
+  }
+
+  .navbar-toggle {
+    border-color: $navbar-default-toggle-border-color;
+    &:hover,
+    &:focus {
+      background-color: $navbar-default-toggle-hover-bg;
+    }
+    .icon-bar {
+      background-color: $navbar-default-toggle-icon-bar-bg;
+    }
+  }
+
+  .navbar-collapse,
+  .navbar-form {
     border-color: $navbar-default-border;
+  }
 
-    .navbar-brand {
-        color: $navbar-default-brand-color;
-        &:hover,
-        &:focus {
-            color: $navbar-default-brand-hover-color;
-            background-color: $navbar-default-brand-hover-bg;
-        }
+  // Links in navbars
+  //
+  // Add a class to ensure links outside the navbar nav are colored correctly.
+  .navbar-link {
+    color: $navbar-default-link-color;
+    &:hover {
+      color: $navbar-default-link-hover-color;
     }
+  }
 
-    .navbar-text {
-        color: $navbar-default-color;
-    }
-
-    .navbar-nav {
-        > li > a {
-            color: $navbar-default-link-color;
-
-            &:hover,
-            &:focus {
-                color: $navbar-default-link-hover-color;
-                background-color: $navbar-default-link-hover-bg;
-            }
-        }
-        > .disabled > a {
-            &,
-            &:hover,
-            &:focus {
-                color: $navbar-default-link-disabled-color;
-                background-color: $navbar-default-link-disabled-bg;
-            }
-        }
-    }
-
+  &.small {
     .navbar-toggle {
-        border-color: $navbar-default-toggle-border-color;
-        &:hover,
-        &:focus {
-            background-color: $navbar-default-toggle-hover-bg;
-        }
-        .icon-bar {
-            background-color: $navbar-default-toggle-icon-bar-bg;
-        }
+      float: none;
+      
+      // Added "!important" to apply to <button> (not just <a>)
+      @include media($desktop) {
+        display: inline-block !important;
+      }
     }
 
-    .navbar-collapse,
-    .navbar-form {
-        border-color: $navbar-default-border;
+    @include media($desktop) {
+      .navbar-collapse {
+        display: none;
+      }
     }
-
-    // Links in navbars
-    //
-    // Add a class to ensure links outside the navbar nav are colored correctly.
-    .navbar-link {
-        color: $navbar-default-link-color;
-        &:hover {
-            color: $navbar-default-link-hover-color;
-        }
-    }
-
-    &.small {
-        .navbar-toggle {
-        float: none;
-        
-            // Added "!important" to apply to <button> (not just <a>)
-            @include media($desktop) {
-                display: inline-block !important;
-            }
-        }
-
-        @include media($desktop) {
-            .navbar-collapse {
-                display: none;
-            }
-        }
-    }
+  }
 }
 
 .main-navbar {
-    @include inline-block();
-    width: 100%;
-    height: 80px;
-    background-color: $black;
-    position: relative;
+  @include inline-block();
+  width: 100%;
+  height: 80px;
+  background-color: $black;
+  position: relative;
 
-    &.static-top {
-        position: absolute;
-        top: 0px;
-    }
+  &.static-top {
+    position: absolute;
+    top: 0px;
+  }
 
-    .navbar-left {
-        margin-left: 20px;
-        float: left;
-    }
+  .navbar-left {
+    margin-left: 20px;
+    float: left;
+  }
 
-    .navbar-right {
-        margin-right: 20px;
-        float: right;
-    }
+  .navbar-right {
+    margin-right: 20px;
+    float: right;
+  }
+
+  .navbar-left,
+  .navbar-right {
+    top: 50%;
+    @include transform(translateY(-50%));
+  }
+
+  .btn {
+    @include pad(12px 15px);
+    margin: 0px;
+    font-size: 20px;
+  }
+
+  @include media($tablet) {
+    height: 50px;
 
     .navbar-left,
     .navbar-right {
-        top: 50%;
-        @include transform(translateY(-50%));
+      margin: 0px;
     }
 
     .btn {
-        @include pad(12px 15px);
-        margin: 0px;
-        font-size: 20px;
+      border-radius: 0px;
     }
-
-    @include media($tablet) {
-        height: 50px;
-
-        .navbar-left,
-        .navbar-right {
-            margin: 0px;
-        }
-
-        .btn {
-            border-radius: 0px;
-        }
-    }
+  }
 }

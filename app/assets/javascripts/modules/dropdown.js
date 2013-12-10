@@ -158,21 +158,21 @@ $(document).ready(function(){
     }
 
     function determineMaxHeights(elements) {
-      if($(elements).attr('my-height')) return;
+      if ($(elements).attr('my-height')) return;
 
       var maxHeight = -1;
       elements.each(function() {
         if ($(this).height() > maxHeight)
           maxHeight = $(this).height()
       })
-      
+
       elements.each(function() {
         $(this).attr('my-height', maxHeight)
       })
     }
 
     function setMaxHeights(elements) {
-      if(!$(elements).attr('my-height')) {
+      if (!$(elements).attr('my-height')) {
         determineMaxHeights(elements)
       }
       var maxHeight = $(elements).attr('my-height')

@@ -1,23 +1,23 @@
 @mixin list($num-items, $total-columns: $grid-columns) {
-	$x: $total-columns / $num-items;
+  $x: $total-columns / $num-items;
 
-    @include span-columns($x);
-    @include omega(#{$num-items}n);
-    @include pad();
-    
-    margin-top:5px;
-    margin-bottom: 5px;
-    text-align: center;
-    list-style: none;
-    background-color: #BDBDC2;
+  @include span-columns($x);
+  @include omega(#{$num-items}n);
+  @include pad();
+  
+  margin-top:5px;
+  margin-bottom: 5px;
+  text-align: center;
+  list-style: none;
+  background-color: #BDBDC2;
 
-    @include media($tablet) {
-        @include span-columns(8);
-        @include omega();
-    }
+  @include media($tablet) {
+    @include span-columns(8);
+    @include omega();
+  }
 
-    @include media($mobile) {
-        @include span-columns(4);
-        @include omega();
-    }
+  @include media($mobile) {
+    @include span-columns(4);
+    @include omega();
+  }
 }

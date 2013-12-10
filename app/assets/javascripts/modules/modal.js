@@ -38,7 +38,7 @@ $(document).ready(function(){
       this.$element.on('click.dismiss.modal', '[data-dismiss="modal"]', $.proxy(this.hide, this))
 
       this.backdrop(function () {
-        var transition = that.$element.hasClass('fade')
+        var transition = $.support.transition && that.$element.hasClass('fade')
 
         if (!that.$element.parent().length) {
           that.$element.appendTo(document.body) // don't move modals dom position
@@ -50,7 +50,9 @@ $(document).ready(function(){
           that.$element[0].offsetWidth // force reflow
         }
 
-        that.$element.addClass('in').attr('aria-hidden', false)
+        that.$element
+          .addClass('in')
+          .attr('aria-hidden', false)
 
         // Centre the modal
         var $mine = that.$element.find('.modal-dialog')
@@ -69,7 +71,7 @@ $(document).ready(function(){
 
         transition ?
           that.$element.find('.modal-dialog') // wait for modal to slide in
-            .one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function () {
+            .one($.support.transition.end, function () {
               that.$element.focus().trigger(e)
             })
             :
@@ -107,8 +109,8 @@ $(document).ready(function(){
         .attr('aria-hidden', true)
         .off('click.dismiss.modal')
 
-      this.$element.hasClass('fade') ?
-        this.$element.one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', $.proxy(this.hideModal, this))
+      $.support.transition && this.$element.hasClass('fade') ?
+        this.$element.one($.support.transition.end, $.proxy(this.hideModal, this))
           :
         this.hideModal()
     }
@@ -152,7 +154,7 @@ $(document).ready(function(){
       var animate = this.$element.hasClass('fade') ? 'fade' : ''
 
       if (this.isShown && this.options.backdrop) {
-        var doAnimate = animate == 'fade'
+        var doAnimate = $.support.transition && animate
 
         this.$backdrop = $('<div class="modal-backdrop ' + animate + '" />').appendTo(document.body)
 
@@ -170,15 +172,15 @@ $(document).ready(function(){
         if (!callback) return
 
         doAnimate ?
-          this.$backdrop.one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', callback)
+          this.$backdrop.one($.support.transition.end, callback)
           :
           callback()
 
       } else if (!this.isShown && this.$backdrop) {
         this.$backdrop.removeClass('in')
 
-        this.$element.hasClass('fade') ?
-          this.$backdrop.one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', callback)
+        $.support.transition && this.$element.hasClass('fade') ?
+          this.$backdrop.one($.support.transition.end, callback)
           :
           callback()
 

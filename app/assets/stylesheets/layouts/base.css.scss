@@ -2,71 +2,71 @@
 // Striped Backgrounds
 // -------------------------------------------------------------------
 @mixin striped-bkgrd($color: $default-code-background, $type: horizontal) {
-    @include background-size(50px, 50px); /* Controls the size of the stripes */
+  @include background-size(50px, 50px); /* Controls the size of the stripes */
 
-    @if type-of($color) != color {
-        $type: $color;
-        $color: $default-code-background;
-    }
+  @if type-of($color) != color {
+    $type: $color;
+    $color: $default-code-background;
+  }
 
-    @if $type == angled {
-        @include linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
-                                transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
-                                transparent 75%, transparent, $fallback: $color);
-    }
-        
-    @if $type == angled-135 {
-        @include linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
-                                transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
-                                transparent 75%, transparent, $fallback: $color);
-    }
+  @if $type == angled {
+    @include linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+      transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+      transparent 75%, transparent, $fallback: $color);
+  }
+  
+  @if $type == angled-135 {
+    @include linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+      transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+      transparent 75%, transparent, $fallback: $color);
+  }
 
-    @if $type == horizontal {
-        @include linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent, $fallback: $color);
-    }
+  @if $type == horizontal {
+    @include linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent, $fallback: $color);
+  }
 }
 
 html {
-    background-color: #ABCEE1;
+  background-color: #ABCEE1;
 }
 
 body {
-    font-family: ProximaNova;
-    color: #2F3442;
-    margin: 0px;
+  font-family: ProximaNova;
+  color: #2F3442;
+  margin: 0px;
 }
 
 code {
-    display: block;
-    overflow: auto;
-    @include pad(20px);
-    
-    background-color: $default-code-background;
-    border: 1px solid #D8D8D8;
+  display: block;
+  overflow: auto;
+  @include pad(20px);
+  
+  background-color: $default-code-background;
+  border: 1px solid #D8D8D8;
 
-    font-family: ProximaNova;
-    font-style: italic;
-    color: #2F3442;
+  font-family: ProximaNova;
+  font-style: italic;
+  color: #2F3442;
 }
 
 table {
-    @include well();
-    @include striped-bkgrd(angled-135);
-    width: 80%;
+  @include well();
+  @include striped-bkgrd(angled-135);
+  width: 80%;
 }
 
 input {
-    &[type="text"] {
-        @include pad(10px);
-        border-radius: 5px;
-        border: solid 1px $white;
-    }
+  &[type="text"] {
+    @include pad(10px);
+    border-radius: 5px;
+    border: solid 1px $white;
+  }
 }
 
 ul, ol {
-    margin: 0px;
+  margin: 0px;
 }
 
 .container {
-    display: inline-block;
+  display: inline-block;
 }

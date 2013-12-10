@@ -1,41 +1,44 @@
 <div class="content"><div class="main large">
-    <h3>Dropdowns</h3>
-    The <i>caret</i> mixin creates a caret that can be placed inline with text.<br>
-    The <i>dropdown-menu</i> mixin wraps around the menu options in the dropdown.<br>
-    The class <i>divider</i> can be used to make a line separator in the drop down menu.<br>
-    The attribute <i>disabled="disabled"</i> can be used to disable menu options.<br><br>
+  <h3>Dropdowns</h3>
+  The <i>caret</i> mixin creates a caret that can be placed inline with text.<br>
+  The <i>dropdown-menu</i> mixin wraps around the menu options in the dropdown.<br>
+  The class <i>divider</i> can be used to make a line separator in the drop down menu.<br>
+  The attribute <i>disabled="disabled"</i> can be used to disable menu options.<br><br>
 
-<code><pre>
+  <code><pre>
 .caret {
-    @include caret(white);
+  @include caret(white);
 }
 .dropdown-menu {
-    @include dropdown-menu(false);
+  @include dropdown-menu(false);
 }
 
 ...
 
 &lt;div class="dropdown"&gt;
+
   &lt;a class="btn dropdown-toggle" id="dropdownMenu1" toggle-type="dropdown"&gt;
     Dropdown Button
     &lt;span class="caret"&gt;&lt;/span&gt;
   &lt;/a&gt;
+
   &lt;ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1"&gt;
     &lt;li class="header"&gt;Dropdown Header&lt;/li&gt;
-      &lt;li&gt;&lt;a role="menuitem" href="#"&gt;Action&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a role="menuitem" href="#"&gt;Another action&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a role="menuitem" href="#"&gt;Something&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a role="menuitem" href="#"&gt;Action&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a role="menuitem" href="#"&gt;Another action&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a role="menuitem" href="#"&gt;Something&lt;/a&gt;&lt;/li&gt;
     &lt;li class="divider"&gt;&lt;/li&gt;
-      &lt;li &gt;&lt;a role="menuitem" href="#"&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+    &lt;li &gt;&lt;a role="menuitem" href="#"&gt;Separated link&lt;/a&gt;&lt;/li&gt;
     &lt;li class="divider"&gt;&lt;/li&gt;
-      &lt;li &gt;&lt;a disabled="disabled" role="menuitem" href="#"&gt;Disabled&lt;/a&gt;&lt;/li&gt;
+    &lt;li &gt;&lt;a disabled="disabled" role="menuitem" href="#"&gt;Disabled&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
+
 &lt;/div&gt;
 </pre></code>
 
 </div></div>
 <div class="sidebar"><b>Mixin Definition</b><br><br>
-@mixin dropdown-menu($back-color: $default-dropdown-background, $text-color: $default-dropdown-text-color, $use-caret: true)<br><br>
+  @mixin dropdown-menu($back-color: $default-dropdown-background, $text-color: $default-dropdown-text-color, $use-caret: true)<br><br>
   Optional Parameters:<br>
   <ol>
     <li>background color (default is $default-dropdown-background)</li>
@@ -45,82 +48,124 @@
 </div>
 
 <div class="content large"><div class="main large">
-    Use <i>dropdown</i> as the class to wrap around the element being used to launch the dropdown, and the dropdown menu itself. The element used to trigger the dropdown should have class <i>dropdown-toggle</i> and attribute <i>toggle-type="dropdown"</i>. Use <i>dropdown-menu</i> as the class name for the dropdown menu.
+  Use <i>dropdown</i> as the class to wrap around the element being used to launch the dropdown, and the dropdown menu itself. The element used to trigger the dropdown should have class <i>dropdown-toggle</i> and attribute <i>toggle-type="dropdown"</i>. Use <i>dropdown-menu</i> as the class name for the dropdown menu.
+  <br><br>
+  When using the <i>dropdown-menu</i> mixin, the first color provided will supply the background-color. The second color is for the text. All parameters are optional. If only the caret state and a colour are provided, the color will be used on the background, and the text colour will be set to default.<br>
+  The default background color is #ECECF2, the default text color is #6D707B, the default to use a caret or not is false.
+  <br><br>
+
+  <center>
+    <table>
+      <tr>
+        <td>
+          <div class="dropdown">
+            <a class="btn dropdown-toggle" id="dropdownMenu1" toggle-type="dropdown">
+              Dropdown Button
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+              <li class="header">Dropdown Header</li>
+              <li><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+              <li><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+              <li><a role="menuitem" tabindex="-1" href="#">Something</a></li>
+              <li class="divider"></li>
+              <li><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+              <li class="divider"></li>
+              <li role="presentation"><a disabled="disabled" role="menuitem" tabindex="-1" href="#">Disabled</a></li>
+            </ul>
+          </div>
+        </td>
+        <td>
+          @include dropdown-menu(false);
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="dropdown">
+            <a color="white" class="btn dropdown-toggle" id="dropdownMenu1" toggle-type="dropdown">
+              Dropdown Button
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu light" role="menu" aria-labelledby="dropdownMenu1">
+              <li role="presentation" class="header">Dropdown Header</li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something</a></li>
+              <li role="presentation" class="divider"></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+              <li role="presentation" class="divider"></li>
+              <li role="presentation"><a disabled="disabled" role="menuitem" tabindex="-1" href="#">Disabled</a></li>
+            </ul>
+          </div>
+        </td>
+        <td>
+          @include dropdown-menu(#19AE58, true);
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="dropdown">
+            <a color="black" class="btn dropdown-toggle" id="dropdownMenu1" toggle-type="dropdown">
+              Dropdown Button
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu dark" role="menu" aria-labelledby="dropdownMenu1">
+              <li role="presentation" class="header">Dropdown Header</li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+              <li role="presentation" class="divider"></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+              <li role="presentation" class="divider"></li>
+              <li role="presentation"><a disabled="disabled" role="menuitem" tabindex="-1" href="#">Disabled</a></li>
+            </ul>
+          </div>
+        </td>
+        <td>
+          @include dropdown-menu(#47476B, #E5E5E9, true);
+        </td>
+      </tr>
+    </table></center>
+
     <br><br>
-    When using the <i>dropdown-menu</i> mixin, the first color provided will supply the background-color. The second color is for the text. All parameters are optional. If only the caret state and a colour are provided, the color will be used on the background, and the text colour will be set to default.<br>
-    The default background color is #ECECF2, the default text color is #6D707B, the default to use a caret or not is false.
+    To use a dropdown button in a button group, the dropdown button must be placed in it's own button group.
     <br><br>
 
-    <center>
-    <table>
-    <tr>
-        <td>
-            <div class="dropdown">
-                <a class="btn dropdown-toggle" id="dropdownMenu1" toggle-type="dropdown">
-                    Dropdown Button
-                    <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                    <li class="header">Dropdown Header</li>
-                      <li><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-                      <li><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-                      <li><a role="menuitem" tabindex="-1" href="#">Something</a></li>
-                    <li class="divider"></li>
-                      <li><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-                    <li class="divider"></li>
-                      <li role="presentation"><a disabled="disabled" role="menuitem" tabindex="-1" href="#">Disabled</a></li>
-                </ul>
-            </div>
-        </td>
-        <td>
-            @include dropdown-menu(false);
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <div class="dropdown">
-                <a color="white" class="btn dropdown-toggle" id="dropdownMenu1" toggle-type="dropdown">
-                    Dropdown Button
-                    <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu light" role="menu" aria-labelledby="dropdownMenu1">
-                    <li role="presentation" class="header">Dropdown Header</li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something</a></li>
-                    <li role="presentation" class="divider"></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-                    <li role="presentation" class="divider"></li>
-                      <li role="presentation"><a disabled="disabled" role="menuitem" tabindex="-1" href="#">Disabled</a></li>
-                </ul>
-            </div>
-        </td>
-        <td>
-            @include dropdown-menu(#19AE58, true);
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <div class="dropdown">
-                <a color="black" class="btn dropdown-toggle" id="dropdownMenu1" toggle-type="dropdown">
-                    Dropdown Button
-                    <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu dark" role="menu" aria-labelledby="dropdownMenu1">
-                    <li role="presentation" class="header">Dropdown Header</li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-                    <li role="presentation" class="divider"></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-                    <li role="presentation" class="divider"></li>
-                      <li role="presentation"><a disabled="disabled" role="menuitem" tabindex="-1" href="#">Disabled</a></li>
-                </ul>
-            </div>
-        </td>
-        <td>
-            @include dropdown-menu(#47476B, #E5E5E9, true);
-        </td>
-    </tr>
-    </table></center>
+    <div class="btn-group">
+      <a class="btn"><i class="fa fa-home"></i></a>
+      <div class="btn-group">
+        <a class="btn dropdown-toggle" id="dropdownMenu1" toggle-type="dropdown"><i class="fa fa-bars"></i></a>
+        <ul class="dropdown-menu use-caret" role="menu" aria-labelledby="dropdownMenu1">
+          <li class="header">Dropdown Header</li>
+          <li><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+          <li><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+          <li><a role="menuitem" tabindex="-1" href="#">Something</a></li>
+          <li class="divider"></li>
+          <li><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+          <li class="divider"></li>
+          <li role="presentation"><a disabled="disabled" role="menuitem" tabindex="-1" href="#">Disabled</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <br><br>
+
+<code><pre>
+&lt;div class="btn-group">
+  &lt;a class="btn">&lt;i class="fa fa-home">&lt;/i>&lt;/a>
+  &lt;div class="btn-group">
+    &lt;a class="btn dropdown-toggle" id="dropdownMenu1" toggle-type="dropdown">&lt;i class="fa fa-bars">&lt;/i>&lt;/a>
+    &lt;ul class="dropdown-menu use-caret" role="menu" aria-labelledby="dropdownMenu1">
+      &lt;li class="header">Dropdown Header&lt;/li>
+      &lt;li>&lt;a role="menuitem" tabindex="-1" href="#">Action&lt;/a>&lt;/li>
+      &lt;li>&lt;a role="menuitem" tabindex="-1" href="#">Another action&lt;/a>&lt;/li>
+      &lt;li>&lt;a role="menuitem" tabindex="-1" href="#">Something&lt;/a>&lt;/li>
+      &lt;li class="divider">&lt;/li>
+      &lt;li>&lt;a role="menuitem" tabindex="-1" href="#">Separated link&lt;/a>&lt;/li>
+      &lt;li class="divider">&lt;/li>
+      &lt;li role="presentation">&lt;a disabled="disabled" role="menuitem" tabindex="-1" href="#">Disabled&lt;/a>&lt;/li>
+    &lt;/ul>
+  &lt;/div>
+&lt;/div>
+</pre></code>
 </div></div>
