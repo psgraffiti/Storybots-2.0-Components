@@ -1,10 +1,8 @@
 .contain {
   @include outer-container;
 }
-.tablelike {
-  li {
-    @include list(2);
-  }
+.tablelike li {
+  @include list(2);
 }
 
 .btn {
@@ -29,16 +27,6 @@
 
 .btn[style="raised1"] {
   @include btn(raised, #f5f4ec);
-}
-
-.btn[style="link"] {
-  @include btn(link, $default-btn-color);
-}
-.btn[color="link2"] {
-  @include btn(link, #2F3443);
-}
-.btn[color="link3"] {
-  @include btn(link, #f5f4ec);
 }
 
 .btn-group {

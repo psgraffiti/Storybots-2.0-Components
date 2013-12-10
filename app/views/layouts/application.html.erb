@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="initial-scale=1">
   <title>Sb2</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
@@ -9,7 +10,7 @@
 <body>
   <div class="main-navbar">
     <div class="btn-group navbar-left">
-      <a class="btn"><i class="fa fa-home"></i></a>
+      <a class="btn" href="/greetings/hello"><i class="fa fa-home"></i></a>
       <div class="btn-group">
         <a class="btn dropdown-toggle" id="dropdown-menu-nav" toggle-type="dropdown"><i class="fa fa-bars"></i></a>
         <ul class="dropdown-menu use-caret dropdown-menu-table responsive-nav" role="menu" aria-labelledby="dropdown-menu-nav">
@@ -69,18 +70,6 @@
         <h2>Aww look. Another header</h2>
       </div>
     </div>
-
-<!--  This was the old nav bar
-    <div class="page"><nav>
-        <ul class="nav-items">
-            <li> <a class="btn-nav" href="/greetings/hello"><i class="fa fa-home"></i>Hello</a></li>
-            <li> <a class="btn-nav" href="/greetings/buttons"><i class="fa fa-youtube-play"></i>Buttons</a></li>
-            <li> <a class="btn-nav" href="/greetings/dropdowns"><i class="fa fa-bars"></i>Dropdowns</a></li>
-            <li> <a class="btn-nav" href="/greetings/modals"><i class="fa fa-archive"></i>Modals</a></li>
-            <li> <a class="btn-nav" href="/greetings/navbars"><i class="fa fa-beer"></i>Navbars</a></li>
-            <li> <a class="btn-nav" href="#">Link 6</a></li>
-        </ul>
-      </nav></div> -->
       <%= yield %>
     </div>
 

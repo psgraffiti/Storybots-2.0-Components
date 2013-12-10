@@ -6,22 +6,11 @@
 //update docs
 
 @mixin btn($style, $color) {
-/*@mixin btn($style: flat, $color: $default-btn-color) {
-
-// If only color was specified
-@if type-of($style) == color {
-  $color: $style;
-  $style: flat;
-  }*/
-
   @if $style == flat {
     @include btn-flat($color);
   }
   @else if $style == raised {
     @include btn-raised($color);
-  }
-  @else if $style == link {
-    @include btn-link($color);
   }
 
   @include user-select(none);
@@ -161,56 +150,6 @@
         top: 0px;
         box-shadow: 0px 5px 0px $shadow-color;
       }
-    }
-  }
-}
-
-//
-// Link Button (Not needed)
-// -------------------------------------------------------------------
-
-@mixin btn-link($color) {
-  color: $color;
-  font-weight: normal;
-  cursor: pointer;
-  border-radius: 0;
-
-  &,
-  &:active,
-  &[disabled],
-  fieldset[disabled] & {
-    background-color: transparent;
-    box-shadow: none;
-  }
-
-  &.hover,
-  &:hover {
-    &.active,
-    &:active {
-      border-color: transparent;
-      box-shadow: none;
-    }
-  }
-
-  &.hover,
-  &:hover {
-    text-decoration: underline;
-    background-color: transparent;
-  }
-
-  &:disabled,
-  &[disabled] {
-
-    &:hover,
-    &:focus {
-      text-decoration: none;
-    }
-  }
-
-  &.navbar-brand,
-  &.dropdown-toggle {
-    &:hover {
-      text-decoration: none;
     }
   }
 }

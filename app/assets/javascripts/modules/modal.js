@@ -1,8 +1,10 @@
+//
+// MODAL CLASS DEFINITION
+// ==============================
+//
+
 $(document).ready(function(){  
   +function ($) { "use strict";
-
-    // MODAL CLASS DEFINITION
-    // ======================
 
     var Modal = function (element, options) {
       this.options   = options

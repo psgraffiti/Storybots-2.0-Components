@@ -1,14 +1,16 @@
+//
+// DROPDOWN CLASS DEFINITION
+// ==============================
+//
+
 $(document).ready(function(){
   +function ($) { "use strict";
 
-    // DROPDOWN CLASS DEFINITION
-    // =========================
-
     var dropdownNav = '.responsive-nav'
-    var backdrop = '.dropdown-backdrop'
-    var toggle   = '[toggle-type=dropdown]'
-    var $navbar   = $('.main-navbar')
-    var navbarSM = '50px'
+    var backdrop    = '.dropdown-backdrop'
+    var toggle      = '[toggle-type=dropdown]'
+    var $navbar     = $('.main-navbar')
+    var navbarSM    = '50px'
 
     var Dropdown = function (element) {
       var $el = $(element).on('click.dropdown', this.toggle)
@@ -80,38 +82,7 @@ $(document).ready(function(){
       $this.children('.fa').toggleClass('fa-chevron-down')
     }
 
-    Dropdown.prototype.keydown = function (e) {
-      if (!/(38|40|27)/.test(e.keyCode)) return
-
-      var $this = $(this)
-
-      e.preventDefault()
-      e.stopPropagation()
-
-      if ($this.is('.disabled, :disabled')) return
-
-      var $parent = getParent($this)
-      var isOpen = $parent.hasClass('is-open')
-
-      if (!isOpen || (isOpen && e.keyCode == 27)) {
-        if (e.which == 27) $parent.find(toggle).focus()
-        return $this.click()
-      }
-
-      var $items = $('[role=menu] li:not(.divider):visible a', $parent)
-
-      if (!$items.length) return
-
-      var index = $items.index($items.filter(':focus'))
-
-      if (e.keyCode == 38 && index > 0)                 index-- // up
-      if (e.keyCode == 40 && index < $items.length - 1) index++ // down
-      if (!~index)                                      index=0
-
-      $items.eq(index).focus()
-    }
-
-    $(window).resize(function(){debugger
+    $(window).resize(function(){
       var $dropdownNav = $(dropdownNav)
       if ($navbar.css('height') == navbarSM ){
         $dropdownNav.css('width', $(window).width())
@@ -131,9 +102,13 @@ $(document).ready(function(){
       $(toggle).each(function (e) {
         var $parent = getParent($(this))
         if (!$parent.hasClass('is-open')) return
+
         if ($(this).siblings('ul').hasClass(dropdownNav) && $navbar.css('height') == navbarSM) return
+
         $parent.trigger(e = $.Event('hide.dropdown'))
+
         if (e.isDefaultPrevented()) return
+
         $parent
           .removeClass('is-open')
           .trigger('hidden.dropdown')
@@ -194,13 +169,14 @@ $(document).ready(function(){
 
     var old = $.fn.dropdown
 
-    $.fn.dropdown = function (option) {
+    $.fn.dropdown = function () {
       return this.each(function () {
         var $this = $(this)
         var data  = $this.data('dropdown')
 
-        if (!data) $this.data('dropdown', (data = new Dropdown(this)))
-        if (typeof option == 'string') data[option].call($this)
+        if (!data) {
+          $this.data('dropdown', (data = new Dropdown(this)))
+        }
       })
     }
 
@@ -224,8 +200,8 @@ $(document).ready(function(){
       .on('click.dropdown', '.dropdown form', function (e) { e.stopPropagation() })
       .on('click.dropdown', '.dropdown-menu-table', function (e) { e.stopPropagation() })
       .on('click.dropdown', toggle, Dropdown.prototype.toggle)
+
       .on('click.header'  , '.dropdown-menu .header', Dropdown.prototype.toggleHeader)
-      .on('keydown.dropdown', toggle + ', [role=menu]' , Dropdown.prototype.keydown)
 
   }(jQuery);
 });
