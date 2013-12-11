@@ -4,6 +4,8 @@ Sb2::Application.routes.draw do
   get "greetings/dropdowns"
   get "greetings/modals"
   get "greetings/navbars"
+  get "greetings/typography"
+  get "greetings/defaults"
 
   root :to => "greetings#hello"
 

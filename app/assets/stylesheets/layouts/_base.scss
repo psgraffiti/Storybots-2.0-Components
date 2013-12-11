@@ -1,0 +1,45 @@
+html {
+  background-color: #ABCEE1;
+}
+
+body {
+  font-family: ProximaNova;
+  color: #2F3442;
+  margin: 0px;
+}
+
+code {
+  @include pad(20px);
+  display: block;
+  overflow: auto;
+  
+  background-color: $default-code-background;
+  border: 1px solid #D8D8D8;
+
+  font-family: ProximaNova;
+  font-style: italic;
+  font-size: 14px;
+  color: #2F3442;
+}
+
+table {
+  @include striped-bkgrd(angled-135);
+  border-collapse: separate;
+  width: 80%;
+}
+
+input {
+  &[type="text"] {
+    @include pad(10px);
+    border-radius: 5px;
+    border: solid 1px $white;
+  }
+}
+
+ul, ol {
+  margin: 0px;
+}
+
+.container {
+  display: inline-block;
+}

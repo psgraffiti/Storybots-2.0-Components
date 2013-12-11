@@ -1,3 +1,3 @@
-@include modal(small, $default-modal-background, $default-modal-border, $default-modal-text-color);
-@include modal(large, #074A7B, $default-modal-border, #F5F4EC);
-@include modal(size, $default-modal-background, $default-modal-border, $default-modal-text-color, 950px);
+@include modal(small, $default-modal-background, $default-modal-text-color, $default-modal-border);
+@include modal(large, #074A7B, #F5F4EC, $default-modal-border);
+@include modal(size, $default-modal-background, $default-modal-text-color, $default-modal-border, 950px);

@@ -1,4 +1,34 @@
 //
+// Helper Functions
+// -------------------------------------------------------------------
+
+@mixin background-size($width, $height) {
+  -webkit-background-size: $width $height;
+  -moz-background-size: $width $height;
+  background-size: $width $height;
+}
+
+@mixin border-radius-right($x) {
+  border-top-right-radius: $x;
+  border-bottom-right-radius: $x;
+}
+
+@mixin border-radius-left($x) {
+  border-top-left-radius: $x;
+  border-bottom-left-radius: $x;
+}
+
+@mixin border-radius-top($x) {
+  border-top-right-radius: $x;
+  border-top-left-radius: $x;
+}
+
+@mixin border-radius-bottom($x) {
+  border-bottom-right-radius: $x;
+  border-bottom-left-radius: $x;
+}
+
+//
 // Striped Backgrounds
 // -------------------------------------------------------------------
 @mixin striped-bkgrd($color: $default-code-background, $type: horizontal) {
@@ -26,47 +56,3 @@
   }
 }
 
-html {
-  background-color: #ABCEE1;
-}
-
-body {
-  font-family: ProximaNova;
-  color: #2F3442;
-  margin: 0px;
-}
-
-code {
-  display: block;
-  overflow: auto;
-  @include pad(20px);
-  
-  background-color: $default-code-background;
-  border: 1px solid #D8D8D8;
-
-  font-family: ProximaNova;
-  font-style: italic;
-  color: #2F3442;
-}
-
-table {
-  @include well();
-  @include striped-bkgrd(angled-135);
-  width: 80%;
-}
-
-input {
-  &[type="text"] {
-    @include pad(10px);
-    border-radius: 5px;
-    border: solid 1px $white;
-  }
-}
-
-ul, ol {
-  margin: 0px;
-}
-
-.container {
-  display: inline-block;
-}

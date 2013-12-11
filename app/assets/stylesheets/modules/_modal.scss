@@ -114,7 +114,7 @@
 // Modal Mixin
 // --------------------------------------------------
 
-@mixin modal($id, $back-color, $border, $color, $width-size: auto) {
+@mixin modal($id, $back-color, $color, $border, $width-size: auto) {
   .modal-dialog.#{$id} {
     width: $width-size;
   }

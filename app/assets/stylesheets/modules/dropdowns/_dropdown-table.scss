@@ -1,0 +1,204 @@
+.dropdown-menu-table {
+  @include pad(0px);
+  white-space: nowrap;
+  width: auto;
+  left: -43px;
+  display: block;
+  visibility: hidden;
+
+  @include media($tablet) {
+    left: -100%;
+    top: 85%;
+    border: 1px solid tint($white, 60%);
+    border-radius: 0px;
+    overflow-x: hidden;
+    white-space: normal;
+
+    &.use-caret {
+      margin-top: 9px;
+    }
+  }
+}
+
+.column-menu {
+  @include pad(0px);
+  @include inline-block();
+  vertical-align: top;
+  margin: 0px;
+  border: 0px;
+
+  &:first-child:last-child {
+    width: 100%;
+  }
+
+  .header .fa {
+    display: none;
+  }
+  
+  &:not(:first-child):not(:last-child) {
+    border-left: 1px solid $black;
+  }
+
+  > ul {
+    @include pad(10px 5px);
+
+    li {
+      list-style-type: none;
+      display: block;
+      cursor: pointer;
+    }
+  }
+
+  @include media($tablet) {
+    @include pad(0px);
+    display: block;
+    width: 100%;
+    vertical-align: top;
+
+    .header .fa {
+      @include inline-block();
+      float: right;
+    }
+    
+    &:not(:first-child):not(:last-child) {
+      border: 0px;
+    }
+    
+    > ul {
+      @include pad(0px);
+
+      li {
+        @include pad(0px);
+        list-style-type: none;
+        border-bottom: 1px solid tint($white, 60%);
+
+        // If there is a header, hide the items below it until the header is clicked
+        &.header ~ li {
+          display: none;
+        }
+
+        &.is-open,
+        &.header,
+        &.header ~ li.is-open {
+          display: block
+        }
+
+        &.header {
+          @include pad(10px);
+          background-color: tint($white, 60%);
+          border-bottom: 1px solid $default-dropdown-background;
+        }
+
+        > a {
+          @include pad(10px 20px);
+          border-radius: 0px;
+        }
+      }
+    }
+  }
+}
+
+.footer-menu {
+  display: block;
+  background-color: $black;
+  color: $white;
+
+  > ul {
+    @include pad(10px);
+
+    li,
+    li > a,
+    li.header {
+      list-style-type: none;
+      display: inline;
+    }
+  }
+
+  @include media($tablet) {      
+    background-color: transparent;
+    color: $black;
+
+    > ul {
+      @include pad(0px);
+
+      li {
+        @include pad(0px);
+        list-style-type: none;
+        display: block;
+        border-bottom: 1px solid tint($white, 60%);
+
+        &:last-child {
+          border-bottom: 0px;
+        }
+
+        &.header {
+          display: none;
+        }
+
+        > a {
+          @include pad(10px 20px);
+          border-radius: 0px;
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@mixin dropdown-menu-table($back-color, $text-color, $use-caret) {
+  
+  @if $use-caret {
+    &::before {
+      @include inline-block();
+      position: absolute;
+      top: -7px;
+      left: 56px;
+      border-right: 7px solid transparent;
+      border-bottom: 7px solid;
+      border-left: 7px solid transparent;
+      content: '';
+    }
+
+    &::after {
+      @include inline-block();
+      position: absolute;
+      top: -6px;
+      left: 57px;
+      border-right: 6px solid transparent;
+      border-bottom: 6px solid $back-color;
+      border-left: 6px solid transparent;
+      content: '';
+    }
+
+    @include media($tablet) {
+      &::before,
+      &::after, {
+        display: none;
+        border: 0px;
+      }
+    }
+  }
+
+  @include media($desktop) {
+    .footer-menu li > a {
+      &:hover,
+      &:focus {
+        color: $text-color;
+        text-decoration: underline;
+        background-color: transparent;
+
+        &:active {
+          background-color: transparent;
+        }
+      }
+
+      &:disabled,
+      &[disabled] {
+        &:hover,
+        &:focus {  
+          color: $text-color;  
+        }
+      }
+    }
+  }
+}

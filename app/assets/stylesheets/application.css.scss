@@ -1,5 +1,7 @@
+@import "layouts/normalize";
+
 @import "bourbon";
-@import "_grid-settings";
+@import "grid-settings";
 @import "neat";
 @import "font-awesome";
 
@@ -7,15 +9,18 @@
 @import "helpers";
 
 @import "layouts/fonts";
-@import "modules/well";
+@import "layouts/typography";
 @import "layouts/base";
 @import "layouts/list";
 @import "layouts/grid";
 
-@import "modules/button";
+@import "modules/well";
+@import "modules/buttons/button";
+@import "modules/buttons/button-group";
 @import "modules/modal";
 @import "modules/navbar";
-@import "modules/dropdown";
+@import "modules/dropdowns/dropdown";
+@import "modules/dropdowns/dropdown-table";
 
 @import "pages/greetings";
 @import "pages/buttons";

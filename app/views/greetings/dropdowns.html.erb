@@ -1,16 +1,18 @@
 <div class="content"><div class="main large"><h3>Dropdowns</h3>
+  <p>
   The <i>caret</i> mixin creates a caret that can be placed inline with text.<br>
   The <i>dropdown-menu</i> mixin wraps around the menu options in the dropdown.<br>
   The class <i>divider</i> can be used to make a line separator in the drop down menu.<br>
   The attribute <i>disabled="disabled"</i> can be used to disable menu options.
   <br><br>
+  </p>
 
 <code><pre>
 .caret {
   @include caret(white);
 }
 .dropdown-menu {
-  @include dropdown-menu(false);
+  @include dropdown-menu(#ECECF2, #6D707B, false);
 }
 
 ...
@@ -39,28 +41,29 @@
 <div class="sidebar"><b>Mixin Definition</b>
   <br><br>
 
-  @mixin dropdown-menu($back-color: $default-dropdown-background, $text-color: $default-dropdown-text-color, $use-caret: true)
+  @mixin dropdown-menu($back-color, $text-color, $use-caret)
   <br><br>
 
-  Optional Parameters:
+  Parameters:
   <br>
   <ol>
-    <li>background color (default is $default-dropdown-background)</li>
-    <li>text color (default is $default-text-color)</li>
-    <li>use caret (default is $use-caret)</li>
+    <li>background color</li>
+    <li>text color</li>
+    <li>use caret</li>
   </ol>
 </div>
 
 <div class="content large"><div class="main large">
+  <p>
   Use <i>dropdown</i> as the class to wrap around the element being used to launch the dropdown, and the dropdown menu itself. The element used to trigger the dropdown should have class <i>dropdown-toggle</i> and attribute <i>toggle-type="dropdown"</i>. Use <i>dropdown-menu</i> as the class name for the dropdown menu.
   <br><br>
 
-  When using the <i>dropdown-menu</i> mixin, the first color provided will supply the background-color. The second color is for the text. All parameters are optional. If only the caret state and a colour are provided, the color will be used on the background, and the text colour will be set to default.<br>
-  The default background color is #ECECF2, the default text color is #6D707B, the default to use a caret or not is false.
+  When using the <i>dropdown-menu</i> mixin, the first color provided will supply the background-color. The second color is for the text.
   <br><br>
+  </p>
 
   <center>
-    <table>
+    <table class="well">
       <tr>
         <td>
           <div class="dropdown">
@@ -80,7 +83,7 @@
           </div>
         </td>
         <td>
-          @include dropdown-menu(false);
+          @include dropdown-menu(#ECECF2, #6D707B, false);
         </td>
       </tr>
       <tr>
@@ -102,7 +105,7 @@
           </div>
         </td>
         <td>
-          @include dropdown-menu(#19AE58, true);
+          @include dropdown-menu(#19AE58, #6D707B, true);
         </td>
       </tr>
       <tr>

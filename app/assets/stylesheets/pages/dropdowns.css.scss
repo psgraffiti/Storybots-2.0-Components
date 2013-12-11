@@ -9,14 +9,18 @@
   @include dropdown-menu($default-dropdown-background, $default-dropdown-text-color, true);
 }
 
-.dark {
+.dropdown-menu.dark {
   @include dropdown-menu(#47476B, #E5E5E9, true);
 }
 
-.light {
+.dropdown-menu.light {
   .caret {
     @include caret(#2F3443);
   }
 
   @include dropdown-menu(#19AE58, $default-dropdown-text-color, true);
+}
+
+.dropdown-menu-table {
+	@include dropdown-menu-table($default-dropdown-background, $default-dropdown-text-color, true);
 }
