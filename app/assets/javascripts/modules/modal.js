@@ -57,14 +57,14 @@ $(document).ready(function(){
           .attr('aria-hidden', false)
 
         // Centre the modal
-        var $mine = that.$element.find('.modal-dialog')
-        if ($mine.height() < $(window).height()) {
-          var top = -(parseInt($mine.css('height'), 10)/2)
-          $mine.css('top', '50%')
-          $mine.css('margin-top', top)
+        var $modal = that.$element.find('.modal-dialog')
+        if ($modal.height() < $(window).height()) {
+          var top = -(parseInt($modal.css('height'), 10)/2)
+          $modal.css('top', '50%')
+          $modal.css('margin-top', top)
         }
         else {
-          $mine.css('top', '1%')
+          $modal.css('top', '1%')
         }
 
         that.enforceFocus()
@@ -93,13 +93,13 @@ $(document).ready(function(){
       this.isShown = false
 
       // Centre the modal
-      var $mine = this.$element.find('.modal-dialog')
-      if ($mine.height() < $(window).height()) {
-        $mine.css('top', '-50%')
-        $mine.css('margin-top', 0)
+      var $modal = this.$element.find('.modal-dialog')
+      if ($modal.height() < $(window).height()) {
+        $modal.css('top', '-50%')
+        $modal.css('margin-top', 0)
       }
       else{
-        $mine.css('top', '-1%')
+        $modal.css('top', '-1%')
       }
 
       this.escape()
