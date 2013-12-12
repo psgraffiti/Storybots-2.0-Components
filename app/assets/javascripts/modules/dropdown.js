@@ -7,7 +7,6 @@ $(document).ready(function(){
   +function ($) { "use strict";
 
     var dropdownNav = '.responsive-nav'
-    var backdrop    = '.dropdown-backdrop'
     var toggle      = '[toggle-type=dropdown]'
     var $navbar     = $('.main-navbar')
     var navbarSM    = '50px'
@@ -39,18 +38,12 @@ $(document).ready(function(){
       clearMenus()
 
       if (!isOpen) {
-        if ('ontouchstart' in document.documentElement && !$parent.closest('.main-navbar').length) {
-          // if mobile we use a backdrop because click events don't delegate
-          $('<div class="dropdown-backdrop"/>').insertAfter($(this)).on('click', clearMenus)
+        if ('ontouchstart' in document.documentElement) {
+          // if mobile we we use a backdrop because click events don't delegate
+          $('<div class="dropdown-backdrop"/>').insertBefore($(this)).on('click', clearMenus)
         }
-
-        $parent.trigger(e = $.Event('show.dropdown'))
-
-        if (e.isDefaultPrevented()) return
-
         $parent
           .toggleClass('is-open')
-          .trigger('shown.dropdown')
 
         if ($navbar.css('height') != navbarSM ){
           setMaxHeights($dropdownMenu.children('.column-menu'))
@@ -98,20 +91,13 @@ $(document).ready(function(){
     })
 
     function clearMenus() {
-      $(backdrop).remove()
-      $(toggle).each(function (e) {
+      $('.dropdown-backdrop').remove()
+      $(toggle).each(function (e) {debugger
         var $parent = getParent($(this))
         if (!$parent.hasClass('is-open')) return
 
-        if ($(this).siblings('ul').hasClass(dropdownNav) && $navbar.css('height') == navbarSM) return
-
-        $parent.trigger(e = $.Event('hide.dropdown'))
-
-        if (e.isDefaultPrevented()) return
-
         $parent
           .removeClass('is-open')
-          .trigger('hidden.dropdown')
 
         $(this)
           .removeClass('active')
