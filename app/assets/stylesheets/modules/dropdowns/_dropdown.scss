@@ -108,18 +108,6 @@
   }
 }
 
-@include media($tablet) {
-  .nav,
-  .navbar {
-    .dropdown-menu {
-      position: relative;
-      border: 0px;
-      border-radius: 0px;
-      margin-bottom: 5px;
-    }
-  }
-}
-
 //
 // Dropdown
 // -------------------------------------------------------------------

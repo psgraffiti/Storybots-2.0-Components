@@ -92,7 +92,7 @@ $(document).ready(function(){
 
     function clearMenus() {
       $('.dropdown-backdrop').remove()
-      $(toggle).each(function (e) {debugger
+      $(toggle).each(function (e) {
         var $parent = getParent($(this))
         if (!$parent.hasClass('is-open')) return
 

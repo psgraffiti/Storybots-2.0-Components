@@ -20,6 +20,22 @@
     font-size: 20px;
   }
 
+  @include media($desktop) {
+      .navbar-left {
+      margin-left: 20px;
+    }
+
+    .navbar-right {
+      margin-right: 20px;
+    }
+    .navbar-left,
+    .navbar-right {
+      margin-right: 20px;
+      top: 50%;
+      @include transform(translateY(-50%));
+    }
+  }
+
   @include media($tablet) {
     height: 50px;
 
@@ -35,17 +51,9 @@
 }
 
 .navbar-left {
-  margin-left: 20px;
   float: left;
 }
 
 .navbar-right {
-  margin-right: 20px;
   float: right;
-}
-
-.navbar-left,
-.navbar-right {
-  top: 50%;
-  @include transform(translateY(-50%));
 }
