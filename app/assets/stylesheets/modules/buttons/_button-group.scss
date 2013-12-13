@@ -55,6 +55,7 @@
   > .btn:last-child:not(:first-child),
   > .dropdown-toggle:not(:first-child) {
     @include border-radius-left(0px);
+    margin-left: 0px;
   }
 
   // Custom edits for including btn-groups within btn-groups (useful for including dropdown buttonss within a btn--group)

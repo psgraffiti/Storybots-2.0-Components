@@ -39,11 +39,6 @@
   @include media($tablet) {
     height: 50px;
 
-    .navbar-left,
-    .navbar-right {
-      margin: 0px;
-    }
-
     .btn {
       border-radius: 0px;
     }

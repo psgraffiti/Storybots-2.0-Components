@@ -123,7 +123,13 @@
     width: $width-size;  
 
     @include media($mobile) {
-      width: 90%;
+      @if $width-size == auto {
+        width: 90%;
+      }
+      @else {
+        @include transform(translateX(0px));
+        left: 0px;
+      }
     }
   }
 
