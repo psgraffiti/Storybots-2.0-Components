@@ -19,12 +19,7 @@ $(document).ready(function(){
       var $this = $(this)
       if ($this.is('.disabled, :disabled')) return
 
-      if ($navbar.css('height') == navbarSM ){
-        $(dropdownNav).css('width', $navbar.css('width'))
-      }
-      else {
-        $(dropdownNav).css('width', 'auto')
-      }
+      setDropdownWidth()
 
       var $dropdownMenu = $this.next('.dropdown-menu')
 
@@ -39,7 +34,7 @@ $(document).ready(function(){
 
       if (!isOpen) {
         if ('ontouchstart' in document.documentElement) {
-          // if mobile we we use a backdrop because click events don't delegate
+          // if mobile we use a backdrop because click events don't delegate
           $('<div class="dropdown-backdrop"/>').insertBefore($(this)).on('click', clearMenus)
         }
         $parent
@@ -76,19 +71,29 @@ $(document).ready(function(){
     }
 
     $(window).resize(function(){
+      var navbarHeight = $navbar.css('height')
+      setDropdownWidth()
+
       var $dropdownNav = $(dropdownNav)
-      if ($navbar.css('height') == navbarSM ){
-        $dropdownNav.css('width', $(window).width())
+      if (navbarHeight == navbarSM ) {
         resetMaxHeights($dropdownNav.children('.column-menu'))
       }
       else {
-        $dropdownNav.css('width', 'auto')
         $dropdownNav.each(function(index) {
           var $dropdown = $dropdownNav.eq(index)
           setMaxHeights($dropdown.children('.column-menu'))
         })
       }
     })
+
+    function setDropdownWidth() {
+      if ($navbar.css('height') == navbarSM ) {
+        $(dropdownNav).css('width', $navbar.css('width'))
+      }
+      else {
+        $(dropdownNav).prop('style').removeProperty('width');
+      }
+    }
 
     function clearMenus() {
       $('.dropdown-backdrop').remove()
@@ -145,7 +150,7 @@ $(document).ready(function(){
 
     function resetMaxHeights(elements) {
       elements.each(function() {
-        $(this).css('height', '')
+        $(this).prop('style').removeProperty('height')
       })
     }
 

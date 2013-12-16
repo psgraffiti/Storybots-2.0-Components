@@ -1,6 +1,5 @@
 .dropdown-menu-table {
   @include pad(0px);
-  white-space: nowrap;
   width: auto;
   left: -43px;
   display: block;
@@ -11,7 +10,6 @@
     top: 85%;
     border: 1px solid tint($white, 60%);
     border-radius: 0px;
-    overflow-x: hidden;
     white-space: normal;
 
     &.use-caret {
@@ -99,7 +97,9 @@
 }
 
 .footer-menu {
+  @include border-radius-bottom(5px);
   display: block;
+  margin-bottom: -1px;
   background-color: $black;
   color: $white;
 
@@ -142,6 +142,16 @@
         }
       }
     }
+  }
+}
+
+.dropdown-menu-table.responsive-nav {
+  @include media($desktop) {
+    width: auto;
+  }
+
+  @include media($tablet) {
+    width: 960px;
   }
 }
 
