@@ -13,12 +13,13 @@
 // Proxima Nova
 // --------------------------------------------------------------------------
 
-@font-face { 
-  font-family: ProximaNova; 
-  src: url('/assets/Proxima Nova/Proxima Nova Regular/ProximaNova-Reg.otf');
-  font-weight: normal;
-  font-style: normal;
-}
+@include font-face(ProximaNova, '/assets/Proxima Nova/Proxima Nova Regular/ProximaNova-Reg-webfont', normal, 400);
+
+@include font-face(ProximaNova, '/assets/Proxima Nova/Proxima Nova Bold/ProximaNova-Bold-webfont', normal, 900);
+
+@include font-face(ProximaNova, '/assets/Proxima Nova/Proxima Nova Light/ProximaNova-Light-webfont', normal, 200);
+
+@include font-face(ProximaNova, '/assets/Proxima Nova/Proxima Nova Italic/ProximaNova-RegIt-webfont', normal, italic);
 
 @font-face { 
   font-family: ProximaNova; 
@@ -27,34 +28,8 @@
   font-style: normal;
 }
 
-@font-face { 
-  font-family: ProximaNova; 
-  src: url('/assets/Proxima Nova/Proxima Nova Bold/ProximaNova-Bold.otf');
-  font-weight: 900; //bolder
-  font-style: normal;
-}
-
-@font-face { 
-  font-family: ProximaNova; 
-  src: url('/assets/Proxima Nova/Proxima Nova Light/ProximaNova-Light.otf');
-  font-weight: 200; //lighter
-  font-style: normal;
-}
-
-@font-face { 
-  font-family: ProximaNova; 
-  src: url('/assets/Proxima Nova/Proxima Nova Italic/ProximaNova-RegIt.otf');
-  font-weight: normal;
-  font-style: italic;
-}
-
 //
 // Museo Sans Rounded
 // --------------------------------------------------------------------------
 
-@font-face { 
-  font-family: MuseoSans; 
-  src: url('/assets/Museo Sans Rounded/Museo Sans Rounded 900-desktop/MuseoSansRounded-900.otf');
-  font-weight: normal;
-  font-style: normal;
-}
+@include font-face(MuseoSans, '/assets/Museo Sans Rounded/MuseoSansRounded-900-webfont', normal, 400);
