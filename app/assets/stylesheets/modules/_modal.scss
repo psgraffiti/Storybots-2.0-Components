@@ -66,12 +66,14 @@
 
 // Actual modal
 .modal-content {
+  @include border-radius(10px);
   position: relative;
-  border-radius: 10px;
-  box-shadow:0 3px 9px rgba(0,0,0,.5);
   outline: none;
   background-color: $default-modal-background;
   border: 1px solid $default-modal-background;
+  
+  $shadow: 0 3px 9px rgba(0,0,0,.5);
+  @include box-shadow($shadow);
 }
 
 // Modal header
@@ -84,9 +86,9 @@
   // Close icon
   .close {
     @include pad(5px 8px);
+    @include border-radius(25px);
     margin-top: -15px;
     margin-right: -15px;
-    border-radius: 25px;
     float: right;
   }
 }
@@ -158,3 +160,5 @@
     border-top: 1px solid $border;
   }
 }
+
+@import "modules/modals/sb-modal";

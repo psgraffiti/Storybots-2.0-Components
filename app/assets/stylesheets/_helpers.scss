@@ -4,8 +4,18 @@
 
 @mixin background-size($width, $height) {
   -webkit-background-size: $width $height;
-  -moz-background-size: $width $height;
-  background-size: $width $height;
+     -moz-background-size: $width $height;
+          background-size: $width $height;
+}
+
+
+//
+// Border Radius
+// -------------------------------------------------------------------
+@mixin border-radius($x) {
+  -webkit-border-radius: $x;
+     -moz-border-radius: $x;
+          border-radius: $x;
 }
 
 @mixin border-radius-right($x) {
@@ -27,6 +37,17 @@
   border-bottom-right-radius: $x;
   border-bottom-left-radius: $x;
 }
+
+
+//
+// Drop Shadow
+// -------------------------------------------------------------------
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
+     -moz-box-shadow: $shadow;
+          box-shadow: $shadow;
+}
+
 
 //
 // Striped Backgrounds
@@ -55,4 +76,3 @@
     @include linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent, $fallback: $color);
   }
 }
-

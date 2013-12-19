@@ -1,0 +1,87 @@
+//
+// Standard Button
+// -------------------------------------------------------------------
+
+@mixin btn-standard($color) {
+
+  $hover-color:  shade($color, 15%);
+  $text-color:   $default-btn-text-color;
+  $shadow:       0px 3px 0px shade($color, 15%);
+  $shadow-hover: 0px 3px 0px shade($color, 30%);
+  $shadow-click: 0px 0px 0px shade($color, 15%);
+
+  @include pad(15px);
+  @include box-shadow($shadow);
+  @include border-radius(7px);
+  background-color: $color;
+
+  font-family: MuseoSans;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  color: $text-color;
+  text-align: center;
+  white-space: nowrap;
+
+  position: relative;
+  min-width: 140px;
+  height: 50px;
+
+  &.hover,
+  &:hover {
+    background-color: $hover-color;
+    @include box-shadow($shadow-hover);
+
+    &.active,
+    &:active {
+      top: 3px;
+      @include box-shadow($shadow-click);
+    }
+  }
+
+  &:disabled,
+  &[disabled] {
+
+    &:hover,
+    &:focus {
+      background-color: $color;
+
+      &:active {
+        @include box-shadow(none);
+      }
+    }
+  }
+
+  &.small {
+    @include pad(10px);
+    height: 40px;
+  }
+
+  &.large {
+    @include pad(20px 55px);
+    height: 60px;
+    font-size: 18px;
+  }
+
+  &[toggle-type=dropdown] {
+    margin-bottom: 0px;
+    font-family: ProximaNova;
+    font-size: 18px;
+    text-align: left;
+    white-space: nowrap;
+
+    i {
+      display: inline;
+      margin-left: 35px;
+    }
+
+    &.hover,
+    &:hover {
+
+      &.active,
+      &:active {
+        @include box-shadow(0px 3px 3px 0px shade($color, 30%) inset);
+      }
+    }
+  }
+}

@@ -33,7 +33,7 @@ table {
 input {
   &[type="text"] {
     @include pad(10px);
-    border-radius: 5px;
+    @include border-radius(5px);
     border: solid 1px $white;
   }
 }

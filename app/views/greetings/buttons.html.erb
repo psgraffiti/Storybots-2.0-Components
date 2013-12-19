@@ -1,14 +1,79 @@
 <div class="content"><div class="main large"><h3>Buttons</h3>
   <p>
-  Use the mixin <i>btn(style, color)</i> and class <i>.btn</i> for buttons.
-  <br><br>
+    Use the classes <i>sb btn</i> for storybot buttons. Use the class <i>small</i> or <i>large</i> for smaller or bigger buttons. Include the button color in the class.
+  </p>
+<br>
+<center><p>
+  <table class="well"><caption>Standard buttons in different sizes:</caption>
+    <tr>
+      <td><a class="sb btn green">Text</a></td>
+      <td><center>class="sb btn green"</center></td>
+    </tr>
+    <tr>
+      <td><a class="sb btn green small">Text</a></td>
+      <td><center>class="sb btn green small"</center></td>
+    </tr>
+    <tr>
+      <td><a class="sb btn green large">LARGE BUTTON TEXT</a></td>
+      <td><center>class="sb btn green large"</center></td>
+    </tr>
+  </table><br>
 
-  To use the mixin in CSS:
-  <br>
+  <table class="well"><caption>Standard buttons in different colours:</caption>
+    <tr>
+      <td><a class="sb btn green">Text</a></td>
+      <td><center>class="sb btn green"</center></td>
+    </tr>
+    <tr>
+      <td><a class="sb btn purple">Text</a></td>
+      <td><center>class="sb btn purple"</center></td>
+    </tr>
+    <tr>
+      <td><a class="sb btn blue">Text</a></td>
+      <td><center>class="sb btn blue"</center></td>
+    </tr>
+    <tr>
+      <td><a class="sb btn gray">Text</a></td>
+      <td><center>class="sb btn gray"</center></td>
+    </tr>
+  </table><br>
+  </center>
+
+  <center>
+  <table class="well"><caption>Big Green Button:</caption>
+    <tr>
+      <td><a class="sb btn big-green">Label</a></td>
+      <td><center>class="sb btn big-green"</center></td>
+    </tr>
+  </table><br>
+  </center>
+
+  <center>
+  <table class="well"><caption>Photo Source buttons in different colours:</caption>
+    <tr>
+      <td><a class="sb btn photo purple"><i class="fa fa-desktop fa-3x"></i>Computer</a></td>
+      <td><center>class="sb btn photo purple"</center></td>
+    </tr>
+    <tr>
+      <td><a class="sb btn photo blue"><i class="fa fa-facebook fa-3x"></i>Facebook</a></td>
+      <td><center>class="sb btn photo blue"</center></td>
+    </tr>
+  </table></p>
+  </center>
+</div>
+
+
+<div class="main large"><h3>Other Button Styles</h3>
+  <p>
+    Use the mixin <i>btn(style, color)</i> and class <i>.btn</i> for other button styles.
+    <br><br>
+
+    To use the mixin in CSS:
+    <br>
   </p>
   
-  <code><pre>
-.btn { 
+<code><pre>
+.btn {
   @include btn(flat, #19AE58); 
 }
 
@@ -16,26 +81,27 @@
 
 &lt;a class="btn" href="#">Flat Button&lt;/a>
 </pre></code>
+  <br><br>
 
-<br><br>
-<center><p>
+  <center><p>
   <table class="well"><caption>Flat buttons in different colours:</caption>
     <tr>
       <td><a class="btn">Flat Button</a></td>
       <td><center>@include btn(flat, #19AE58);</center></td>
     </tr>
     <tr>
-      <td><a class="btn"color="black">Dark Button</a></td>
+      <td><a class="btn" color="black">Dark Button</a></td>
       <td><center>@include btn(flat, #2F3443);</center></td>
     </tr>
     <tr>
-      <td><a class="btn"color="white">Light Button</a></td>
+      <td><a class="btn" color="white">Light Button</a></td>
       <td><center>@include btn(flat, #F5F4EC);</center></td>
     </tr>
   </table><br>
-  <table class="well" style="width:100%"><caption>Raised buttons in different colours:</caption>
+
+  <table class="well" color="width:100%"><caption>Raised buttons in different colours:</caption>
     <tr>
-      <td><a class="btn" style="raised">Raised Button</a></td>
+      <td><a class="btn" color="raised">Raised Button</a></td>
       <td><center>@include btn(raised, #19AE58);</center></td>
     </tr>
     <tr>
@@ -43,11 +109,11 @@
       <td><center>@include btn(raised, #2F3443);</center></td>
     </tr>
     <tr>
-      <td><a class="btn" style="raised1">Light Button</a></td>
+      <td><a class="btn" color="raised1">Light Button</a></td>
       <td><center>@include btn(raised, #F5F4EC);</center></td>
     </tr>
   </table>
-</p></center>
+  </p></center>
 </div>
 
 <div class="main large"><h3>Button Groups</h3>
@@ -94,16 +160,16 @@ With <i>data-toggle="buttons"</i> attribute:
 With <i>data-toggle="button"</i> attribute:
 <br>
 <div class="btn-group" data-toggle="button">
-  <a class="btn" style="raised1">1</a>
-  <a class="btn" style="raised1">2</a>
-  <a class="btn" style="raised1">3</a>
+  <a class="btn" color="raised1">1</a>
+  <a class="btn" color="raised1">2</a>
+  <a class="btn" color="raised1">3</a>
 </div><br>
 <div class="btn-group" data-toggle="button">
-  <a class="btn" style="raised1">1</a>
-  <a class="btn" style="raised1">2</a>
+  <a class="btn" color="raised1">1</a>
+  <a class="btn" color="raised1">2</a>
 </div><br>
 <div class="btn-group" data-toggle="button">
-  <a class="btn" style="raised1">1</a>
+  <a class="btn" color="raised1">1</a>
 </div></div>
 
 <div class="main large"><h3>Disabled Buttons</h3>
@@ -112,19 +178,17 @@ With <i>data-toggle="button"</i> attribute:
 </p>
 
 <code><pre>
-&lt;a class="btn" disabled="disabled"&gt;Disabled&lt;/a&gt;
+&lt;a class="btn" disabled="disabled">Disabled&lt;/a>
 </pre></code>
   <br><br>
 
   <a class="btn" disabled="disabled">Disabled</a><br>
   <a class="btn" color="white" disabled="disabled">Button</a><br>
-  <a class="btn" style="raised" disabled="disabled">button</a><br>
+  <a class="btn" color="raised" disabled="disabled">button</a><br>
   <a class="btn" color="black2" disabled="disabled">Disabled Button</a><br>
 </div></div>
 
-<div class="sidebar"><b>Mixin Definition</b>
-  <br><br>
-
+<div class="sidebar"><h6>Mixin Definition</h6>
   @mixin btn($style, $color)
   <br><br>
 
@@ -136,7 +200,27 @@ With <i>data-toggle="button"</i> attribute:
   <br>
   Button Styles Available:<br>
   <ul>
+    <li>standard</li>
     <li>flat</li>
     <li>raised</li>
+  </ul>
+  <br><br>
+
+  <h6>Storybot Button Classes</h6>
+  Class Sizes:
+  <ul>
+    <li>small</li>
+    <li>large</li>
+    <li>big-green</li>
+    <li>photo</li>
+  </ul><br>
+  Class Colors:
+  <ul>
+    <li>green</li>
+    <li>purple</li>
+    <li>blue</li>
+    <li>gray</li>
+    <li>dark-green</li>
+    <li>light-blue</li>
   </ul>
 </div>

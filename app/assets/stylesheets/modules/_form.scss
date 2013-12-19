@@ -1,0 +1,17 @@
+form {
+  .sb.input {
+    @include border-radius(12px);
+    border: 1px solid #E2D7C8;
+
+    position: relative;
+    top: 2px;
+    height: 53px;
+    min-width: 300px;
+
+    &:focus {
+      @include box-shadow(0px 0px 5px 0px tint(#34AFE7, 65%));
+      border: 1px solid #34AFE7;
+      outline: 0px;
+    }
+  }
+}

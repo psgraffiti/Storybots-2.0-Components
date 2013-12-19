@@ -2,10 +2,8 @@
 // Buttons
 // -------------------------------------------------------------------
 
-//partials (SASS)
-//update docs
+@mixin btn($style, $color: white) {
 
-@mixin btn($style, $color) {
   @if $style == flat {
     @include btn-flat($color);
   }
@@ -49,9 +47,10 @@
   }
 
   $shadow-color: shade($hover-color, 10%);
+  $shadow: 0px 1px 5px 3px $shadow-color inset;
 
   @include pad(10px 15px);
-  border-radius: 5px;
+  @include border-radius(5px);
   background-color: $color;
 
   font-family: ProximaNova;
@@ -70,7 +69,7 @@
 
     &.active,
     &:active {
-      box-shadow: 0px 1px 5px 3px $shadow-color inset;
+      @include box-shadow($shadow);
     }
   }
 
@@ -82,7 +81,7 @@
       background-color: $color;
 
       &:active {
-        box-shadow: none;
+        @include box-shadow(none);
       }
     }
   }
@@ -100,6 +99,8 @@
   $grad-top:      $border-color;
   $grad-bottom:   $color;
   $text-color:    $default-btn-text-color;
+  $shadow:        0px 5px 0px $shadow-color;
+  $shadow-hover:  0px 2px 0px $shadow-color;
 
   @if lightness($color) > 50% {
     $border-color:  darken($color, 30%);
@@ -112,10 +113,10 @@
 
   @include linear-gradient($grad-top, $grad-bottom);
 
-  padding: 10px 45px 0px 45px;
-  border-radius: 15px;
+  @include pad(10px 45px 0px 45px);
+  @include border-radius(15px);
   border: 1px solid $border-color;
-  box-shadow: 0px 5px 0px $shadow-color;
+  @include box-shadow($shadow);
 
   position: relative;
 
@@ -134,7 +135,7 @@
     &.active,
     &:active {
       top: 3px;
-      box-shadow: 0px 2px 0px $shadow-color;
+      @include box-shadow($shadow-hover);
     }
   }
 
@@ -148,8 +149,16 @@
 
       &:active {
         top: 0px;
-        box-shadow: 0px 5px 0px $shadow-color;
+        @include box-shadow($shadow);
       }
     }
   }
 }
+
+@import "modules/buttons/button-group";
+@import "modules/buttons/button-standard";
+@import "modules/buttons/button-photo-source";
+@import "modules/buttons/button-big-green";
+@import "modules/buttons/button-close";
+@import "modules/buttons/sb-button";
+@import "modules/buttons/sb-button-group";

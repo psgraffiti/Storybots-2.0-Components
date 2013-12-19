@@ -1,4 +1,71 @@
 <div class="content"><div class="main large"><h3>Dropdowns</h3>
+  <table class="well" style="width: 100%;">
+    <tr>
+      <td>
+        <div class="dropdown">
+          <a class="sb btn green dropdown-toggle" id="sbDropdownMenu1" toggle-type="dropdown">
+            This is the button text<i class="fa fa-caret-down fa-lg"></i>
+          </a>
+          <ul class="sb dropdown dropdown-menu" role="menu" aria-labelledby="sbDdropdownMenu2">
+            <li><a role="menuitem" tabindex="-1">Alexander</a></li>
+            <li><a role="menuitem" tabindex="-1">Beatrice</a></li>
+            <li><a role="menuitem" tabindex="-1">Morgan</a></li>
+            <li class="divider"></li>
+            <li><a role="menuitem" tabindex="-1">Truman</a></li>
+          </ul>
+        </div>
+      </td>
+      <td>
+        Button: class="sb btn green dropdown-toggle"<br>
+        Dropdown Menu: class="sb dropdown dropdown-menu"
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="dropdown">
+          <a class="sb btn light-blue dropdown-toggle" id="sbDdropdownMenu2" toggle-type="dropdown">
+            This is the button text<i class="fa fa-caret-down fa-lg"></i>
+          </a>
+          <ul class="sb dropdown dropdown-menu" role="menu" aria-labelledby="sbDdropdownMenu2">
+            <li><a role="menuitem" tabindex="-1">Action</a></li>
+            <li><a role="menuitem" tabindex="-1">Another action</a></li>
+            <li><a role="menuitem" tabindex="-1">Something</a></li>
+            <li class="divider"></li>
+            <li><a role="menuitem" tabindex="-1">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a disabled="disabled" role="menuitem" tabindex="-1">Disabled</a></li>
+          </ul>
+        </div>
+      </td>
+      <td>
+        Button: class="sb btn green dropdown-toggle"<br>
+        Dropdown Menu: lass="sb dropdown dropdown-menu"
+      </td>
+    </tr>
+  </table>
+<code><pre>
+&lt;div class="dropdown">
+
+  &lt;a class="sb btn light-blue dropdown-toggle" id="dropdownMenu" toggle-type="dropdown">
+    Dropdown Button&lt;i class="fa fa-caret-down">&lt;/i>
+  &lt;/a>
+
+  &lt;ul class="sb dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+    &lt;li class="header">Dropdown Header&lt;/li>
+    &lt;li>&lt;a role="menuitem" href="#">Action&lt;/a>&lt;/li>
+    &lt;li>&lt;a role="menuitem" href="#">Another action&lt;/a>&lt;/li>
+    &lt;li>&lt;a role="menuitem" href="#">Something&lt;/a>&lt;/li>
+    &lt;li class="divider">&lt;/li>
+    &lt;li>&lt;a role="menuitem" href="#">Separated link&lt;/a>&lt;/li>
+    &lt;li class="divider">&lt;/li>
+    &lt;li>&lt;a disabled="disabled" role="menuitem" href="#">Disabled&lt;/a>&lt;/li>
+  &lt;/ul>
+
+&lt;/div>
+</pre></code>
+</div>
+
+<div class="main large"><h3>Other Dropdowns</h3>
   <p>
   The <i>caret</i> mixin creates a caret that can be placed inline with text.<br>
   The <i>dropdown-menu</i> mixin wraps around the menu options in the dropdown.<br>
@@ -6,7 +73,6 @@
   The attribute <i>disabled="disabled"</i> can be used to disable menu options.
   <br><br>
   </p>
-
 <code><pre>
 .caret {
   @include caret(white);
@@ -130,30 +196,31 @@
           @include dropdown-menu(#47476B, #E5E5E9, true);
         </td>
       </tr>
-    </table></center>
+    </table>
+  </center>
 
-    <br><br>
-    To use a dropdown button in a button group, the dropdown button must be placed in it's own button group.
-    <br><br>
+  <br><br>
+  To use a dropdown button in a button group, the dropdown button must be placed in it's own button group.
+  <br><br>
 
+  <div class="btn-group">
+    <a class="btn"><i class="fa fa-home"></i></a>
     <div class="btn-group">
-      <a class="btn"><i class="fa fa-home"></i></a>
-      <div class="btn-group">
-        <a class="btn dropdown-toggle" id="dropdownMenu4" toggle-type="dropdown"><i class="fa fa-bars"></i></a>
-        <ul class="dropdown-menu use-caret" role="menu" aria-labelledby="dropdownMenu4">
-          <li class="header">Dropdown Header</li>
-          <li><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-          <li><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-          <li><a role="menuitem" tabindex="-1" href="#">Something</a></li>
-          <li class="divider"></li>
-          <li><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-          <li class="divider"></li>
-          <li><a disabled="disabled" role="menuitem" tabindex="-1" href="#">Disabled</a></li>
-        </ul>
-      </div>
+      <a class="btn dropdown-toggle" id="dropdownMenu4" toggle-type="dropdown"><i class="fa fa-bars"></i></a>
+      <ul class="dropdown-menu use-caret" role="menu" aria-labelledby="dropdownMenu4">
+        <li class="header">Dropdown Header</li>
+        <li><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+        <li><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+        <li><a role="menuitem" tabindex="-1" href="#">Something</a></li>
+        <li class="divider"></li>
+        <li><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+        <li class="divider"></li>
+        <li><a disabled="disabled" role="menuitem" tabindex="-1" href="#">Disabled</a></li>
+      </ul>
     </div>
+  </div>
 
-    <br><br>
+  <br><br>
 
 <code><pre>
 &lt;div class="btn-group">

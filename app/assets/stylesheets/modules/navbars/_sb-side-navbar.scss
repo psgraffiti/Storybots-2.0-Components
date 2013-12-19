@@ -1,0 +1,28 @@
+.sb.side-navbar {
+  border-radius: 7px;
+
+  .btn {
+    background-color: white;
+    border: 1px solid #EDE6DC;
+    min-height: 50px;
+    line-height: 28px;
+
+    color: black;
+
+    &:hover,
+    &.hover {
+      background-color: #F6F2ED;
+
+      &:active,
+      &.active {
+        @include box-shadow(none);
+        background-color: #71C7EE;
+      }
+    }
+
+    i {
+      color: #EDE6DC;
+      line-height: 28px;
+    }
+  }
+}

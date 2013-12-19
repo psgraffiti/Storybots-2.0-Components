@@ -1,4 +1,53 @@
 <div class="content"><div class="main large"><h3>Modals</h3>
+  <center>
+    <table class="well"><caption>With the use of class "fade" for transitions</caption>
+      <tr>
+        <td>
+          <a class="sb btn green" data-toggle="modal" data-target="#myh1HeadingModal">
+            Blue Modal
+          </a>
+
+          <div class="modal blue fade" id="myh1HeadingModal" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="sb modal-content">
+                <a type="button" class="sb close btn-close blue" data-dismiss="modal"><i class="fa fa-times fa-fw fa-2x"></i></a>
+                <div class="sb modal-header">
+                  <h1 id="h1Heading">H1 Heading</h1>
+                </div>
+                <div class="sb modal-body">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td>@include modal(small, #F5F4EC, #074B75, #D8C8B2);</td>
+      </tr>
+      <tr>
+        <td>
+          <a class="sb btn green" data-toggle="modal" data-target="#myh4HeadingModal">
+            White Modal
+          </a>
+
+          <div class="modal white fade" id="myh4HeadingModal" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="sb modal-content">
+                <a type="button" class="sb close btn-close red" data-dismiss="modal"><i class="fa fa-times fa-fw fa-2x"></i></a>
+                <div class="sb modal-header">
+                  <h4 id="h4Heading">This is an h4 Heading Here</h4>
+                </div>
+                <div class="sb modal-body">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td>@include modal(small, #F5F4EC, #074B75, #D8C8B2);</td>
+      </tr>
+    </table>
+  </center>
+
   <p>
   Modals have a header (<i>.modal-header</i>), body (<i>.modal-body</i>), and footer (<i>.modal-footer</i>), all of which are wrapped in the <i>modal-content</i> class. The element used to trigger the modal uses <i>data-toggle="modal"</i> and <i>data-target</i> to launch the associated modal. The <i>modal-dialog</i> class is used to position the modal on the screen.
   <br><br>

@@ -16,11 +16,12 @@
 
 @import "modules/well";
 @import "modules/buttons/button";
-@import "modules/buttons/button-group";
 @import "modules/modal";
-@import "modules/navbar";
+@import "modules/navbars/main-navbar";
+@import "modules/navbars/side-navbar";
 @import "modules/dropdowns/dropdown";
-@import "modules/dropdowns/dropdown-table";
+@import "modules/form";
+@import	"modules/filter-bar";
 
 @import "pages/greetings";
 @import "pages/buttons";

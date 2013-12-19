@@ -1,0 +1,69 @@
+//
+// Storybot Buttons
+// -------------------------------------------------------------------
+
+//
+// Standard Button Colours
+// -------------------------------------------------------------------
+
+.sb.btn {
+  &.green {
+    @include btn-standard($green);
+  }
+
+  &.dark-green {
+    @include btn-standard($dark-green);
+  }
+
+  &.purple {
+    @include btn-standard($purple);
+  }
+
+  &.blue {
+    @include btn-standard($blue);
+  }
+
+  &.light-blue {
+    @include btn-standard($light-blue);
+  }
+
+  &.gray {
+    @include btn-standard($gray);
+  }
+}
+
+//
+// Big Button
+// -------------------------------------------------------------------
+
+.sb.btn.big-green {
+  @include btn-big-green();
+}
+
+//
+// Photo Source Button Colours
+// -------------------------------------------------------------------
+
+.sb.btn.photo{
+  &.purple {
+    @include btn-photo($purple);
+  }
+
+  &.blue {
+    @include btn-photo($blue);
+  }
+}
+
+//
+// Circle Close Button Colours
+// -------------------------------------------------------------------
+
+.btn-close {
+  &.red {
+    @include sb-btn-close($red);
+  }
+
+  &.blue {
+    @include sb-btn-close($dark-blue);
+  }
+}

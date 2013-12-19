@@ -1,0 +1,58 @@
+//
+// Side Navbar
+// --------------------------------------------------
+
+.side-navbar {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle; // match .btn alignment given font-size hack above
+
+  > .btn,
+  &.btn-group > .btn {
+    position: relative;
+    float: left;
+    margin: 0px;
+    display: block;
+    float: none;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0px;
+
+    // Bring the "active" button to the front
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      z-index: 2;
+    }
+
+    &:focus {
+      // Remove focus outline when dropdown JS adds it after closing the menu
+      outline: none;
+    }
+
+    i {
+      float: right;
+      margin-left: 30px;
+    }
+  }
+
+  > .btn + .btn {
+    margin-top: -1px;
+    margin-left: 0;
+  }
+
+  > .btn,
+  &.btn-group > .btn {
+    &:first-child,
+    &:first-child:not(:last-child):not(.dropdown-toggle) {
+      @include border-radius-top(7px);
+    }
+    &:last-child,
+    &:last-child:not(:first-child) {
+      @include border-radius-bottom(7px);
+    }
+  }
+}
+
+@import "modules/navbars/sb-side-navbar";

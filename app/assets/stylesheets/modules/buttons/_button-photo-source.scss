@@ -1,0 +1,18 @@
+//
+// Standard Button
+// -------------------------------------------------------------------
+
+@mixin btn-photo($color) {
+  @include btn-standard($color);
+  @include pad(15px);
+
+  font-family: ProximaNova;
+  font-size: 20px;
+  text-align: center;
+
+  height: auto;
+
+  i {
+    display: block;
+  }
+}

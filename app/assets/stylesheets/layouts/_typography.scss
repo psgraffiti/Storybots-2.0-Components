@@ -9,12 +9,14 @@
 
 h1 {
   font-family: AlphabetSoup;
-  font-size: 44px;
+  font-size: 36px;
+  text-transform: capitalize;
 }
 
 h2,
 h3, 
-h4 {
+h4,
+h5 {
   font-family: MuseoSans;
 }
 
@@ -30,19 +32,12 @@ h4 {
   font-size: 24px;
 }
 
-h5,
-h6 {
-  font-family: ProximaNova, sans-serif;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
 h5 {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 h6 {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 // Body Text

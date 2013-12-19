@@ -24,7 +24,7 @@
     }
 
     &:not(:first-child):not(:last-child):not(.dropdown-toggle) {
-      border-radius: 0px;
+      @include border-radius(0px);
       margin-right: 0px;
       margin-left: 0px;
     }
@@ -64,7 +64,7 @@
   }
 
   > .btn-group:not(:first-child):not(:last-child) > .btn {
-    border-radius: 0;
+    @include border-radius(0px);
   }
 
   > .btn-group:first-child:not(:last-child) {

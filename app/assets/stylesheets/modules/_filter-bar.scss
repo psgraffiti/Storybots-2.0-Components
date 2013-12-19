@@ -1,0 +1,35 @@
+.filter-bar {
+  > .btn {
+    background-color: #EBE5DE;
+    font-family: ProximaNova;
+    font-size: 20px;
+    color: #9E9A95;
+
+    height: 55px;
+    width: 160px;
+    text-align: center;
+    line-height: 35px; 
+
+    &:not(last-child) {
+      border-left: 1px solid $white;
+    }
+
+    &.hover,
+    &:hover {
+      background-color: #E3DDD6;
+
+      &.active,
+      &:active {
+        color: white;
+        background-color: #34AFE7;
+        @include box-shadow(none);
+      }
+    }
+
+    i {
+      float: left;
+      margin-right: 5px;
+      font-size: 40px;
+    }
+  }
+}

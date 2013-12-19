@@ -1,5 +1,5 @@
 //
-// Navs
+// Main Navbar
 // --------------------------------------------------
 
 .main-navbar {
@@ -42,7 +42,7 @@
     height: 50px;
 
     .btn {
-      border-radius: 0px;
+      @include border-radius(0px);
     }
   }
 }

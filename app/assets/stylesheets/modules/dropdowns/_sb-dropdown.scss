@@ -1,0 +1,36 @@
+.sb.dropdown.dropdown-menu {
+  @include dropdown-menu(white, #505667, true);
+  @include border-radius(7px);
+  @include box-shadow(0px 0px 12px 0px tint(black, 65%));
+  border: 0px;
+  margin-top: 20px;
+  
+  &::before {
+    border-bottom: 7px solid white;
+  }
+
+  li {
+    > a {
+      @include border-radius(0px);
+      font-family: ProximaNova;
+      font-size: 18px;
+
+      &:hover,
+      &:focus {
+        background-color: #61C1EC;
+
+        &:active {
+          color: #505667;
+        }
+      }
+    }
+
+    &:not(.divider) {
+      line-height: 36px;
+    }
+
+    &.divider {
+      background-color: #EBEBEC;
+    }
+  }
+}

@@ -2,8 +2,19 @@
 // Default Values
 // -------------------------------------------------------------------
 
-$white: #F5F4EC;
-$black: #2F3443;
+$white:  #F5F4EC;
+$black:  #2F3443;
+$green:  #19AE58;
+$purple: #9A67B0;
+$blue:   #1F7FB5;
+$gray:   #9FA3AE;
+$red:    #FB605E;
+$yellow: #EDD239;
+
+$dark-green: shade($green, 15%);
+$dark-blue: #074B75;
+$light-blue: #34AFE7;
+
 $default-code-background: #F0F0F0;
 
 //
@@ -31,4 +42,4 @@ $default-modal-z-index: 1040;
 $default-modal-backdrop-color: #000000;
 $default-modal-background: $white;
 $default-modal-border: #D8C8B2;
-$default-modal-text-color: #074B75;
+$default-modal-text-color:$dark-blue;
