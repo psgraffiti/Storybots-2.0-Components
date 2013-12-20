@@ -1,0 +1,65 @@
+//
+// Storybot Modal
+// -------------------------------------------------------------------
+
+.sb.modal-content {
+  max-width: 450px;
+  border: 0px;
+
+  @include background-size(100%, 100%);
+  background-position: top right;
+  background-repeat:no-repeat;
+}
+
+.sb.modal-header {
+  @include pad(40px 30px 0px);
+  border-bottom: 0px;
+  text-align: center;
+  white-space: nowrap;
+  margin-bottom: 25px;
+
+  h1, h2, h3,
+  h4, h5, h6 {
+    margin: 0px;
+  }
+}
+
+.sb.modal-body {
+  @include pad(0px 30px 40px);
+  text-align: center;
+}
+
+
+//
+// Storybot Modal Colours
+// -------------------------------------------------------------------
+
+.modal {
+  &.blue {
+    .sb.modal-content {
+      @include radial-gradient(97% 12px, circle, rgba(31,127,181,0) 32px, $blue 33px);
+    }
+
+    h1 {
+      color: $yellow;
+    }
+
+    p {
+      color: white;
+    }
+  }
+
+  &.white {
+    .sb.modal-content {
+      @include radial-gradient(97% 12px, circle, rgba(255,255,255,0) 32px, white 33px);
+    }
+
+    h4 {
+      color: $light-blue;
+    }
+
+    p {
+      color: #505667;
+    }
+  }
+}

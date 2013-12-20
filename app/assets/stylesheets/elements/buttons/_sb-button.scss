@@ -64,6 +64,19 @@
   }
 
   &.blue {
-    @include sb-btn-close($dark-blue);
+    @include sb-btn-close(#00517E);
+  }
+}
+
+//
+// Toggle Button Colours
+// -------------------------------------------------------------------
+
+.sb.toggle .btn {
+  &.toggle-blue {
+    @include btn-toggle($light-blue);
+  }
+  &.toggle-gray {
+    @include btn-toggle($gray);
   }
 }

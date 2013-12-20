@@ -1,0 +1,67 @@
+//
+// Raised Button
+// -------------------------------------------------------------------
+
+@mixin btn-raised($color) {
+
+  $border-color:  tint($color, 35%);
+  $shadow-color:  shade($color, 15%);
+  $hover-color:   $border-color;
+  $grad-top:      $border-color;
+  $grad-bottom:   $color;
+  $text-color:    $default-btn-text-color;
+  $shadow:        0px 5px 0px $shadow-color;
+  $shadow-hover:  0px 2px 0px $shadow-color;
+
+  @if lightness($color) > 50% {
+    $border-color:  darken($color, 30%);
+    $shadow-color:  shade($border-color, 15%);
+    $hover-color:   shade($color, 5%);
+    $grad-top:      $color;
+    $grad-bottom:   $border-color;
+    $text-color:    $default-btn-text-dark;
+  }
+
+  @include linear-gradient($grad-top, $grad-bottom);
+
+  @include pad(10px 45px 0px 45px);
+  @include border-radius(15px);
+  border: 1px solid $border-color;
+  @include box-shadow($shadow);
+
+  position: relative;
+
+  font-family: AlphabetSoup;
+  font-size: 40px;
+  font-weight: normal;
+  color: $text-color;
+
+  &.hover,
+  &:hover {
+    @include linear-gradient($hover-color, $hover-color);
+    @if lightness($color) > 50% {
+      border-color: $hover-color
+    }
+
+    &.active,
+    &:active {
+      top: 3px;
+      @include box-shadow($shadow-hover);
+    }
+  }
+
+  &:disabled,
+  &[disabled] {
+
+    &:hover,
+    &:focus {
+      @include linear-gradient($grad-top, $grad-bottom);
+      border-color: $border-color;
+
+      &:active {
+        top: 0px;
+        @include box-shadow($shadow);
+      }
+    }
+  }
+}

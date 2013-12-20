@@ -2,7 +2,11 @@
   <p>
     Use the classes <i>sb btn</i> for storybot buttons. Use the class <i>small</i> or <i>large</i> for smaller or bigger buttons. Include the button color in the class.
   </p>
-<br>
+
+<code><pre>
+&lt;a class="sb btn green">Text&lt;/a>
+</pre></code>
+
 <center><p>
   <table class="well"><caption>Standard buttons in different sizes:</caption>
     <tr>
@@ -57,6 +61,38 @@
     <tr>
       <td><a class="sb btn photo blue"><i class="fa fa-facebook fa-3x"></i>Facebook</a></td>
       <td><center>class="sb btn photo blue"</center></td>
+    </tr>
+  </table></p>
+  </center><br>
+  <p>Toggle buttons can be created by using a button-group and the classes <i>sb toggle</i>.</p>
+<code><pre>
+&lt;div class="sb btn-group toggle" data-toggle="buttons">
+  &lt;a class="sb btn toggle-blue active hover">&lt;/i>Girl&lt;/a>
+  &lt;a class="sb btn toggle-blue">&lt;/i>Boy&lt;/a>
+&lt;/div>
+</pre></code>
+
+  <br><br>
+
+  <center>
+  <table class="well"><caption>Toggle buttons in different colours:</caption>
+    <tr>
+      <td>
+        <div class="sb btn-group toggle" data-toggle="buttons">
+          <a class="sb btn toggle-blue active hover"></i>Girl</a>
+          <a class="sb btn toggle-blue"></i>Boy</a>
+        </div>
+      </td>
+      <td><center>class="sb btn-group toggle"<br>class="sb btn toggle-blue"</center></td>
+    </tr>
+    <tr>
+      <td>
+        <div class="sb btn-group toggle" data-toggle="buttons">
+          <a class="sb btn toggle-gray active hover"></i>Child</a>
+          <a class="sb btn toggle-gray"></i>Grownup</a>
+        </div>
+      </td>
+      <td><center>class="sb btn-group toggle"<br>class="sb btn toggle-gray"</center></td>
     </tr>
   </table></p>
   </center>
@@ -188,7 +224,7 @@ With <i>data-toggle="button"</i> attribute:
   <a class="btn" color="black2" disabled="disabled">Disabled Button</a><br>
 </div></div>
 
-<div class="sidebar"><h6>Mixin Definition</h6>
+<div class="sidebar"><b>Mixin Definition</b><br>
   @mixin btn($style, $color)
   <br><br>
 
@@ -206,7 +242,7 @@ With <i>data-toggle="button"</i> attribute:
   </ul>
   <br><br>
 
-  <h6>Storybot Button Classes</h6>
+  <b>Storybot Button Classes</b><br>
   Class Sizes:
   <ul>
     <li>small</li>

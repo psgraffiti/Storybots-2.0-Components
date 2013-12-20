@@ -7,22 +7,29 @@
     min-height: 50px;
     line-height: 28px;
 
-    color: black;
+    font-family: ProximaNova;
+    font-size: 18px;
+    color: $black;
+
+    i {
+      color: $beigey;
+      line-height: 28px;
+    }
 
     &:hover,
     &.hover {
-      background-color: #F6F2ED;
+      color: white;
+      background-color: $light-beigey;
 
       &:active,
       &.active {
         @include box-shadow(none);
         background-color: #71C7EE;
-      }
-    }
 
-    i {
-      color: #EDE6DC;
-      line-height: 28px;
+        i {
+          color: white;
+        }
+      }
     }
   }
 }

@@ -1,0 +1,55 @@
+//
+// Flat Button
+// -------------------------------------------------------------------
+
+@mixin btn-flat($color) {
+
+  $hover-color: tint($color, 30%);
+  $text-color: $default-btn-text-color;
+
+  // If the button color is light, make text color light and what not
+  @if lightness($color) > 50% {
+    $hover-color: shade($color, 20%);
+    $text-color: $default-btn-text-dark;
+  }
+
+  $shadow-color: shade($hover-color, 10%);
+  $shadow: 0px 1px 5px 3px $shadow-color inset;
+
+  @include pad(10px 15px);
+  @include border-radius(5px);
+  background-color: $color;
+
+  font-family: ProximaNova;
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  color: $text-color;
+
+  &[toggle-type=dropdown] {
+    margin-bottom: 0px;
+  }
+
+  &.hover,
+  &:hover {
+    background-color: $hover-color;
+
+    &.active,
+    &:active {
+      @include box-shadow($shadow);
+    }
+  }
+
+  &:disabled,
+  &[disabled] {
+
+    &:hover,
+    &:focus {
+      background-color: $color;
+
+      &:active {
+        @include box-shadow(none);
+      }
+    }
+  }
+}

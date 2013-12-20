@@ -8,20 +8,8 @@
 @import "defaults";
 @import "helpers";
 
-@import "layouts/fonts";
-@import "layouts/typography";
 @import "layouts/base";
-@import "layouts/list";
-@import "layouts/grid";
-
-@import "modules/well";
-@import "modules/buttons/button";
-@import "modules/modal";
-@import "modules/navbars/main-navbar";
-@import "modules/navbars/side-navbar";
-@import "modules/dropdowns/dropdown";
-@import "modules/form";
-@import	"modules/filter-bar";
+@import "elements/element-base";
 
 @import "pages/greetings";
 @import "pages/buttons";

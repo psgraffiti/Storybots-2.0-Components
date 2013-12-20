@@ -1,6 +1,29 @@
 <div class="content"><div class="main large"><h3>Modals</h3>
+  <p>Storybot modals have a distinct look to them. Use the classes <i>white</i> or <i>blue</i> to use the preset modals. Use the class <i>btn-close</i> for the unique round close button.</p>
+<code><pre>
+&lt;a class="sb btn green" data-toggle="modal" data-target="#myh1HeadingModal">
+  Blue Modal
+&lt;/a>
+
+&lt;div class="modal blue fade" id="myh1HeadingModal" tabindex="-1">
+  &lt;div class="modal-dialog">
+    &lt;div class="sb modal-content">
+      &lt;a type="button" class="sb close btn-close blue" data-dismiss="modal">&lt;i class="fa fa-times fa-fw fa-2x">&lt;/i>&lt;/a>
+      &lt;div class="sb modal-header">
+        &lt;h1 id="h1Heading">H1 Heading&lt;/h1>
+      &lt;/div>
+      &lt;div class="sb modal-body">
+        &lt;p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p>
+      &lt;/div>
+    &lt;/div>
+  &lt;/div>
+&lt;/div> 
+</pre></code>
+
+<br><br>
+
   <center>
-    <table class="well"><caption>With the use of class "fade" for transitions</caption>
+    <table class="well"><caption>Storybot style modals in blue and white</caption>
       <tr>
         <td>
           <a class="sb btn green" data-toggle="modal" data-target="#myh1HeadingModal">
@@ -21,7 +44,7 @@
             </div>
           </div>
         </td>
-        <td>@include modal(small, #F5F4EC, #074B75, #D8C8B2);</td>
+        <td>class="modal blue fade"</td>
       </tr>
       <tr>
         <td>
@@ -43,11 +66,28 @@
             </div>
           </div>
         </td>
-        <td>@include modal(small, #F5F4EC, #074B75, #D8C8B2);</td>
+        <td>class="modal white fade"</td>
       </tr>
     </table>
   </center>
+</div></div>
 
+<div class="sidebar"><b>Mixin Definition</b><br><br>
+  @mixin modal($id, $back-color, $color, $border,  $width-size: auto)<br><br>
+  Required Parameters:<br>
+  <ol>
+    <li>id</li>
+    <li>background color</li>
+    <li>border color</li>
+    <li>text color</li>
+  </ol>
+  Optional Parameters:<br>
+  <ol>
+    <li>width size (defualt is auto)</li>
+  </ol>
+</div>
+
+<div class="content large"><div class="main large">
   <p>
   Modals have a header (<i>.modal-header</i>), body (<i>.modal-body</i>), and footer (<i>.modal-footer</i>), all of which are wrapped in the <i>modal-content</i> class. The element used to trigger the modal uses <i>data-toggle="modal"</i> and <i>data-target</i> to launch the associated modal. The <i>modal-dialog</i> class is used to position the modal on the screen.
   <br><br>
@@ -57,7 +97,7 @@
   <br><br>
   </p>
 
-  <code><pre>
+<code><pre>
 &lt;a class="btn" data-toggle="modal" data-target="#myModal">
 Launch demo modal
 &lt;/a>
@@ -83,25 +123,7 @@ Launch demo modal
     &lt;/div>
   &lt;/div>
 &lt;/div>
-  </pre></code>
-</div></div>
-
-<div class="sidebar"><b>Mixin Definition</b><br><br>
-  @mixin modal($id, $back-color, $color, $border,  $width-size: auto)<br><br>
-  Required Parameters:<br>
-  <ol>
-    <li>id</li>
-    <li>background color</li>
-    <li>border color</li>
-    <li>text color</li>
-  </ol>
-  Optional Parameters:<br>
-  <ol>
-    <li>width size (defualt is auto)</li>
-  </ol>
-</div>
-
-<div class="content large"><div class="main large">
+</pre></code>
   <p>
   The <i>modal</i> mixin requires an id name as the first parameter. The id, such as "small" for example, is used as a class selector: <i>.modal.small</i>
   <br><br>

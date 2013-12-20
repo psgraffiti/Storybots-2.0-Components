@@ -7,15 +7,9 @@
     
   @include pad(10px 7px);
   float: right;
-  margin-top: -14px;
-  margin-right: -14px;
+  margin-top: -12px;
+  margin-right: -12px;
   border-radius: 70px;
-
-  background-clip: padding-box;
-  border-top: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-left: 6px solid rgba(0,0,0,0.8);
-  border-bottom: 6px solid rgba(0,0,0,0.8);
 
   color: white;
 }

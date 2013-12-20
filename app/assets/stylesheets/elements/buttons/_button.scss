@@ -1,0 +1,46 @@
+//
+// Buttons Base
+// -------------------------------------------------------------------
+
+@mixin btn($style, $color: white) {
+
+  @if $style == flat {
+    @include btn-flat($color);
+  }
+  @else if $style == raised {
+    @include btn-raised($color);
+  }
+
+  @include btn-base();
+}
+
+@mixin btn-base() {
+  @include user-select(none);
+  @include inline-block;
+
+  margin: 5px;
+  border: 0px;
+
+  text-decoration: none;
+  cursor: pointer;
+
+  &:focus {
+    outline-width: 0px;
+  }
+
+  &:disabled,
+  &[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+@import "elements/buttons/button-flat";
+@import "elements/buttons/button-raised";
+@import "elements/buttons/button-group";
+@import "elements/buttons/button-standard";
+@import "elements/buttons/button-photo-source";
+@import "elements/buttons/button-big-green";
+@import "elements/buttons/button-close";
+@import "elements/buttons/button-toggle";
+@import "elements/buttons/sb-button";
