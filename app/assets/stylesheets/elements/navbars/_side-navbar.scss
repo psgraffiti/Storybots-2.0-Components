@@ -32,8 +32,14 @@
     }
 
     i {
-      float: right;
-      margin-left: 30px;
+      &.fa-chevron-right {
+        float: right;
+        margin-left: 30px;
+      }
+
+      &:not(.fa-chevron-right) {
+        margin-right: 10px;
+      }
     }
   }
 

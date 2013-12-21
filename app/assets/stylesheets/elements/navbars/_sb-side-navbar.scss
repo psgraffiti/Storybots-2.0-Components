@@ -12,14 +12,21 @@
     color: $black;
 
     i {
-      color: $beigey;
       line-height: 28px;
+
+      &.fa-chevron-right {
+        color: $beigey;
+      }
+
+      &:not(.fa-chevron-right) {
+        color: $light-blue;
+      }
     }
 
     &:hover,
     &.hover {
-      color: white;
       background-color: $light-beigey;
+      color: white;
 
       &:active,
       &.active {

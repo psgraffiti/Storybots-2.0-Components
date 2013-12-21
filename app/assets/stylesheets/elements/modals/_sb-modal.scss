@@ -9,6 +9,10 @@
   @include background-size(100%, 100%);
   background-position: top right;
   background-repeat:no-repeat;
+
+  .close.btn-close {
+    background-clip: padding-box;
+  }
 }
 
 .sb.modal-header {
@@ -22,6 +26,10 @@
   h4, h5, h6 {
     margin: 0px;
   }
+
+  @include media($mobile) {
+    white-space: normal;
+  }
 }
 
 .sb.modal-body {
@@ -34,10 +42,19 @@
 // Storybot Modal Colours
 // -------------------------------------------------------------------
 
+// Invisible top right corner for close button
+@mixin corner-pocket($color) {
+  @include radial-gradient(95% 20px, circle, rgba($color, 0) 31px, $color 32px);
+
+  @include media($mobile) {
+    @include radial-gradient(94% 21px, circle, rgba($color, 0) 34px, $color 35px);
+  }
+}
+
 .modal {
   &.blue {
     .sb.modal-content {
-      @include radial-gradient(97% 12px, circle, rgba(31,127,181,0) 32px, $blue 33px);
+      @include corner-pocket($blue);
     }
 
     h1 {
@@ -51,7 +68,7 @@
 
   &.white {
     .sb.modal-content {
-      @include radial-gradient(97% 12px, circle, rgba(255,255,255,0) 32px, white 33px);
+      @include corner-pocket(white);
     }
 
     h4 {
@@ -59,7 +76,7 @@
     }
 
     p {
-      color: #505667;
+      color: $black;
     }
   }
 }

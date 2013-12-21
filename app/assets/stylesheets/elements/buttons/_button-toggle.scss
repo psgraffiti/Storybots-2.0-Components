@@ -17,6 +17,10 @@
       color: white;
     }
   }
+
+  @include media($mobile) {
+    font-size: 16px;
+  }
 }
 
 @import "elements/buttons/sb-toggle";

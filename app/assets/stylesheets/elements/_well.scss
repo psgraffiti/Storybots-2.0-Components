@@ -31,3 +31,23 @@
     @include border-radius(10px);
   }
 }
+
+.well {
+  @include outer-container();
+  @include well();
+
+  @include striped-bkgrd(angled-135);
+  margin: 25px 0px 25px;
+  width: 85%;
+
+  .list-items li {
+    @include list(2);
+    @include pad(0px);
+    background-color: transparent;
+    //border: 1px red solid;
+  }
+
+  @include media($mobile) {
+    width: 100%;
+  }
+}

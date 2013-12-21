@@ -13,5 +13,9 @@ form {
       border: 1px solid #34AFE7;
       outline: 0px;
     }
+
+    @include media($mobile) {
+      min-width: 225px;
+    }
   }
 }

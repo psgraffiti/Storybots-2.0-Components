@@ -3,5 +3,10 @@
     min-width: 135px;
     text-align: center;
     line-height: 33px;
+
+    @include media($mobile) {
+    	min-width: 90px;
+    	line-height: 24px;
+    }
   }
 }

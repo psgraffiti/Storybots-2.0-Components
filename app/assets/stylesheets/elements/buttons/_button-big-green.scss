@@ -4,11 +4,11 @@
 
 @mixin btn-big-green() {
 
-  $grad-top:      rgba(128,219,44,1);
-  $grad-bottom:   rgba(59,177,20,1);
-  $shadow:        0px 5px 0px 0px rgba(40,155,40,1), 0px 6px 6px 0px rgba(117,117,117,1), 0px -1px 0px 0px rgba(78,189,27,1) inset;
-  $shadow-hover:  0px 5px 0px 0px rgba(40,155,40,1), 0px 6px 6px 0px rgba(117,117,117,1);
-  $shadow-active: 0px 1px 6px 0px rgba(117,117,117,1), 0px -1px 0px 0px rgba(78,189,27,1) inset;
+  $grad-top:      #80DB2C;
+  $grad-bottom:   #3BB114;
+  $shadow:        0px 5px 0px 0px #289B28, 0px 6px 6px 0px #757575, 0px -1px 0px 0px #75BD1B inset;
+  $shadow-hover:  0px 5px 0px 0px #289B28, 0px 6px 6px 0px #757575;
+  $shadow-active: 0px 1px 6px 0px #757575, 0px -1px 0px 0px #75BD1B inset;
 
   @include linear-gradient($grad-top, $grad-bottom);
 
@@ -27,11 +27,11 @@
   text-align: center;
   text-transform: capitalize;
   line-height: 57px;
-  text-shadow: 0px -1px 2px rgba(46,120,0,1);
+  text-shadow: 0px -1px 2px #2E7800;
 
   &.hover,
   &:hover {
-    @include linear-gradient(rgba(146,225,62,1),rgba(76,187,32,1));
+    @include linear-gradient(tint($grad-top, 15%), tint($grad-bottom, 15%));
     @include box-shadow($shadow-hover);
 
     &.active,
@@ -40,5 +40,10 @@
       @include box-shadow($shadow-active);
       top: 5px;
     }
+  }
+
+  @include media($mobile) {
+    @include pad(5px 25px);
+    width: 250px;
   }
 }

@@ -61,6 +61,11 @@
     @include pad(20px 55px);
     height: 60px;
     font-size: 18px;
+
+    @include media($mobile) {
+      @include pad(20px 25px);
+      max-width: 250px;
+    }
   }
 
   &[toggle-type=dropdown] {
