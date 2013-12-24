@@ -1,5 +1,7 @@
 form {
   .sb.input {
+    -webkit-appearance: none;
+
     @include border-radius(12px);
     border: 1px solid #E2D7C8;
 
@@ -7,6 +9,16 @@ form {
     top: 2px;
     height: 53px;
     min-width: 300px;
+
+    font-family: ProximaNova;
+    font-size: 18px;
+    color: $black;
+
+    @include placeholder {
+      font-family: ProximaNova;
+      font-size: 18px;
+      color: #777C89;
+    }
 
     &:focus {
       @include box-shadow(0px 0px 5px 0px tint(#34AFE7, 65%));

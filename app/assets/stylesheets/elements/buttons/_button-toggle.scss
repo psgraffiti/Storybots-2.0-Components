@@ -10,6 +10,8 @@
   
   &.hover,
   &:hover {
+    background-color: shade(white, 10%);
+
     &.active,
     &:active {
       @include box-shadow(none);

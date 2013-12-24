@@ -15,4 +15,46 @@
   i {
     display: block;
   }
+
+  span {
+    @include inline-block();
+    vertical-align: middle;
+    line-height: normal;
+  }
+
+  @include media($large-desktop) {
+    width: 170px;
+    height: 160px;
+
+    line-height: 130px;
+  }
+
+  @include media($small-desktop) {
+    width: 140px;
+    height: 130px;
+
+    line-height: 100px;
+  }
+
+  @include media($tablet) {
+    width: 104px;
+    height: 96px;
+    min-width: 104px;
+
+    font-size: 16px;
+    line-height: 74px;
+  }
+
+  @include media($mobile) {
+    width: 228px;
+    height: 68px;
+
+    font-size: 24px;
+    line-height: 40px;
+
+    i {
+      display: inline;
+      margin-right: 10px;
+    }
+  }
 }

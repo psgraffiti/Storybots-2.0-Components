@@ -49,6 +49,7 @@ p {
   font-weight: normal;
   font-style: normal;
   font-size: 16px;
+  color: $black;
 }
 
 
@@ -80,4 +81,11 @@ p {
     font-family: ProximaNova;
     font-size: 12px;
   }
+}
+
+@mixin flat-btn-font() {
+  font-family: ProximaNova;
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
 }

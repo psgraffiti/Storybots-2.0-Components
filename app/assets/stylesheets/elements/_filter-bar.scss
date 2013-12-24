@@ -1,3 +1,52 @@
+//
+// Sprites
+// -------------------------------------------------------------------
+
+.filter-bar {
+  .sprite {
+    position: relative;
+    top: 2px; 
+    left: 20px;
+
+    display: inline;
+    background-image: asset-url('filter-bar-sprites.png', image);
+    background-repeat: no-repeat;
+    width: 32px;
+    height: 31px;
+
+    @include media($mobile) {
+      left: 0px;
+    }
+  }
+
+  #iphone {
+    background-position:  -9px -36px;
+    left: 25px;
+    
+    @include media($mobile) {
+      left: 0px;
+      width: 20px;
+    }
+  }
+
+  #ipad {
+    background-position: -1px -5px;
+    top: 4px;
+    
+    @include media($mobile) {
+      top: 2px;
+    }
+  }
+
+  #web {
+    background-position: -69px -3px;
+  }
+}
+
+//
+// Filter Nav Bar
+// -------------------------------------------------------------------
+
 .filter-bar {
   > .btn {
     background-color: #EBE5DE;
@@ -14,6 +63,10 @@
       border-left: 1px solid $white;
     }
 
+    &:last-child {
+      margin-right: 0px;
+    }
+
     &.hover,
     &:hover {
       background-color: #E3DDD6;
@@ -23,6 +76,23 @@
         color: white;
         background-color: #34AFE7;
         @include box-shadow(none);
+
+        #iphone {
+          background-position:  -43px -36px;
+          width: 26px;
+
+          @include media($mobile) {
+            width: 20px;
+          }
+        }
+
+        #ipad {
+          background-position: -35px -5px;
+        }
+
+        #web {
+          background-position: -69px -37px;
+        }
       }
     }
 
@@ -30,6 +100,15 @@
       float: left;
       margin-right: 5px;
       font-size: 40px;
+    }
+
+    #iphone {
+      margin-right: 0px;
+    }
+
+    @include media($mobile) {
+      font-size: 18px;
+      width: 110px;
     }
   }
 }

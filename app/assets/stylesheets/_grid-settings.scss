@@ -7,6 +7,9 @@ $grid-columns: 12;
 $max-width: em(1200);
 
 //breakpoints
-$desktop: new-breakpoint(min-width 961px 12);
+$desktop: new-breakpoint(min-width 961px 8);
+$large-desktop: new-breakpoint(min-width 1201px 12);
+$small-desktop: new-breakpoint(max-width 1200px 12);
+
 $tablet: new-breakpoint(max-width 960px 8);
 $mobile: new-breakpoint(max-width 480px 4);

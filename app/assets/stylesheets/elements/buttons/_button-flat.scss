@@ -20,10 +20,7 @@
   @include border-radius(5px);
   background-color: $color;
 
-  font-family: ProximaNova;
-  font-size: 15px;
-  font-weight: normal;
-  font-style: normal;
+  @include flat-btn-font();
   color: $text-color;
 
   &[toggle-type=dropdown] {
@@ -38,6 +35,45 @@
     &:active {
       @include box-shadow($shadow);
     }
+  }
+
+  &:disabled,
+  &[disabled] {
+
+    &:hover,
+    &:focus {
+      background-color: $color;
+
+      &:active {
+        @include box-shadow(none);
+      }
+    }
+  }
+}
+
+//
+// Storybot Flat Button
+// -------------------------------------------------------------------
+
+@mixin btn-sb-flat($color) {
+
+  $hover-color: shade($color, 10%);
+  $text-color: white;
+
+  @include pad(10px 15px);
+  @include border-radius(5px);
+  background-color: $color;
+
+  @include flat-btn-font();
+  color: $text-color;
+
+  &[toggle-type=dropdown] {
+    margin-bottom: 0px;
+  }
+
+  &.hover,
+  &:hover {
+    background-color: $hover-color;
   }
 
   &:disabled,
