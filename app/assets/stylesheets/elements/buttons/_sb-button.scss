@@ -84,3 +84,9 @@
     @include btn-toggle($gray);
   }
 }
+
+.sb.btn-flat {
+  &.dark-blue {
+    @include btn-sb-flat($dark-blue);
+  }
+}

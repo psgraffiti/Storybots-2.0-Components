@@ -6,8 +6,6 @@
 $(document).ready(function() {
   +function ($) { "use strict";
 
-    resizeIcon()
-
     var Button = function (element) {
       this.$element = $(element)
     }
@@ -36,23 +34,6 @@ $(document).ready(function() {
         this.$element.toggleClass('hover')
       }
     }
-
-    $(window).resize(function() {
-      resizeIcon()
-    })
-
-    function resizeIcon() {
-      var $button = $('.sb.btn.photo')
-      var mobileFont = '24px'
-      var fontSize = $button.css('font-size')
-
-      if (fontSize == mobileFont) {
-        $button.children('span').children('i').removeClass('fa-3x')
-      }
-      else if (!$button.children('i').hasClass('fa-3x')) {
-        $button.children('span').children('i').addClass('fa-3x')
-      }
-    } 
 
     // BUTTON PLUGIN DEFINITION
     // ========================

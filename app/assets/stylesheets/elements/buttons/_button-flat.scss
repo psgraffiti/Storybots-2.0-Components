@@ -51,41 +51,4 @@
   }
 }
 
-//
-// Storybot Flat Button
-// -------------------------------------------------------------------
-
-@mixin btn-sb-flat($color) {
-
-  $hover-color: shade($color, 10%);
-  $text-color: white;
-
-  @include pad(10px 15px);
-  @include border-radius(5px);
-  background-color: $color;
-
-  @include flat-btn-font();
-  color: $text-color;
-
-  &[toggle-type=dropdown] {
-    margin-bottom: 0px;
-  }
-
-  &.hover,
-  &:hover {
-    background-color: $hover-color;
-  }
-
-  &:disabled,
-  &[disabled] {
-
-    &:hover,
-    &:focus {
-      background-color: $color;
-
-      &:active {
-        @include box-shadow(none);
-      }
-    }
-  }
-}
+@import "elements/buttons/sb-button-flat";

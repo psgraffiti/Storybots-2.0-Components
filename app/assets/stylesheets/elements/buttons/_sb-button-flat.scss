@@ -1,0 +1,109 @@
+//
+// Storybot Flat Button
+// -------------------------------------------------------------------
+
+@mixin btn-sb-flat($color) {
+  $hover-color: shade($color, 10%);
+  $text-color: white;
+
+  @include pad(10px 15px);
+  @include border-radius(5px);
+  background-color: $color;
+
+  @include flat-btn-font();
+  color: $text-color;
+
+  &[toggle-type=dropdown] {
+    margin-bottom: 0px;
+  }
+
+  &.hover,
+  &:hover {
+    background-color: $hover-color;
+
+    &.active,
+    &:active {
+      @include box-shadow(none);
+    }
+  }
+
+  &:disabled,
+  &[disabled] {
+
+    &:hover,
+    &:focus {
+      background-color: $color;
+
+      &:active {
+        @include box-shadow(none);
+      }
+    }
+  }
+}
+
+//
+// Storybot Flat Round Button
+// -------------------------------------------------------------------
+
+@mixin btn-flat-round($color) {
+  @include btn-sb-flat($color);
+
+  border-radius: 25px;
+
+  &.hover,
+  &:hover {
+    &.active,
+    &:active {
+      @include box-shadow(none);
+    }
+  }
+}
+
+//
+// Storybot Set Flat Round Buttons
+// -------------------------------------------------------------------
+
+.sb.flat-round {
+  &.facebook {
+    @include btn-flat-round($blue);
+    @include pad(10px 5px 6px);
+
+    @include media($mobile) {
+      @include pad(7px 4px 3px);
+    }
+  }
+
+  &.twitter {
+    @include btn-flat-round($light-blue);
+    @include pad(10px 5px 7px 6px);
+
+    @include media($mobile) {
+      @include pad(6px 3px 4px 4px);
+    }
+  }
+
+  &.help-blue {
+    @include btn-flat-round($light-blue);
+  }
+
+  &.help-green {
+    @include btn-flat-round($green);
+  }
+
+  &.help-blue,
+  &.help-green {
+    @include pad(9px 5px 7px);
+
+    @include media($mobile) {
+      @include pad(6px 4px 4px);
+    }
+  }
+
+  i {
+    font-size: 30px;    
+
+    @include media($mobile) {
+      font-size: 20px;
+    }
+  }
+}

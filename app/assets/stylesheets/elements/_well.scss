@@ -44,10 +44,15 @@
     @include list(2);
     @include pad(0px);
     background-color: transparent;
-    //border: 1px red solid;
   }
 
   @include media($mobile) {
     width: 100%;
+  }
+}
+
+table.spaced {
+  td {
+    @include pad(15px 0px);
   }
 }

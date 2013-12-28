@@ -1,4 +1,6 @@
 form {
+  @include inline-block();
+
   .sb.input {
     -webkit-appearance: none;
 
@@ -28,6 +30,63 @@ form {
 
     @include media($mobile) {
       min-width: 225px;
+    }
+  }
+}
+
+.sb.input.small {
+  min-width: 68px;
+  max-width: 68px;
+}
+
+#age-textfield {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+form fieldset {
+  &.sb {
+    @include pad(20px);
+    border-radius: 7px;
+    border: 0px;
+
+    background-color: $blue;
+    color: white;
+
+    .email-password {
+      @include pad(0px);
+      border: 0px;
+
+      .sb.input {
+        top: 0px;
+        left: 0px;
+      }
+    }
+  }
+
+  &.email-password {
+    margin-bottom: 15px;
+
+    input {
+      display: block;
+
+      &:first-child:not(last-child) {
+        @include border-radius-bottom(0px);
+        border-bottom: 0px;
+      }
+
+      &:last-child:not(first-child) {
+        @include border-radius-top(0px);
+      }
+
+      &:not(first-child):not(last-child) {
+        @include border-radius(0px);
+        border-bottom: 0px;
+      }
+    }
+
+    .input {
+      border-color: #777C89;
     }
   }
 }

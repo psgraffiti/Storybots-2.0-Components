@@ -21,21 +21,33 @@
 @mixin border-radius-right($x) {
   border-top-right-radius: $x;
   border-bottom-right-radius: $x;
+
+  -webkit-border-top-right-radius: $x;
+  -webkit-border-bottom-right-radius: $x;
 }
 
 @mixin border-radius-left($x) {
   border-top-left-radius: $x;
   border-bottom-left-radius: $x;
+
+  -webkit-border-top-left-radius: $x;
+  -webkit-border-bottom-left-radius: $x;
 }
 
 @mixin border-radius-top($x) {
   border-top-right-radius: $x;
   border-top-left-radius: $x;
+
+  -webkit-border-top-right-radius: $x;
+  -webkit-border-top-left-radius: $x;
 }
 
 @mixin border-radius-bottom($x) {
   border-bottom-right-radius: $x;
   border-bottom-left-radius: $x;
+  
+  -webkit-border-bottom-right-radius: $x;
+  -webkit-border-bottom-left-radius: $x;
 }
 
 

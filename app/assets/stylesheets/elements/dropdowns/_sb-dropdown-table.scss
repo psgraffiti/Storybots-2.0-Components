@@ -1,0 +1,32 @@
+.sb.dropdown-menu-table {
+  @include dropdown-menu-table(white, $black, true);
+  border: 0px;
+
+  .column-menu:not(:first-child):not(:last-child) {
+    border-left: 1px solid $light-beigey;
+  }
+
+  .header {
+    font-family: MuseoSans;
+    font-weight: 900;
+    font-size: 16px;
+  }
+
+  li > a {
+    @include pad(10px 20px);
+    
+    &:hover,
+    &:focus {
+      background-color: $light-beigey;
+      color: $black;
+
+      &:active {
+        background-color: $light-beigey;
+      }
+    }
+  }
+
+  .footer-menu {
+    background-color: $light-beigey;
+  }
+}

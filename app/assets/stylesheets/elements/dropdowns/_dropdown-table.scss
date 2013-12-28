@@ -44,6 +44,10 @@
       list-style-type: none;
       display: block;
       cursor: pointer;
+
+      &.header {
+        cursor: default;
+      }
     }
   }
 
@@ -78,7 +82,8 @@
         &.is-open,
         &.header,
         &.header ~ li.is-open {
-          display: block
+          display: block;
+          cursor: pointer;
         }
 
         &.header {
@@ -156,7 +161,8 @@
 }
 
 @mixin dropdown-menu-table($back-color, $text-color, $use-caret) {
-  
+  background-color: $back-color;
+
   @if $use-caret {
     &::before {
       @include inline-block();
@@ -212,3 +218,5 @@
     }
   }
 }
+
+@import "elements/dropdowns/sb-dropdown-table";

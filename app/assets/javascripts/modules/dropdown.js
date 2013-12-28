@@ -91,7 +91,9 @@ $(document).ready(function(){
         $(dropdownNav).css('width', $navbar.css('width'))
       }
       else {
-        $(dropdownNav).prop('style').removeProperty('width');
+        $(dropdownNav).each(function(index) {
+          $(dropdownNav).eq(index).prop('style').removeProperty('width');
+        })
       }
     }
 

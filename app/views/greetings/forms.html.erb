@@ -1,5 +1,6 @@
 <div class="content"><div class="main large"><h3>Forms</h3>
   <p>Use the classes <i>sb input</i> for Storybot style form elements. Storybot forms use the standard style buttons.</p>
+
 <code><pre>
 &lt;form>
   &lt;input type="text" class="sb input">
@@ -7,10 +8,39 @@
 &lt;/form>
 </pre></code>
 
-<br><br>
+  <br><br>
 
   <form>
-      <input type="text" class="sb input" placeholder="first name">
-      <button type="submit" class="sb btn green">Submit</button>
+    <input type="text" class="sb input" placeholder="first name">
+    <button type="submit" class="sb btn green">Submit</button>
   </form>
+
+  <br><br>
+
+  <p>Email Password field set</p>
+
+  <form>
+    <fieldset class="sb">
+      <fieldset class="email-password">
+        <input type="text" class="sb input" placeholder="Email">
+        <input type="text" class="sb input" placeholder="Password">
+      </fieldset>
+      Verify Age: <input type="text" class="sb input small" id="age-textfield"> years old
+    </fieldset>
+  </form>
+
+  <br><br>
+  
+<code><pre>
+&lt;form>
+  &lt;fieldset class="sb">
+    &lt;fieldset class="email-password">
+      &lt;input type="text" class="sb input" placeholder="Email">
+      &lt;input type="text" class="sb input" placeholder="Password">
+    &lt;/fieldset>
+    Verify Age: &lt;input type="text" class="sb input small" id="age-textfield"> years old
+  &lt;/fieldset>
+&lt;/form>
+</pre></code>
+  
 </div></div>
