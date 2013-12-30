@@ -4,4 +4,43 @@
   .btn {
     font-size: 25px;
   }
+
+  .dropdown-menu-table {
+    margin-top: 20px;
+
+    &::before {
+      display: none;
+    }
+
+    &::after {
+      top: -13px;
+      border-right: 13px solid transparent;
+      border-bottom: 13px solid white;
+      border-left: 13px solid transparent;
+    }
+  }
+
+  #right-menu {
+    ul {
+      @include pad(0px);
+    }
+
+    li {
+      @include pad(0px);
+      border-bottom: 1px solid $light-beigey;
+
+      &:last-child {
+        border-bottom: 0px;
+      }
+
+      > a {
+        @include pad(10px 20px 15px 10px);
+        min-width: 240px;
+      }
+    }
+
+    &::after {
+      left: 200px;
+    }
+  }
 }
