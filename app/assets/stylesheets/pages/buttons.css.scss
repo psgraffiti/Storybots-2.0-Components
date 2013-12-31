@@ -1,40 +1,9 @@
 .contain {
   @include outer-container;
 }
+
 .tablelike li {
   @include list(2);
-}
-
-.btn {
-  @include btn(flat, $default-btn-color);
-}
-
-.btn[color="standard"] {
-  @include btn(standard, $default-btn-color);
-}
-
-.btn.btn-large[color="standard"] {
-  @include btn(standard, $default-btn-color);
-}
-
-.btn[color="black"] {
-  @include btn(flat, #2F3443);
-}
-
-.btn[color="black2"] {
-  @include btn(raised, #2F3443);
-}
-
-.btn[color="white"] {
-  @include btn(flat, #f5f4ec);
-}
-
-.btn[color="raised"] {
-  @include btn(raised, $default-btn-color);
-}
-
-.btn[color="raised1"] {
-  @include btn(raised, #f5f4ec);
 }
 
 .btn-group {

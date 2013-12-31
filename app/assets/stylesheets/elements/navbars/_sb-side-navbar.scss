@@ -41,7 +41,7 @@
 // -------------------------------------------------------------------
 
 .sb.side-navbar {
-  border-radius: 7px;
+  border-radius: $default-dropdown-border-radius;
 
   .btn {
     background-color: white;

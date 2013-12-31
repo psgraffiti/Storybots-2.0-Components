@@ -1,7 +1,0 @@
-.btn-group > .sb.btn {
-  &:not(last-child) {
-    &.gray {
-      border-left: 1px solid shade($gray, 15%);
-    }
-  }
-}

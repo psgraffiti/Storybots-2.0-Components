@@ -1,26 +1,3 @@
 .caret {
   @include caret(#F5F4EC);
 }
-
-.dropdown-menu {
-  @include dropdown-menu($default-dropdown-background, $default-dropdown-text-color, false);
-}
-.use-caret {
-  @include dropdown-menu($default-dropdown-background, $default-dropdown-text-color, true);
-}
-
-.dropdown-menu.dark {
-  @include dropdown-menu(#47476B, #E5E5E9, true);
-}
-
-.dropdown-menu.light {
-  .caret {
-    @include caret(#2F3443);
-  }
-
-  @include dropdown-menu(#19AE58, $default-dropdown-text-color, true);
-}
-
-.dropdown-menu-table {
-	@include dropdown-menu-table($default-dropdown-background, $default-dropdown-text-color, true);
-}

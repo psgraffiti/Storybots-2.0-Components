@@ -1,5 +1,6 @@
 @mixin btn-toggle($color) {
   @include btn-base();
+  @include pad(10px);
 
   background-color: white;
   border: 2px solid $color;
@@ -25,4 +26,15 @@
   }
 }
 
-@import "elements/buttons/sb-toggle";
+.toggle {
+  .btn {
+    min-width: 135px;
+    text-align: center;
+    line-height: 33px;
+
+    @include media($mobile) {
+      min-width: 90px;
+      line-height: 24px;
+    }
+  }
+}

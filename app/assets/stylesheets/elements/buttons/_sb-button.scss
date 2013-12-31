@@ -6,7 +6,9 @@
 // Standard Button Colours
 // -------------------------------------------------------------------
 
-.sb.btn {
+.btn {
+  @include btn-base();
+
   &.green {
     @include btn-standard($green);
   }
@@ -36,7 +38,7 @@
 // Big Button
 // -------------------------------------------------------------------
 
-.sb.btn.big-green {
+.btn.big-green {
   @include btn-big-green();
 }
 
@@ -44,7 +46,7 @@
 // Photo Source Button Colours
 // -------------------------------------------------------------------
 
-.sb.btn.photo{
+.btn.photo{
   &.purple {
     @include btn-photo($purple);
   }
@@ -76,7 +78,7 @@
 // Toggle Button Colours
 // -------------------------------------------------------------------
 
-.sb.toggle .btn {
+.toggle .btn {
   &.toggle-blue {
     @include btn-toggle($light-blue);
   }
@@ -85,8 +87,8 @@
   }
 }
 
-.sb.btn-flat {
+.btn-flat {
   &.dark-blue {
-    @include btn-sb-flat($dark-blue);
+    @include btn-flat($dark-blue);
   }
 }

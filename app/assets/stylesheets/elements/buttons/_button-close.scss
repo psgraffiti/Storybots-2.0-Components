@@ -3,7 +3,7 @@
 // -------------------------------------------------------------------
 
 @mixin sb-btn-close($color) {
-  @include btn-sb-flat($color);
+  @include btn-flat($color);
     
   @include pad(10px 7px);
   float: right;

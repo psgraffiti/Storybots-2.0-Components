@@ -1,20 +1,10 @@
 //
-// Flat Button
+// Storybot Flat Button
 // -------------------------------------------------------------------
 
 @mixin btn-flat($color) {
-
-  $hover-color: tint($color, 30%);
-  $text-color: $default-btn-text-color;
-
-  // If the button color is light, make text color light and what not
-  @if lightness($color) > 50% {
-    $hover-color: shade($color, 20%);
-    $text-color: $default-btn-text-dark;
-  }
-
-  $shadow-color: shade($hover-color, 10%);
-  $shadow: 0px 1px 5px 3px $shadow-color inset;
+  $hover-color: shade($color, 10%);
+  $text-color: white;
 
   @include pad(10px 15px);
   @include border-radius(5px);
@@ -33,7 +23,7 @@
 
     &.active,
     &:active {
-      @include box-shadow($shadow);
+      @include box-shadow(none);
     }
   }
 
@@ -51,4 +41,69 @@
   }
 }
 
-@import "elements/buttons/sb-button-flat";
+//
+// Storybot Flat Round Button
+// -------------------------------------------------------------------
+
+@mixin btn-flat-round($color) {
+  @include btn-flat($color);
+
+  border-radius: 25px;
+
+  &.hover,
+  &:hover {
+    &.active,
+    &:active {
+      @include box-shadow(none);
+    }
+  }
+}
+
+//
+// Storybot Set Flat Round Buttons
+// -------------------------------------------------------------------
+
+.flat-round {
+  &.facebook {
+    @include btn-flat-round($blue);
+    @include pad(10px 5px 6px);
+
+    @include media($mobile) {
+      @include pad(7px 4px 3px);
+    }
+  }
+
+  &.twitter {
+    @include btn-flat-round($light-blue);
+    @include pad(10px 5px 7px 6px);
+
+    @include media($mobile) {
+      @include pad(6px 3px 4px 4px);
+    }
+  }
+
+  &.help-blue {
+    @include btn-flat-round($light-blue);
+  }
+
+  &.help-green {
+    @include btn-flat-round($green);
+  }
+
+  &.help-blue,
+  &.help-green {
+    @include pad(9px 5px 7px);
+
+    @include media($mobile) {
+      @include pad(6px 4px 4px);
+    }
+  }
+
+  i {
+    font-size: 30px;    
+
+    @include media($mobile) {
+      font-size: 20px;
+    }
+  }
+}

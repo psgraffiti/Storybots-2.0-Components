@@ -1,9 +1,38 @@
+
+  $text-color: $black;
+  $back-color: white;
+  $hover-color: $light-beigey;
+
 .dropdown-menu-table {
   @include pad(0px);
   width: auto;
   left: -43px;
   display: block;
   visibility: hidden;
+
+  background-color: $back-color;
+
+  &::before {
+    @include inline-block();
+    position: absolute;
+    top: -7px;
+    left: 56px;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid;
+    border-left: 7px solid transparent;
+    content: '';
+  }
+
+  &::after {
+    @include inline-block();
+    position: absolute;
+    top: -6px;
+    left: 57px;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid $back-color;
+    border-left: 6px solid transparent;
+    content: '';
+  }
 
   @include media($tablet) {
     @include border-radius(0px);
@@ -14,6 +43,35 @@
 
     &.use-caret {
       margin-top: 9px;
+    }
+
+    &::before,
+    &::after, {
+      display: none;
+      border: 0px;
+    }
+  }
+
+  @include media($desktop) {
+    .footer-menu li > a {
+      &:hover,
+      &:focus {
+        color: $text-color;
+        text-decoration: underline;
+        background-color: transparent;
+
+        &:active {
+          background-color: transparent;
+        }
+      }
+
+      &:disabled,
+      &[disabled] {
+        &:hover,
+        &:focus {  
+          color: $text-color;  
+        }
+      }
     }
   }
 }
@@ -32,9 +90,15 @@
   .header .fa {
     display: none;
   }
+
+  .header {
+    font-family: MuseoSans;
+    font-weight: 900;
+    font-size: 16px;
+  }
   
   &:not(:first-child):not(:last-child) {
-    border-left: 1px solid $black;
+    border-left: 1px solid $hover-color;
   }
 
   > ul {
@@ -47,6 +111,20 @@
 
       &.header {
         cursor: default;
+      }
+    }
+  }
+
+  li > a {
+    @include pad(10px 20px);
+    
+    &:hover,
+    &:focus {
+      background-color: $hover-color;
+      color: $text-color;
+
+      &:active {
+        background-color: $hover-color;
       }
     }
   }
@@ -105,7 +183,7 @@
   @include border-radius-bottom(5px);
   display: block;
   margin-bottom: -1px;
-  background-color: $black;
+  background-color: $hover-color;
   color: $white;
 
   > ul {
@@ -121,7 +199,7 @@
 
   @include media($tablet) {      
     background-color: transparent;
-    color: $black;
+    color: $text-color;
 
     > ul {
       @include pad(0px);
@@ -144,6 +222,12 @@
           @include pad(10px 20px);
           @include border-radius(0px);
           display: block;
+
+          &.hover,
+          &:hover {
+            background-color: $hover-color;
+            color: $text-color;
+          }
         }
       }
     }
@@ -159,64 +243,3 @@
     width: 960px;
   }
 }
-
-@mixin dropdown-menu-table($back-color, $text-color, $use-caret) {
-  background-color: $back-color;
-
-  @if $use-caret {
-    &::before {
-      @include inline-block();
-      position: absolute;
-      top: -7px;
-      left: 56px;
-      border-right: 7px solid transparent;
-      border-bottom: 7px solid;
-      border-left: 7px solid transparent;
-      content: '';
-    }
-
-    &::after {
-      @include inline-block();
-      position: absolute;
-      top: -6px;
-      left: 57px;
-      border-right: 6px solid transparent;
-      border-bottom: 6px solid $back-color;
-      border-left: 6px solid transparent;
-      content: '';
-    }
-
-    @include media($tablet) {
-      &::before,
-      &::after, {
-        display: none;
-        border: 0px;
-      }
-    }
-  }
-
-  @include media($desktop) {
-    .footer-menu li > a {
-      &:hover,
-      &:focus {
-        color: $text-color;
-        text-decoration: underline;
-        background-color: transparent;
-
-        &:active {
-          background-color: transparent;
-        }
-      }
-
-      &:disabled,
-      &[disabled] {
-        &:hover,
-        &:focus {  
-          color: $text-color;  
-        }
-      }
-    }
-  }
-}
-
-@import "elements/dropdowns/sb-dropdown-table";

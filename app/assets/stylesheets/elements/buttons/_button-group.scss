@@ -3,7 +3,6 @@
 // -------------------------------------------------------------------
 
 @mixin btn-group() {
-
   @include inline-block;
   position: relative;
   vertical-align: middle;
@@ -83,4 +82,10 @@
   }
 }
 
-@import "elements/buttons/sb-button-group";
+.btn-group > .btn {
+  &:not(last-child) {
+    &.gray {
+      border-left: 1px solid shade($gray, 15%);
+    }
+  }
+}
