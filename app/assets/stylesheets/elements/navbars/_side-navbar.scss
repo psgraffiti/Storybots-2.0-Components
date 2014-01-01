@@ -1,8 +1,49 @@
 //
+// Sprites
+// -------------------------------------------------------------------
+
+.side-navbar {
+  .sprite {
+    display: inline-block;
+    background-image: asset-url('side-navbar-sprites.png', image);
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+
+    position: relative;
+    vertical-align: middle;
+    top: -2px;
+  }
+
+  #abcs {
+    background-position:  -1px -1px;
+  }
+
+  #animals {
+    background-position: -45px -1px;
+  }
+
+  #classics {
+    background-position: -23px -23px;
+  }
+
+  #free {
+    background-position: -1px -45px;
+  }
+
+  #space {
+    background-position: -45px -44px;
+  }
+}
+
+//
 // Side Navbar
 // --------------------------------------------------
 
 .side-navbar {
+  $radius: $default-dropdown-border-radius;
+
+  @include border-radius($radius);
   position: relative;
   display: inline-block;
   vertical-align: middle; // match .btn alignment given font-size hack above
@@ -52,13 +93,66 @@
   &.btn-group > .btn {
     &:first-child,
     &:first-child:not(:last-child):not(.dropdown-toggle) {
-      @include border-radius-top(7px);
+      @include border-radius-top($radius);
     }
     &:last-child,
     &:last-child:not(:first-child) {
-      @include border-radius-bottom(7px);
+      @include border-radius-bottom($radius);
+    }
+  }
+
+  .btn {
+    background-color: white;
+    border: 1px solid #EDE6DC;
+    min-height: 50px;
+    line-height: 28px;
+
+    font-family: ProximaNova;
+    font-size: 18px;
+    color: $black;
+
+    i {
+      line-height: 28px;
+
+      &.fa-chevron-right {
+        color: $beigey;
+      }
+
+      &:not(.fa-chevron-right) {
+        color: $light-blue;
+      }
+    }
+
+    &:hover,
+    &.hover {
+      background-color: $light-beigey;
+      color: white;
+
+      &:active,
+      &.active {
+        @include box-shadow(none);
+        background-color: #71C7EE;
+
+        #abcs {
+          background-position: -23px -1px;
+        }
+        #animals {
+          background-position: -1px -23px;
+        }
+        #classics {
+          background-position: -45px -23px;
+        }
+        #free {
+          background-position: -23px -45px;
+        }
+        #space{
+          background-position: -67px 0px;
+        }
+
+        i {
+          color: white;
+        }
+      }
     }
   }
 }
-
-@import "elements/navbars/sb-side-navbar";

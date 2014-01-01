@@ -67,21 +67,40 @@
 // Actual modal
 .modal-content {
   @include border-radius(10px);
-  position: relative;
+  border: 0px;
   outline: none;
+
+  position: relative;
+  max-width: 450px;
+
   background-color: $default-modal-background;
-  border: 1px solid $default-modal-background;
+  @include background-size(100%, 100%);
+  background-position: top right;
+  background-repeat: no-repeat;
   
   $shadow: 0 3px 9px rgba(0,0,0,.5);
   @include box-shadow($shadow);
+
+  .close.btn-close {
+    background-clip: padding-box;
+  }
 }
 
 // Modal header
 // Top section of the modal w/ title and dismiss
 .modal-header {
-  @include pad(20px);
+  @include pad(40px 30px 0px);
   @include modal-font(header, $default-modal-text-color);
-  border-bottom: 1px solid $default-modal-border;
+  border-bottom: 0px;
+  margin-bottom: 25px;
+
+  text-align: center;
+  white-space: nowrap;
+
+  h1, h2, h3,
+  h4, h5, h6 {
+    margin: 0px;
+  }
 
   // Close icon
   .close {
@@ -90,6 +109,10 @@
     margin-top: -15px;
     margin-right: -15px;
     float: right;
+  }
+
+  @include media($mobile) {
+    white-space: normal;
   }
 }
 
@@ -101,9 +124,11 @@
 // Modal body
 // Where all modal content resides (sibling of .modal-header and .modal-footer)
 .modal-body {
-  @include pad(20px);
+  @include pad(0px 30px 40px);
   position: relative;
+
   @include modal-font(body, $default-modal-text-color);
+  text-align: center;
 }
 
 // Footer (for actions)
@@ -114,51 +139,4 @@
   border-top: 1px solid $default-modal-border;
 }
 
-
-//
-// Modal Mixin
-// --------------------------------------------------
-
-@mixin modal($id, $back-color, $color, $border, $width-size: auto) {
-  .modal-dialog.#{$id} {
-    width: $width-size;  
-
-    @include media($tablet) {
-      @if $width-size != auto {
-        @include transform(translateX(0px));
-        left: 0px;
-      }
-    }
-
-    @include media($mobile) {
-      @if $width-size == auto {
-        width: 90%;
-      }
-      @else {
-        @include transform(translateX(0px));
-        left: 0px;
-      }
-    }
-  }
-
-  .modal-content.#{$id} {
-    background-color: $back-color;
-    border: 1px solid $back-color;
-  }
-
-  .modal-header.#{$id} {
-    @include modal-font(header, $color);
-    @include pad(20px);
-    border-bottom: 1px solid $border;
-  }
-
-  .modal-body.#{$id} {
-    @include modal-font(body, $color);
-  }
-
-  .modal-footer.#{$id} {
-    border-top: 1px solid $border;
-  }
-}
-
-@import "elements/modals/sb-modal";
+@import "elements/modals/sb-modals";

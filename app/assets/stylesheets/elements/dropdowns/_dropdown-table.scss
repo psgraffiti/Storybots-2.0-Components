@@ -1,7 +1,6 @@
-
-  $text-color: $black;
-  $back-color: white;
-  $hover-color: $light-beigey;
+$text-color: $black;
+$back-color: white;
+$hover-color: $light-beigey;
 
 .dropdown-menu-table {
   @include pad(0px);
@@ -166,7 +165,7 @@
 
         &.header {
           @include pad(10px);
-          background-color: tint($white, 60%);
+          background-color: $hover-color;
           border-bottom: 1px solid $default-dropdown-background;
         }
 

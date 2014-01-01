@@ -20,7 +20,8 @@
   }
 
   #iphone {
-    background-position:  -9px -36px;
+    background-position: -9px -36px;
+    width: 25px;
     left: 25px;
     
     @include media($mobile) {
@@ -31,6 +32,7 @@
 
   #ipad {
     background-position: -1px -5px;
+    height: 30px;
     top: 4px;
     
     @include media($mobile) {
@@ -79,7 +81,7 @@
 
         #iphone {
           background-position:  -43px -36px;
-          width: 26px;
+          width: 25px;
 
           @include media($mobile) {
             width: 20px;

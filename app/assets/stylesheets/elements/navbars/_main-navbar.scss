@@ -2,9 +2,11 @@
 // Main Navbar
 // --------------------------------------------------
 
+$radius: $default-dropdown-border-radius;
+
 .main-navbar {
   @include inline-block();
-  background-color: $black;
+  background-color: $blue;
   position: relative;
   width: 100%;
 
@@ -16,7 +18,7 @@
   .btn {
     @include pad(10px 12px);
     margin: 0px;
-    font-size: 20px;
+    font-size: 25px;
   }
 
   @include media($desktop) {
@@ -55,4 +57,66 @@
   float: right;
 }
 
-@import "elements/navbars/sb-main-navbar";
+#left-menu {
+  li > a {
+    @include border-radius($radius);
+  }
+}
+
+#right-menu {
+  &::after {
+    left: 200px;
+  }
+
+  ul {
+    @include pad(0px);
+  }
+
+  li {
+    @include pad(0px);
+    border-bottom: 1px solid $light-beigey;
+
+    &:last-child {
+      border-bottom: 0px;
+    }
+
+    > a {
+      @include pad(15px 20px 15px 10px);
+      @include border-radius(0px);
+      min-width: 240px;
+    }
+
+    &:first-child:not(last-child) > a {
+      @include border-radius-top($radius);
+    }
+
+    &:last-child:not(first-child) > a {
+      @include border-radius-bottom($radius);
+    }
+  }
+}
+
+#left-menu,
+#right-menu {
+  &::before {
+    display: none;
+  }
+
+  &::after {
+    top: -13px;
+    border-right: 13px solid transparent;
+    border-bottom: 13px solid white;
+    border-left: 13px solid transparent;
+  }
+
+  @include media($desktop) {
+    margin-top: 20px;
+  }
+
+  @include media($tablet) {
+    li > a,
+    .footer-menu {
+      @include border-radius(0px);
+    }
+  }
+}
