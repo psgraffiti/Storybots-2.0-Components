@@ -1,0 +1,42 @@
+//
+// Storybot Modal Colours
+// -------------------------------------------------------------------
+
+// Invisible top right corner for close button
+@mixin corner-pocket($color) {
+  @include radial-gradient(95% 20px, circle, rgba($color, 0) 31px, $color 32px);
+
+  @include media($mobile) {
+    @include radial-gradient(94% 21px, circle, rgba($color, 0) 34px, $color 35px);
+  }
+}
+
+.modal {
+  &.blue {
+    .modal-content {
+      @include corner-pocket($blue);
+    }
+
+    h1 {
+      color: $yellow;
+    }
+
+    p {
+      color: white;
+    }
+  }
+
+  &.white {
+    .modal-content {
+      @include corner-pocket(white);
+    }
+
+    h4 {
+      color: $light-blue;
+    }
+
+    p {
+      color: $black;
+    }
+  }
+}
