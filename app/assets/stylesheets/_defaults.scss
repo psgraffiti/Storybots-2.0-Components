@@ -32,8 +32,8 @@ $default-btn-border-radius: 7px;
 // Dropdown Defaults
 // -------------------------------------------------------------------
 
-$default-dropdown-background: #ECECF2;
-$default-dropdown-text-color: #6D707B;
+$default-dropdown-background: white;
+$default-dropdown-text-color: $black;
 $default-dropdown-border-radius: 7px;
 $default-dropdown-z-index: 1000;
 
@@ -45,4 +45,4 @@ $default-modal-z-index: 1040;
 $default-modal-backdrop-color: #000000;
 $default-modal-background: $white;
 $default-modal-border: #D8C8B2;
-$default-modal-text-color:$dark-blue;
+$default-modal-text-color: $dark-blue;

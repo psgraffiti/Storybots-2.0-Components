@@ -5,7 +5,3 @@
 .tablelike li {
   @include list(2);
 }
-
-.btn-group {
-  @include btn-group();
-}

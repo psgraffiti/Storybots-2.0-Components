@@ -6,17 +6,23 @@
 &lt;/a>
 
 &lt;div class="modal blue fade" id="myh1HeadingModal" tabindex="-1">
+
   &lt;div class="modal-dialog">
     &lt;div class="modal-content">
-      &lt;a type="button" class="close btn-close blue" data-dismiss="modal">&lt;i class="fa fa-times fa-fw fa-2x">&lt;/i>&lt;/a>
+
+      &lt;a class="close btn-close blue" data-dismiss="modal">&lt;i class="fa fa-times fa-fw fa-2x">&lt;/i>&lt;/a>
+
       &lt;div class="modal-header">
         &lt;h1 id="h1Heading">H1 Heading&lt;/h1>
       &lt;/div>
+
       &lt;div class="modal-body">
         &lt;p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p>
       &lt;/div>
+
     &lt;/div>
   &lt;/div>
+
 &lt;/div> 
 </pre></code>
 
@@ -33,7 +39,7 @@
           <div class="modal blue fade" id="myh1HeadingModal" tabindex="-1">
             <div class="modal-dialog">
               <div class="modal-content">
-                <a type="button" class="close btn-close blue" data-dismiss="modal"><i class="fa fa-times fa-fw fa-2x"></i></a>
+                <a class="close btn-close blue" data-dismiss="modal"><i class="fa fa-times fa-fw fa-2x"></i></a>
                 <div class="modal-header">
                   <h1 id="h1Heading">H1 Heading</h1>
                 </div>
@@ -55,7 +61,7 @@
           <div class="modal white fade" id="myh4HeadingModal" tabindex="-1">
             <div class="modal-dialog">
               <div class="modal-content">
-                <a type="button" class="close btn-close red" data-dismiss="modal"><i class="fa fa-times fa-fw fa-2x"></i></a>
+                <a class="close btn-close red" data-dismiss="modal"><i class="fa fa-times fa-fw fa-2x"></i></a>
                 <div class="modal-header">
                   <h4 id="h4Heading">This is an h4 Heading Here</h4>
                 </div>
@@ -72,28 +78,32 @@
   </center>
 </div></div>
 
-<div class="sidebar"><b>Mixin Definition</b><br><br>
-  @mixin modal($id, $back-color, $color, $border,  $width-size: auto)<br><br>
-  Required Parameters:<br>
-  <ol>
-    <li>id</li>
-    <li>background color</li>
-    <li>border color</li>
-    <li>text color</li>
-  </ol>
-  Optional Parameters:<br>
-  <ol>
-    <li>width size (defualt is auto)</li>
-  </ol>
+<div class="sidebar"><b>Modal Layout</b><br><br>
+  Modal Classes:<br>
+  <ul>
+    <li>modal</li>
+    <li>modal-dialog</li>
+    <li>modal-content</li>
+    <li>modal-header</li>
+    <li>modal-footer</li>
+  </ul>
+  Optional classes:<br>
+  <ul>
+    <li>fade (include for animation)</li>
+    <li>blue (include for premade blue modal layout)</li>
+    <li>white (include for premade white modal layout)</li>
+    <li>close (include for x close button)</li>
+  </ul>
 </div>
 
 <div class="content large"><div class="main large"><h3>Other Modals</h3>
   <p>
-  Modals have a header (<i>.modal-header</i>), body (<i>.modal-body</i>), and footer (<i>.modal-footer</i>), all of which are wrapped in the <i>modal-content</i> class. The element used to trigger the modal uses <i>data-toggle="modal"</i> and <i>data-target</i> to launch the associated modal. The <i>modal-dialog</i> class is used to position the modal on the screen.
+  Modals have a header (inside <i>.modal-header</i>), body (inside <i>.modal-body</i>), and footer (inside <i>.modal-footer</i>), all of which are wrapped in the <i>modal-content</i> class. The element used to trigger the modal uses <i>data-toggle="modal"</i> and <i>data-target</i> to launch the associated modal. The <i>modal-dialog</i> class is used to position the modal on the screen.
   <br><br>
   Modals that are smaller than the browser viewport will be centered in the middle of the screen. Modals that are larger, will take up the screen and scroll.
   <br><br>
-  Include the class <i>fade</i> to fade the backdrop in and out when showing the modal.
+  Include the class <i>fade</i> to fade the backdrop in and out when showing the modal and it's animation.<br>
+  Include the attribute <i>data-dismiss="modal"</i> in a button to dismiss the modal when clicked.
   <br><br>
   </p>
 
@@ -107,7 +117,7 @@ Launch demo modal
     &lt;div class="modal-content">
 
       &lt;div class="modal-header">
-        &lt;a type="button" class="btn close" data-dismiss="modal">&lt;i class="fa fa-times">&lt;/i>&lt;/a>
+        &lt;a class="btn close" data-dismiss="modal">&lt;i class="fa fa-times">&lt;/i>&lt;/a>
         &lt;h4 class="modal-title" id="myModalLabel">Modal title&lt;/h4>
       &lt;/div>
 
@@ -116,122 +126,102 @@ Launch demo modal
       &lt;/div>
 
       &lt;div class="modal-footer">
-        &lt;a type="button" class="btn" data-dismiss="modal">Close&lt;/a>
-        &lt;a type="button" class="btn">Save changes&lt;/a>
+        &lt;a class="btn green" data-dismiss="modal">Close&lt;/a>
+        &lt;a class="btn green">Save changes&lt;/a>
       &lt;/div>
 
     &lt;/div>
   &lt;/div>
 &lt;/div>
 </pre></code>
-  <p>
-  The <i>modal</i> mixin requires an id name as the first parameter. The id, such as "small" for example, is used as a class selector: <i>.modal.small</i>
-  <br><br>
-  </p>
-  <code><pre>
-&lt;div class="modal small fade" id="myModal" tabindex="-1">
-  &lt;div class="modal-dialog small">
-    &lt;div class="modal-content small">
-    ...
-  </pre></code>
 
-  <br><br>
-
-  Parameters are as follows:
-  <ol>
-    <li>id</li>
-    <li>background color</li>
-    <li>border color</li>
-    <li>text color</li>
-    <li>width size (defualt is auto)</li>
-  </ol>
   <br><br>
 
   <center>
     <table class="well"><caption>With the use of class "fade" for transitions</caption>
       <tr>
         <td>
-          <a class="btn" data-toggle="modal" data-target="#myModal">
+          <a class="btn green" data-toggle="modal" data-target="#myModal">
             Launch demo modal
           </a>
 
-          <div class="modal small fade" id="myModal" tabindex="-1">
-            <div class="modal-dialog small">
-              <div class="modal-content small">
-                <div class="modal-header small">
-                  <a type="button" class="btn close small" data-dismiss="modal"><i class="fa fa-times"></i></a>
-                  <h4 class="modal-title small" id="myModalLabel">Modal title</h4>
+          <div class="modal fade" id="myModal" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <a class="btn close" data-dismiss="modal"><i class="fa fa-times"></i></a>
+                  <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                 </div>
-                <div class="modal-body small">
+                <div class="modal-body">
                   This is the body of the modal.
                 </div>
-                <div class="modal-footer small">
-                  <a type="button" class="btn" data-dismiss="modal">Close</a>
-                  <a type="button" class="btn">Save changes</a>
+                <div class="modal-footer">
+                  <a class="btn green" data-dismiss="modal">Close</a>
+                  <a class="btn green">Save changes</a>
                 </div>
               </div>
             </div>
           </div>
         </td>
-        <td>@include modal(small, #F5F4EC, #074B75, #D8C8B2);</td>
+        <td>class="modal fade"</td>
       </tr>
       <tr>
         <td>
-          <a class="btn" data-toggle="modal" data-target="#largeModal">
+          <a class="btn green" data-toggle="modal" data-target="#largeModal">
             Large Modal
           </a>
 
-          <div class="modal large fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog large">
-              <div class="modal-content large">
-                <div class="modal-header large">
-                  <a type="button" class="close large" data-dismiss="modal"><i class="fa fa-times"></i></a>
-                  <h4 class="modal-title large" id="myModalLabel">Modal title</h4>
+          <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <a class="close" data-dismiss="modal"><i class="fa fa-times"></i></a>
+                  <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                 </div>
-                <div class="modal-body large">
+                <div class="modal-body">
                   This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. 
                 </div>
-                <div class="modal-footer large">
-                  <a color="white" type="button" class="btn" data-dismiss="modal">Close</a>
-                  <a color="white" type="button" class="btn">Save changes</a>
+                <div class="modal-footer">
+                  <a class="btn blue" data-dismiss="modal">Close</a>
+                  <a class="btn blue">Save changes</a>
                 </div>
               </div>
             </div>
           </div>
         </td>
-        <td>@include modal(large, #074A7B, #F5F4EC, #D8C8B2);</td>
+        <td>class="modal fade"</td>
       </tr>
     </table>
     <table class="well"><caption>Without the use of class "fade"</caption>
       <tr>
         <td>
-          <a class="btn" data-toggle="modal" data-target="#sizeModal">
+          <a class="btn blue" data-toggle="modal" data-target="#sizeModal">
             Set Width Modal
           </a>
 
-          <div class="modal size" id="sizeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog size">
-              <div class="modal-content size">
-                <div class="modal-header size">
-                  <a type="button" class="btn close size" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></a>
-                  <h4 class="modal-title size" id="myModalLabel">Modal title</h4>
+          <div class="modal" id="sizeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <a class="btn close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></a>
+                  <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                 </div>
-                <div class="modal-body size">
+                <div class="modal-body">
                   This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. This is the body of the modal. 
                 </div>
-                <div class="modal-footer size">
-                  <a type="button" class="btn" data-dismiss="modal">Close</a>
-                  <a type="button" class="btn">Save changes</a>
+                <div class="modal-footer">
+                  <a class="btn" data-dismiss="modal">Close</a>
+                  <a class="btn">Save changes</a>
                 </div>
               </div>
             </div>
           </div>
         </td>
-        <td>@include modal(size, #F5F4EC, #074B75, #D8C8B2, 950px);</td>
+        <td>class="modal"</td>
       </tr>
       <tr>
         <td>
-          <a class="btn" data-toggle="modal" data-target="#plainModal">
+          <a class="btn blue" data-toggle="modal" data-target="#plainModal">
             Modal
           </a>
 
@@ -239,21 +229,21 @@ Launch demo modal
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <a type="button" class="btn close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></a>
+                  <a class="btn close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></a>
                   <h4 class="modal-title size" id="myModalLabel">Modal title</h4>
                 </div>
                 <div class="modal-body">
                   This is the body of the modal.
                 </div>
                 <div class="modal-footer">
-                  <a type="button" class="btn" data-dismiss="modal">Close</a>
-                  <a type="button" class="btn">Save changes</a>
+                  <a class="btn blue" data-dismiss="modal">Close</a>
+                  <a class="btn blue">Save changes</a>
                 </div>
               </div>
             </div>
           </div>
         </td>
-        <td>No mixin usage.</td>
+        <td>class="modal"</td>
       </tr>
     </table>
   </center>

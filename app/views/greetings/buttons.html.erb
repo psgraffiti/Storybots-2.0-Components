@@ -1,6 +1,6 @@
 <div class="content"><div class="main large"><h3>Storybot Buttons</h3>
   <p>
-    Use the class <i>btn</i> for storybot buttons. Use the class <i>small</i> or <i>large</i> for smaller or bigger buttons. Include the button color in the class.
+    Use the <i>btn</i> class for storybot buttons. Use the class <i>small</i> or <i>large</i> for smaller or bigger buttons. Include the button color as a class.
   </p>
 
 <code><pre>
@@ -39,32 +39,31 @@
 </div></div>
 
 
-<div class="sidebar"><b>Mixin Definition</b><br>
-  @mixin btn($style, $color)
-  <br><br>
-
-  Parameters:<br>
-  <ol>
-    <li>style</li>
-    <li>color</li>
-  </ol>
-  <br>
-  Button Styles Available:<br>
+<div class="sidebar"><b>Button Styles Available:</b><br>
   <ul>
-    <li>standard</li>
-    <li>flat</li>
-    <li>raised</li>
+    <li>standard button</li>
+    <li>big green button</li>
+    <li>photo source button</li>
+    <li>toggle button</li>
+    <li>round button</li>
   </ul>
   <br><br>
 
   <b>Storybot Button Classes</b><br>
+  Class Styles:
+  <ul>
+    <li>btn</li>
+    <li>btn big-green</li>
+    <li>big-green</li>
+    <li>btn photo</li>
+    <li>btn toggle-blue</li>
+    <li>btn toggle-gray</li>
+    <li>btn flat-round</li>
+  </ul><br>
   Class Sizes:
   <ul>
     <li>small</li>
     <li>large</li>
-    <li>big-green</li>
-    <li>photo</li>
-    <li>toggle</li>
   </ul><br>
   Class Colors:
   <ul>
@@ -157,24 +156,17 @@
 
 <div class="main large"><h3>Button Groups</h3>
   <p>
-  Use the mixin <i>btn-group()</i> for button groups. Use the <i>data-toggle="buttons"</i> attribute to enable radio button like behaviour. Use the <i>data-toggle="button"</i> attribute to enable checkbox like behaviour.
-  <br><br>
-
-  To use the mixin in CSS:
+  Use the class <i>btn-group</i> for button groups.<br>
+  Use the <i>data-toggle="buttons"</i> attribute to enable radio button like behaviour.<br>
+  Use the <i>data-toggle="button"</i> attribute to enable checkbox like behaviour.
   <br><br>
   </p>
 
 <code><pre>
-.btn-group { 
-  @include btn-group(); 
-}
-
-...
-
 &lt;div class="btn-group" data-toggle="buttons"&gt;
-  &lt;a class="btn"&gt;Button One&lt;/a&gt;
-  &lt;a class="btn"&gt;Button Two&lt;/a&gt;
-  &lt;a class="btn"&gt;Button Three&lt;/a&gt;
+  &lt;a class="btn gray"&gt;Button One&lt;/a&gt;
+  &lt;a class="btn gray"&gt;Button Two&lt;/a&gt;
+  &lt;a class="btn gray"&gt;Button Three&lt;/a&gt;
 &lt;/div&gt;
 </pre></code>
 <br><br>
@@ -221,8 +213,8 @@ With <i>data-toggle="button"</i> attribute:
 </pre></code>
   <br><br>
 
-  <a class="btn" disabled="disabled">Disabled</a><br>
+  <a class="btn big-green" disabled="disabled">Disabled</a><br>
   <a class="btn gray" disabled="disabled">Button</a><br>
-  <a class="btn green" disabled="disabled">button</a><br>
-  <a class="btn green" disabled="disabled">Disabled Button</a><br>
+  <a class="btn photo purple" disabled="disabled">button</a><br>
+  <a class="btn flat-round help-blue" disabled="disabled">Disabled Button</a><br>
 </div></div>

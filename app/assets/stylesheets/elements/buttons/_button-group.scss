@@ -2,7 +2,7 @@
 // Button Groups
 // -------------------------------------------------------------------
 
-@mixin btn-group() {
+.btn-group {
   @include inline-block;
   position: relative;
   vertical-align: middle;

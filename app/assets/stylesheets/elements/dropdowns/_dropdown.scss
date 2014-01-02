@@ -1,3 +1,7 @@
+//
+// Dropdown
+// -------------------------------------------------------------------
+
 .dropdown {
   position: relative;
 }
@@ -27,6 +31,7 @@
     left: auto;
   }
 }
+
 .navbar-left {
   .dropdown-menu {
     right: auto;
@@ -34,46 +39,52 @@
 }
 
 .dropdown-menu {
-  $text-color: $black;
-  $back-color: white;
+  $text-color: $default-dropdown-text-color;
+  $back-color: $default-dropdown-background;
 
-  @include pad(5px 0px);
-  white-space: nowrap;
   position: absolute;
+  display: none;
   top: 100%;
   left: 0px;
-  display: none;
-  margin-top: 20px;
+
+  @include pad(5px 0px);
+  margin-top: 3px;
   margin-bottom: 0px;
+
   z-index: $default-dropdown-z-index;
   list-style: none;
-
+  white-space: nowrap;
+  
   @include border-radius($default-dropdown-border-radius);
-  @include box-shadow(0px 0px 12px 0px tint(black, 65%));
+  @include box-shadow(0px 3px 10px 0px tint(black, 65%));
   background-color: $back-color;
   border: 0px;
 
   // Creates a Caret for the Dropdown
-  &::before {
-    @include inline-block();
-    position: absolute;
-    top: -7px;
-    left: 9px; //45%
-    border-right: 7px solid transparent;
-    border-bottom: 7px solid $back-color;
-    border-left: 7px solid transparent;
-    content: '';
-  }
+  &.use-caret {
+    margin-top: 20px;
 
-  &::after {
-    @include inline-block();
-    position: absolute;
-    top: -6px;
-    left: 10px;
-    border-right: 6px solid transparent;
-    border-bottom: 6px solid $back-color;
-    border-left: 6px solid transparent;
-    content: '';
+    &::before {
+      @include inline-block();
+      position: absolute;
+      top: -7px;
+      left: 9px;
+      border-right: 7px solid transparent;
+      border-bottom: 7px solid $back-color;
+      border-left: 7px solid transparent;
+      content: '';
+    }
+
+    &::after {
+      @include inline-block();
+      position: absolute;
+      top: -6px;
+      left: 10px;
+      border-right: 6px solid transparent;
+      border-bottom: 6px solid $back-color;
+      border-left: 6px solid transparent;
+      content: '';
+    }
   }
 
   li {
@@ -81,6 +92,7 @@
       height: 1px;
       margin: 9px 0px;
       overflow: hidden;
+      cursor: default;
       background-color: #EBEBEC;
     }
 
@@ -102,10 +114,11 @@
 
       font-family: ProximaNova;
       font-weight: normal;
-      text-decoration: none;
       font-size: 18px;
       color: $text-color;
 
+      text-decoration: none;
+      cursor: pointer;
       opacity: 1.0;
 
       &:hover,
@@ -175,104 +188,6 @@
 .dropdown-menu:not(.dropdown-menu-table) li {
   &:not(.divider) {
     line-height: 36px;
-  }
-}
-
-//
-// Dropdown
-// -------------------------------------------------------------------
-
-@mixin dropdown-menu($back-color, $text-color, $use-caret) {
-  background-color: $back-color;
-
-  @if $use-caret {
-    margin-top: 7px;
-
-    &::before {
-      @include inline-block();
-      position: absolute;
-      top: -7px;
-      left: 9px; //45%
-      border-right: 7px solid transparent;
-      border-bottom: 7px solid;
-      border-left: 7px solid transparent;
-      content: '';
-    }
-
-    &::after {
-      @include inline-block();
-      position: absolute;
-      top: -6px;
-      left: 10px;
-      border-right: 6px solid transparent;
-      border-bottom: 6px solid $back-color;
-      border-left: 6px solid transparent;
-      content: '';
-    }
-  }
-
-  @else {
-    margin-top: 0px;
-  }
-
-  li {
-    > a {
-      @include border-radius($default-dropdown-border-radius);
-      color: $text-color;
-
-      &:hover,
-      &:focus {
-        outline-width: 0px;
-        color: $back-color;
-        background-color: $text-color;
-
-        &:active {
-          background-color: $back-color;
-        }
-      }
-
-      &:disabled,
-      &[disabled] {
-
-        &:hover,
-        &:focus {  
-          color: $text-color;  
-        }
-      }
-    }
-
-    &.divider {
-      background-color: tint($text-color, 70%);
-    }
-
-    &.header {
-      color: $text-color;
-    }
-  }
-
-  @include media($desktop) {
-    .footer-menu {
-      li > a {
-        &:hover,
-        &:focus {
-          color: $text-color;
-          text-decoration: underline;
-          background-color: transparent;
-
-          &:active {
-            background-color: transparent;
-          }
-        }
-
-        &:disabled,
-        &[disabled] {
-          &:hover,
-          &:focus {  
-            color: $text-color;  
-          }
-        }
-      }
-    }
   }
 }
 
