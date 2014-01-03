@@ -79,9 +79,6 @@
   }
 }
 
-
-.list-items {
-  li {
-    @include list(3);
-  }
+.list-items > li {
+  @include list(3);
 }

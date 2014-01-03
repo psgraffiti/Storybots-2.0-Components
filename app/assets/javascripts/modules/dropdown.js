@@ -11,6 +11,8 @@ $(document).ready(function(){
     var $navbar     = $('.main-navbar')
     var navbarSM    = '50px'
 
+    placeDropdowns()
+
     var Dropdown = function (element) {
       var $el = $(element).on('click.dropdown', this.toggle)
     }
@@ -153,6 +155,15 @@ $(document).ready(function(){
     function resetMaxHeights(elements) {
       elements.each(function() {
         $(this).prop('style').removeProperty('height')
+      })
+    }
+
+    // Used to place dropdown menues correctly when inside of wells
+    function placeDropdowns() {
+      var $dropdownDiv = $('.well').find('.dropdown')
+      $dropdownDiv.each(function(index) {
+        var $button = $dropdownDiv.eq(index).children('.btn.dropdown-toggle')
+        $dropdownDiv.eq(index).width($button.width())
       })
     }
 

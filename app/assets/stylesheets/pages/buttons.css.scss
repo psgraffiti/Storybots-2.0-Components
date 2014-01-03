@@ -2,6 +2,6 @@
   @include outer-container;
 }
 
-.tablelike li {
+.tablelike > li {
   @include list(2);
 }
