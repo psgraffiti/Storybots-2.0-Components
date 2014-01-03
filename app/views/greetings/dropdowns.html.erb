@@ -1,4 +1,4 @@
-<div class="content"><div class="main large"><h3>Dropdowns</h3>
+<div class="content large"><div class="main large"><h3>Dropdowns</h3>
   <p>Use the class <i>dropdown-menu</i> to create storybot dropdowns. Make sure that the button used to trigger the dropdown and the dropdown list are wrapped in the <i>dropdown</i> class.<br>
     The button used the trigger the dropdown should have the class <i>dropdown-toggle</i> and attribute <i>toggle-type="dropdown"</i>.<br><br>
   </p>
@@ -29,9 +29,10 @@
     The attribute <i>disabled="disabled"</i> can be used to disable menu options.
   </p>
 
-  <table class="well spaced" style="width: 100%;">
-    <tr>
-      <td>
+  <center>
+  <div class="well">
+    <div class="list-items">
+      <li>
         <div class="dropdown">
           <a class="btn green dropdown-toggle" id="sbDropdownMenu1" toggle-type="dropdown">
             This is the button text<i class="fa fa-caret-down fa-lg"></i>
@@ -44,14 +45,12 @@
             <li><a role="menuitem" tabindex="-1">Truman</a></li>
           </ul>
         </div>
-      </td>
-      <td>
+      </li>
+      <li>
         Button: class="btn green dropdown-toggle"<br>
         Dropdown Menu: class="dropdown dropdown-menu use-caret"
-      </td>
-    </tr>
-    <tr>
-      <td>
+      </li>
+      <li>
         <div class="dropdown">
           <a class="btn light-blue dropdown-toggle" id="sbDdropdownMenu2" toggle-type="dropdown">
             This is the button text<i class="fa fa-caret-down fa-lg"></i>
@@ -66,33 +65,19 @@
             <li><a disabled="disabled" role="menuitem" tabindex="-1">Disabled</a></li>
           </ul>
         </div>
-      </td>
-      <td>
+      </li>
+      <li>
         Button: class="btn green dropdown-toggle"<br>
         Dropdown Menu: class="dropdown dropdown-menu"
-      </td>
-    </tr>
-  </table>
-</div></div>
-
-
-<div class="sidebar"><b>Mixin Definition</b>
-  <br><br>
-
-  @mixin dropdown-menu($back-color, $text-color, $use-caret)
-  <br><br>
-
-  Parameters:
-  <br>
-  <ol>
-    <li>background color</li>
-    <li>text color</li>
-    <li>use caret</li>
-  </ol>
+      </li>
+    </div>
+  </div>
+  </center>
 </div>
 
 
-<div class="content large"><div class="main large"><h3>Other Dropdowns</h3>
+
+<div class="main large"><h3>Other Dropdowns</h3>
   <p>
   The <i>caret</i> mixin creates a caret that can be placed inline with text.<br>
   The <i>dropdown-menu</i> mixin wraps around the menu options in the dropdown.<br>
@@ -133,9 +118,9 @@
   </p>
 
   <center>
-    <table class="well">
-      <tr>
-        <td>
+    <div class="well">
+      <div class="list-items">
+        <li>
           <div class="dropdown">
             <a class="btn blue dropdown-toggle" id="dropdownMenu1" toggle-type="dropdown">
               Dropdown Button<span class="caret"></span>
@@ -151,14 +136,12 @@
               <li><a disabled="disabled" role="menuitem" tabindex="-1" href="#">Disabled</a></li>
             </ul>
           </div>
-        </td>
-        <td>
+        </li>
+        <li>
           Button: class="btn blue dropdown-toggle"<br>
           Dropdown: class="dropdown-menu"
-        </td>
-      </tr>
-      <tr>
-        <td>
+        </li>
+        <li>
           <div class="dropdown">
             <a class="btn purple dropdown-toggle" id="dropdownMenu2" toggle-type="dropdown">
               Dropdown Button<span class="caret"></span>
@@ -174,16 +157,18 @@
               <li><a disabled="disabled" role="menuitem" tabindex="-1" href="#">Disabled</a></li>
             </ul>
           </div>
-        </td>
-        <td>
+        </li>
+        <li>
           Button: class="btn gray dropdown-toggle"<br>
           Dropdown: class="dropdown-menu use-caret"
-        </td>
-      </tr>
-    </table>
+        </li>
+      </div>
+    </div>
   </center>
+</div>
 
-  <br><br>
+
+<div class="main large"><h3>Dropdowns in Button Groups</h3>
   To use a dropdown button in a button group, the dropdown button must be placed in it's own button group.
   <br><br>
 
@@ -209,8 +194,10 @@
 <code><pre>
 &lt;div class="btn-group">
   &lt;a class="btn gray">&lt;i class="fa fa-home">&lt;/i>&lt;/a>
+
   &lt;div class="btn-group">
     &lt;a class="btn gray dropdown-toggle" id="dropdownMenu" toggle-type="dropdown">&lt;i class="fa fa-bars">&lt;/i>&lt;/a>
+
     &lt;ul class="dropdown-menu use-caret" role="menu" aria-labelledby="dropdownMenu">
       &lt;li class="header">Dropdown Header&lt;/li>
       &lt;li>&lt;a role="menuitem" tabindex="-1" href="#">Action&lt;/a>&lt;/li>
@@ -221,7 +208,9 @@
       &lt;li class="divider">&lt;/li>
       &lt;li>&lt;a disabled="disabled" role="menuitem" tabindex="-1" href="#">Disabled&lt;/a>&lt;/li>
     &lt;/ul>
+
   &lt;/div>
+
 &lt;/div>
 </pre></code>
 </div></div>
