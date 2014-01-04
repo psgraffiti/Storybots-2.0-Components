@@ -7,7 +7,7 @@
   @include radial-gradient(95% 20px, circle, rgba($color, 0) 31px, $color 32px);
 
   @include media($mobile) {
-    @include radial-gradient(94% 21px, circle, rgba($color, 0) 34px, $color 35px);
+    @include radial-gradient(93% 19px, circle, rgba($color, 0) 34px, $color 35px);
   }
 }
 

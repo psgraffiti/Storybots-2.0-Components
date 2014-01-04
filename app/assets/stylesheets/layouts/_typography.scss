@@ -52,6 +52,27 @@ p {
   color: $black;
 }
 
+//
+// Headings in Containers
+// --------------------------------------------------------------------------
+
+.header {
+  height: 45px;
+  width: 100%;
+
+  @include border-radius(5px);
+  padding-left: 10px;
+
+  font-family: AlphabetSoup;
+  line-height: 50px;
+  text-align: left;
+  font-size: 30px;
+  color: white;
+
+  &.learning-videos {
+    background-color: #FD605B;
+  }
+}
 
 //
 // Fonts for Elements

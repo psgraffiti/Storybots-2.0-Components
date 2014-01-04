@@ -54,14 +54,9 @@
 .modal-dialog {
   @include pad(default);
   @include transform(translateX(-50%));
+  z-index: ($default-modal-z-index + 10);
   position: absolute;
   left: 50%;
-  z-index: ($default-modal-z-index + 10);
-  width: auto;
-
-  @include media($mobile) {
-    width: 90%;
-  }
 }
 
 // Actual modal
@@ -83,6 +78,11 @@
 
   .close.btn-close {
     background-clip: padding-box;
+  }
+
+  width: 460px;
+  @include media($mobile) {
+    width: 300px;
   }
 }
 

@@ -57,9 +57,29 @@ form fieldset {
       @include pad(0px);
       border: 0px;
 
+      .email {
+        background-image: asset-url('email-field.png', image);
+      }
+
+      .password {
+        background-image: asset-url('password-field.png', image);
+      }
+
+      .email,
+      .password {
+        padding-left: 50px;
+        background-repeat: no-repeat;
+        background-position: 10px;
+      }
+
       .sb.input {
         top: 0px;
         left: 0px;
+
+        &:focus {
+          @include box-shadow(none);
+          outline: 0px;
+        }
       }
     }
   }

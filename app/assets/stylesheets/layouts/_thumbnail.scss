@@ -1,0 +1,23 @@
+.thumbnail {
+  @include inline-block();
+  width: 220px;
+  height: 220px;
+
+  @include border-radius(7px);
+  background-color: black;
+
+  img,
+  input[type="image"] {
+    @include border-radius(7px);
+    width: 220px;
+    height: 220px;
+  }
+
+  &:disabled,
+  &[disabled] {
+    img,
+    input[type="image"] {
+      opacity: 0.6;
+    }
+  }
+}
