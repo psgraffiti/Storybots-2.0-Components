@@ -1,0 +1,244 @@
+//
+// Sprites
+// --------------------------------------------------
+
+.video-player {
+  .sprite {
+    @include inline-block();
+    background-image: asset-url('sprites/video-control-sprites.png', image);
+    background-repeat: no-repeat;
+    min-width: 31px;
+    min-height: 31px;
+  }
+
+  #prev {
+    background-position: -4px -3px;
+
+    &:hover,
+    &.hover {
+      background-position: -83px -3px;
+
+      &:active,
+      &.active {
+        background-position: -43px -3px;
+      }
+    }
+  }
+
+  #next {
+    background-position: -122px -3px;
+
+    &:hover,
+    &.hover {
+      background-position: -202px -3px;
+
+      &:active,
+      &.active {
+        background-position: -163px -3px;
+      }
+    }
+  }
+
+  .play {
+    background-position: -3px -81px;
+
+    &:hover,
+    &.hover {
+      background-position: -70px -79px;
+
+      &:active,
+      &.active {
+        background-position: -36px -80px;
+      }
+    }
+  }
+
+  .pause {
+    background-position: -3px -42px;
+
+    &:hover,
+    &.hover {
+      background-position: -74px -42px;
+
+      &:active,
+      &.active {
+        background-position: -36px -42px;
+      }
+    }
+  }
+
+  .expand {
+    background-position: -3px -121px;
+
+    &:hover,
+    &.hover {
+      background-position: -85px -121px;
+
+      &:active,
+      &.active {
+        background-position: -42px -122px;
+      }
+    }
+  }
+
+  .contract {
+    background-position: -2px -161px;
+
+    &:hover,
+    &.hover {
+      background-position: -84px -161px;
+
+      &:active,
+      &.active {
+        background-position: -40px -161px;
+      }
+    }
+  }
+
+  #cc {
+    background-position: -105px -39px;
+    width: 36px;
+
+    &:hover,
+    &.hover {
+      background-position: -191px -39px;
+
+      &:active,
+      &.active {
+        background-position: -148px -39px;
+      }
+    }
+  }
+
+  #home {
+    background-position: -109px -82px;
+
+    &:hover,
+    &.hover {
+      background-position: -175px -82px;
+
+      &:active,
+      &.active {
+        background-position: -144px -82px;
+      }
+    }
+  }
+
+  #handle {
+    background-position: -129px -122px;
+    width: 25px;
+    height: 25px;
+
+    @include transform(translateY(-25%));
+    position: absolute;
+
+    &:hover,
+    &.hover {
+      background-position: -163px -120px;
+
+      @include transform(translateY(-30%));
+    }
+  }
+}
+
+//
+// Video Player
+// --------------------------------------------------
+
+.video-player {
+  .title {
+    font-family: ProximaNova;
+    font-size: 24px;
+    color: #C5C7CC;
+
+    @include pad(0px 12px);
+    line-height: 56px;
+  }
+
+  .bar {
+    height: 56px;
+    background-color: #162340;
+
+    .list-items {
+      
+      @include transform(translateY(-50%));
+      position: relative;
+      top: 50%;
+
+      > li {
+        background-color: transparent;
+
+        @include pad(0px);
+        margin: 0px;
+
+        &.left,
+        &.right {
+          padding-top: 4px;
+        }
+
+        &.left {
+          float: left;
+          max-width: 180px;
+        }
+
+        &.middle {
+          position: absolute;
+          padding-left: 180px;
+          padding-right: 195px;
+          width: 100%;
+          top: -5px;
+        }
+
+        &.right {
+          float: right;
+          max-width: 195px;
+        }
+      }
+    }
+
+    .divider,
+    .control,
+    .title {
+      @include inline-block();
+      @include transform(translateY(-50%));
+      position: relative;
+      top: 50%;
+    }
+    
+    .divider {
+      @include transform(translateY(-65%));
+      width: 1px;
+      height: 30px;
+      background-color: #293455;
+    }
+
+    .control {
+      @include pad(0px 12px);
+      z-index: 100;
+
+      &.play {
+        width: 110px;
+      }
+    }
+
+    #progress-bar {
+      width: 100%;
+    }
+
+    .progress-bar,
+    .progress {
+      border-radius: 25px;
+      height: 10px;
+    }
+
+    .progress-bar {
+      background-color: #01040A;
+      width: 100%;
+
+      .progress {
+        background-color: #34AFE7;
+        width: 20%;
+      }
+    }
+  }
+}

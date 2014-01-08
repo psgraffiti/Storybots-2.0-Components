@@ -1,0 +1,135 @@
+<div class="content large"><div class="main large"><h3>Storybot Video Player</h3>
+  <h6>Video Player</h6>
+  <p>
+    The video player is made up of a top bar, and bottom bar.
+  </p>
+
+  <h6>Top Bar</h6>
+  <p>
+    The top bar is simple, consisting of only a home control element and the title for the video.
+  </p>
+  <div class="video-player">
+    <div class="bar">
+      <div class="control"><div class="sprite" id="home"></div></div>
+      <div class="divider"></div>
+      <div class="title">This is the Video Title</div>
+    </div>
+  </div>
+  <br>
+
+<code><pre>
+&lt;div class="video-player">
+  &lt;div class="bar">
+    &lt;div class="control">&lt;div class="sprite" id="home">&lt;/div>&lt;/div>
+    &lt;div class="divider">&lt;/div>
+    &lt;div class="title">This is the Video Title&lt;/div>
+  &lt;/div>
+&lt;/div>
+</pre></code>
+
+  <h6>Bottom Bar</h6>
+  <p>
+    The HTML for the scrub bar comes after the HTML for the other control elements.
+  </p>
+  <div class="video-player">
+    <div class="bar">
+      <div class="list-items">
+        <li class="left">
+          <div class="control"><div class="sprite" id="prev"></div></div>
+          <div class="divider"></div>
+          <div class="control play"><div class="sprite play" id="play"></div></div>
+          <div class="divider"></div>
+        </li>
+        <li class="right">
+          <div class="divider"></div>
+          <div class="control"><div class="sprite" id="next"></div></div>
+          <div class="divider"></div>
+          <div class="control"><div class="sprite" id="cc"></div></div>
+          <div class="divider"></div>
+          <div class="control"><div class="sprite expand" id="expand"></div></div>
+        </li>
+        <li class="middle">
+          <div class="control" id="progress-bar">
+            <div class="progress-bar">
+              <div class="progress">
+                <div class="sprite" id="handle">
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </div>
+    </div>
+  </div>
+  <br>
+
+<code><pre>
+&lt;div class="video-player">
+
+  &lt;div class="bar">
+    &lt;div class="list-items">
+      &lt;li class="left">
+        &lt;div class="control">&lt;div class="sprite" id="prev">&lt;/div>&lt;/div>
+        &lt;div class="divider">&lt;/div>
+        &lt;div class="control play">&lt;div class="sprite play" id="play">&lt;/div>&lt;/div>
+        &lt;div class="divider">&lt;/div>
+      &lt;/li>
+      &lt;li class="right">
+        &lt;div class="divider">&lt;/div>
+        &lt;div class="control">&lt;div class="sprite" id="next">&lt;/div>&lt;/div>
+        &lt;div class="divider">&lt;/div>
+        &lt;div class="control">&lt;div class="sprite" id="cc">&lt;/div>&lt;/div>
+        &lt;div class="divider">&lt;/div>
+        &lt;div class="control">&lt;div class="sprite expand" id="expand">&lt;/div>&lt;/div>
+      &lt;/li>
+      &lt;li class="middle">
+        &lt;div class="control" id="progress-bar">
+          &lt;div class="progress-bar">
+            &lt;div class="progress">
+              &lt;div class="sprite" id="handle">
+              &lt;/div>
+            &lt;/div>
+          &lt;/div>
+        &lt;/div>
+      &lt;/li>
+    &lt;/div>
+  &lt;/div>
+
+&lt;/div>
+</pre></code>
+
+  <h6>Video Thumbnails</h6>
+  <p>
+    Video thumbnails are wrapped in a <i>thumnail</i> class.
+    If this class has the attribute <i>disabled="disabled"</i>, the video thumbnail will be locked.
+  </p>
+
+  <center>
+  <div class="well">
+    <div class="list-items">
+      <li>
+        <div class="thumbnail">
+          <input type="image" src="<%= image_path("row.png") %>" alt="be-the-star Videos">
+        </div>
+      </li>
+      <li>Unlocked:<br>class="thumbnail"</li>
+      <li>
+        <div class="thumbnail" disabled="disabled">
+          <input type="image" src="<%= image_path("row.png") %>" alt="be-the-star Videos">
+        </div>
+      </li>
+      <li>Locked:<br>class="thumbnail" disabled="disabled"</li>
+    </div>
+  </div>
+  </center>
+
+<code><pre>
+&lt;div class="thumbnail">
+  &lt;input type="image" src="&lt;%= image_path("row.png") %>" alt="be-the-star Videos">
+&lt;/div>
+&lt;div class="thumbnail" disabled="disabled">
+  &lt;input type="image" src="&lt;%= image_path("row.png") %>" alt="be-the-star Videos">
+&lt;/div>
+</pre></code>
+
+</div></div>

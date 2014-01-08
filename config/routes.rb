@@ -7,6 +7,7 @@ Sb2::Application.routes.draw do
   get "greetings/typography"
   get "greetings/defaults"
   get "greetings/forms"
+  get "greetings/players"
 
   root :to => "greetings#hello"
 

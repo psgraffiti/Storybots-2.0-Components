@@ -12,6 +12,10 @@
 }
 
 .modal {
+  a:not(.btn):not(.close) {
+    color: $green;
+  }
+
   &.blue {
     .modal-content {
       @include corner-pocket($blue);

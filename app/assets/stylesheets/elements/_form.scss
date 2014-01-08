@@ -1,16 +1,17 @@
+//
+// Forms
+// --------------------------------------------------
+
+//
+// Input Text Fields
+// -------------------------
+
 form {
   @include inline-block();
+  margin-bottom: 10px;
 
   .sb.input {
     -webkit-appearance: none;
-
-    @include border-radius(12px);
-    border: 1px solid #E2D7C8;
-
-    position: relative;
-    top: 2px;
-    height: 53px;
-    min-width: 300px;
 
     font-family: ProximaNova;
     font-size: 18px;
@@ -23,20 +24,39 @@ form {
     }
 
     &:focus {
+      @include box-shadow(none);
+      outline: 0px;
+    }
+  }
+}
+
+form {
+  .sb.input {
+    @include border-radius(12px);
+    border: 1px solid #E2D7C8;
+
+    position: relative;
+    top: 2px;
+    height: 53px;
+    min-width: 300px;
+
+    &:focus:not(.email):not(.password) {
       @include box-shadow(0px 0px 5px 0px tint(#34AFE7, 65%));
       border: 1px solid #34AFE7;
-      outline: 0px;
     }
 
     @include media($mobile) {
       min-width: 225px;
+      max-width: 260px;
     }
   }
 }
 
 .sb.input.small {
-  min-width: 68px;
-  max-width: 68px;
+  min-width: 70px;
+  max-width: 70px;
+
+  max-height: 45px;
 }
 
 #age-textfield {
@@ -44,13 +64,18 @@ form {
   margin-right: 5px;
 }
 
+//
+// Email-Password Fieldset
+// -------------------------
+
 form fieldset {
   &.sb {
     @include pad(20px);
     border-radius: 7px;
     border: 0px;
 
-    background-color: $blue;
+    background-color: $darkish-blue;
+    text-align: left;
     color: white;
 
     .email-password {
@@ -58,11 +83,11 @@ form fieldset {
       border: 0px;
 
       .email {
-        background-image: asset-url('email-field.png', image);
+        background-image: asset-url('forms/field/email-field.png', image);
       }
 
       .password {
-        background-image: asset-url('password-field.png', image);
+        background-image: asset-url('forms/field/password-field.png', image);
       }
 
       .email,
@@ -75,12 +100,11 @@ form fieldset {
       .sb.input {
         top: 0px;
         left: 0px;
-
-        &:focus {
-          @include box-shadow(none);
-          outline: 0px;
-        }
       }
+    }
+
+    @include media($mobile) {
+      max-width: 300px;
     }
   }
 
@@ -108,5 +132,40 @@ form fieldset {
     .input {
       border-color: #777C89;
     }
+  }
+}
+
+//
+// Input Checkboxes
+// --------------------------------------------------
+
+form {
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  label.checkbox {
+    float: left;
+    margin-right: 10px;
+  }
+
+  i {
+    width: 45px;
+  }
+}
+
+form fieldset {
+  &.checkbox {
+    max-width: 340px;
+    padding: 5px 20px;
+    border: 0px;
+
+    text-align: left;
+    font-size: 12px;
+    color: white;
+  }
+
+  .description {
+    padding-top: 6px;
   }
 }

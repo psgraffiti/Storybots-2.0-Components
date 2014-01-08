@@ -87,6 +87,10 @@
   }
 }
 
+//
+// Flat Button Colours
+// -------------------------------------------------------------------
+
 .btn-flat {
   &.dark-blue {
     @include btn-flat($dark-blue);

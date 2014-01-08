@@ -1,20 +1,47 @@
+//
+// Thumbnail
+// --------------------------------------------------
+
 .thumbnail {
   @include inline-block();
+  position: relative;
   width: 220px;
   height: 220px;
 
   @include border-radius(7px);
   background-color: black;
 
+  .member {
+    visibility: hidden;
+    position: absolute;
+    right: 5%;
+    bottom: 0%;
+    width: 64px;
+    height: 64px;
+    z-index: 3;
+
+    background-image: asset-url('member-badge/member_badge_Medium.png', image);
+    background-repeat: no-repeat;
+  }
+
   img,
   input[type="image"] {
     @include border-radius(7px);
     width: 220px;
     height: 220px;
+    z-index: 2;
+
+    &:focus {
+      outline: 0px;
+    }
   }
 
   &:disabled,
   &[disabled] {
+    .member {
+      visibility: visible;
+    }
+
     img,
     input[type="image"] {
       opacity: 0.6;
