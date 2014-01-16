@@ -293,7 +293,7 @@ $(document).ready(function() {
         var items           = $('.videos.items .video-thumb')
         var itemWidth       = parseInt($('.video-thumb').css('width'), 10)
         var trayWidth       = tray.width()
-        var itemsPerSection = Math.floor(trayWidth/itemWidth)
+        var itemsPerSection = Math.floor(trayWidth/itemWidth) - 1
 
         for(var i = 0; i <= items.length; i += itemsPerSection) {
           items.slice(i, i+itemsPerSection).wrapAll('<div />')
