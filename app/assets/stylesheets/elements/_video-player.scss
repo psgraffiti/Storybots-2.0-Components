@@ -2,17 +2,34 @@
 // Sprites
 // --------------------------------------------------
 
-.video-player {
-  .sprite {
+.video-player,
+.storybots-skin,
+.sb-default-skin {
+  .sprite,
+  .vjs-play-control,
+  .vjs-fullscreen-control,
+  .vjs-captions-button,
+  .vjs-seek-handle,
+  .vjs-prev-control,
+  .vjs-next-control,
+  .vjs-home-control {
     @include inline-block();
-    background-image: asset-url('sprites/video-control-sprites.png', image);
+    background-image: asset-url('video-player/video-control-sprites.png', image);
     background-repeat: no-repeat;
-    min-width: 31px;
-    min-height: 31px;
   }
 
-  #prev {
+  .vjs-big-play-button {
+    @include inline-block();
+    background-image: asset-url('video-player/video-control-big-play.png', image);
+    background-repeat: no-repeat;
+    background-position: 57% 50%;
+  }
+
+  #prev,
+  .vjs-prev-control {
     background-position: -4px -3px;
+    width: 31px;
+    height: 30px;
 
     &:hover,
     &.hover {
@@ -25,8 +42,11 @@
     }
   }
 
-  #next {
+  #next,
+  .vjs-next-control {
     background-position: -122px -3px;
+    width: 31px;
+    height: 30px;
 
     &:hover,
     &.hover {
@@ -39,8 +59,11 @@
     }
   }
 
-  .play {
+  .play,
+  .vjs-play-control {
     background-position: -3px -81px;
+    width: 26px;
+    height: 30px;
 
     &:hover,
     &.hover {
@@ -53,22 +76,28 @@
     }
   }
 
-  .pause {
-    background-position: -3px -42px;
+  .pause,
+  .vjs-play-control.vjs-playing {
+    background-position: -2px -42px;
+    width: 25px;
+    height: 30px;
 
     &:hover,
     &.hover {
-      background-position: -74px -42px;
+      background-position: -73px -42px;
 
       &:active,
       &.active {
-        background-position: -36px -42px;
+        background-position: -35px -42px;
       }
     }
   }
 
-  .expand {
+  .expand,
+  .vjs-fullscreen-control {
     background-position: -3px -121px;
+    width: 30px;
+    height: 30px;
 
     &:hover,
     &.hover {
@@ -81,8 +110,11 @@
     }
   }
 
-  .contract {
+  .contract,
+  &.vjs-fullscreen .vjs-fullscreen-control {
     background-position: -2px -161px;
+    width: 30px;
+    height: 30px;
 
     &:hover,
     &.hover {
@@ -95,23 +127,29 @@
     }
   }
 
-  #cc {
-    background-position: -105px -39px;
+  #cc,
+  .vjs-captions-button {
+    background-position: -105px -42px;
     width: 36px;
+    height: 27px;
 
     &:hover,
     &.hover {
-      background-position: -191px -39px;
+      background-position: -191px -42px;
+    }
 
-      &:active,
-      &.active {
-        background-position: -148px -39px;
-      }
+    &:active,
+    &.active,
+    &[aria-pressed="true"] {
+      background-position: -148px -41px;
     }
   }
 
-  #home {
+  #home,
+  .vjs-home-control {
     background-position: -109px -82px;
+    width: 27px;
+    height: 27px;
 
     &:hover,
     &.hover {
@@ -124,7 +162,8 @@
     }
   }
 
-  #handle {
+  #handle,
+  .vjs-slider-handle {
     background-position: -129px -122px;
     width: 25px;
     height: 25px;
@@ -134,28 +173,71 @@
 
     &:hover,
     &.hover {
-      background-position: -163px -120px;
+      background-position: -127px -150px;
+      min-width: 29px;
+      min-height: 29px;
+      margin-left: -2px;
 
       @include transform(translateY(-30%));
     }
   }
 }
 
+.vjs-loading-spinner {
+  @include transform(translate(-50%, -50%));
+  position: absolute;
+  width: 92px;
+  height: 82px;
+  top: 50%;
+  left: 50%;
+
+  background-image: asset-url('video-player/Gears-and-Box.gif', image);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-clip: content-box;
+  border-radius: 7px;
+}
+
 //
 // Video Player
 // --------------------------------------------------
 
-.video-player {
-  .title {
+.video-player,
+.storybots-skin,
+.sb-default-skin {
+  .title,
+  .vjs-title {
     font-family: ProximaNova;
     font-size: 24px;
     color: #C5C7CC;
-
-    @include pad(0px 12px);
-    line-height: 56px;
   }
 
-  .bar {
+  .vjs-control-bar {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+
+    text-align: left;
+  }
+
+  .vjs-top-control-bar {
+    top: 0px;
+
+    .vjs-home-control,
+    .divider,
+    .vjs-title {
+      float: left;
+    }
+
+    .divider {
+      margin-left: 6px;
+      margin-right: 6px;
+    }
+  }
+
+  .bar,
+  .vjs-control-bar {
     height: 56px;
     background-color: #162340;
 
@@ -198,26 +280,55 @@
 
     .divider,
     .control,
-    .title {
+    .title,
+    .vjs-control:not(.vjs-time-controls) {
       @include inline-block();
       @include transform(translateY(-50%));
       position: relative;
       top: 50%;
+
+      margin-left: 14px;
+      margin-right: 14px;
+
+      &.vjs-captions-button {
+        @include media($mobile) {
+          display: none;
+        }
+      }
     }
     
     .divider {
-      @include transform(translateY(-65%));
       width: 1px;
       height: 30px;
+      margin: 0px;
       background-color: #293455;
     }
 
-    .control {
-      @include pad(0px 12px);
+    #cc-divider {
+      @include media($mobile) {
+        display: none;
+      }
+    }
+
+    .control,
+    .vjs-control {
       z-index: 100;
 
       &.play {
         width: 110px;
+      }
+
+      &.vjs-play-control {
+        margin-left: 40px;
+        margin-right: 37px;
+      }
+
+      &.vjs-prev-control {
+        float: left;
+      }
+
+      &.vjs-next-control {
+        float: right;
       }
     }
 
@@ -226,7 +337,7 @@
     }
 
     .progress-bar,
-    .progress {
+    .progress{
       border-radius: 25px;
       height: 10px;
     }
@@ -240,5 +351,234 @@
         width: 20%;
       }
     }
+
+    .vjs-control.vjs-progress-control {
+      position: absolute;
+      width: 100%;
+      padding-right: 375px;
+      padding-left: 0px;
+
+      @include media($mobile) {
+        padding-right: 320px;
+      }
+    }
+
+    .vjs-load-progress,
+    .vjs-play-progress,
+    .vjs-progress-holder {
+      border-radius: 25px;
+    }
+
+    .vjs-progress-holder {
+      background-color: #01040A;
+      height: 10px;
+    }
+
+    .vjs-load-progress {
+      background-color: #01040A;
+    }
+
+    .vjs-play-progress {
+      background-color: #34AFE7;
+    }
   }
+
+  .vjs-subtitles-button { display: none; }
+  .vjs-captions-button .vjs-control-content { display: none; }
+  .vjs-captions-button .vjs-menu { display: none; }
+  .vjs-time-controls { display: none; }
+  .vjs-time-divider { display: none; }
+}
+
+.sb-default-skin .logo {
+  display: none;
+
+  position: absolute;
+  top: -80px;
+  height: 80px;
+  width: 100%;
+
+  background-image: asset-url('video-player/full-screen-logo.png', image);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.sb-default-skin.vjs-fullscreen .logo {
+  display: block;
+  z-index: 1;
+}
+
+
+//
+// Video Player Tray
+// --------------------------------------------------
+
+.video-js + .video-player-tray {
+  margin-top: 50px;
+}
+
+.sb-default-skin:not(.vjs-fullscreen) .video-player-tray {
+  @include transform(translateX(-50%));
+  left: 50%;
+}
+
+.video-player-tray {
+  position: absolute;
+  bottom: -201px;
+  height: 151px;
+  width: 100%;
+
+  @include border-radius(7px);
+  background-color: #2F3442;
+
+  .videos.box-shadow {
+    @include box-shadow(inset 0px 0px 5px rgba(0,0,0,0.75));
+    @include border-radius(7px);
+    z-index: 1;
+    width: 100%;
+  }
+
+  .btn.green {
+    min-width: 60px;
+    height: 151px;
+
+    margin: 0px;
+    z-index: 5;
+
+    &#left {
+      @include box-shadow(6px 0px 6px -3px rgba(0,0,0,0.6));
+      @include border-radius-right(0px);
+      float: left;
+      left: -5px;
+    }
+
+    &#right {
+      @include box-shadow(-6px 0px 6px -3px rgba(0,0,0,0.6));
+      @include border-radius-left(0px);
+      float: right;
+      right: -5px;
+      top: -151px;
+    }
+
+    i {
+      @include transform(translateY(-50%));
+      position: relative;
+      top: 50%;
+    }
+
+    &:hover,
+    &.hover {
+      color: white;
+      background-color: #4CC07D;
+
+      &:active,
+      &.active {
+        top: 0px;
+      }
+    }
+  }
+}
+
+.sb-default-skin.vjs-fullscreen .video-player-tray .btn.green{
+  &#left {
+    left: 0px;
+  }
+
+  &#right {
+    right: 0px;
+  }
+}
+
+// Videos
+
+.video-player-tray .videos {
+  position: absolute;
+  height: 151px;
+  overflow: hidden;
+
+  .video-thumb {
+    @include pad(10px);
+    width: 160px;
+    height: 151px;
+    float: left;
+
+    @include border-radius(0px);
+    background-color: transparent;
+
+    &.playing {
+      background-color: #FF821C;
+    }
+  }
+}
+
+// Thumbnails
+
+.video-player-tray .videos .thumbnail {
+  width: 140px;
+  height: 127px;
+  z-index: 4;
+
+  .member {
+    width: 48px;
+    height: 48px;
+
+    background-image: asset-url('member-badge/member_badge_Small.png', image);
+  }
+
+  &:hover,
+  &.hover {
+    img,
+    input[type="image"] {
+      @include box-shadow(0px 0px 0px 2px #FF821C);
+    }
+  }
+}
+
+// Responsive
+
+#firefox-sucks {
+   width: 98%;
+   max-width: 640px;
+}
+
+.video-js {
+  padding-top: 56.25%;
+}
+
+.vjs-fullscreen {
+  padding-top: 0px;
+  max-height: 100px;
+}
+
+
+/*
+root element for the scrollable.  when scrolling occurs this
+element stays still.
+*/
+.scrollable {
+  /* required settings */
+  position: relative;
+  overflow: hidden;
+  height: 151px;
+  left: -40px;
+}
+ 
+/*
+root element for scrollable items. Must be absolutely positioned
+and it should have a extremely large width to accommodate scrollable
+items.  it's enough that you set width and height for the root element
+and not for this element.
+*/
+.scrollable .items {
+  /* this cannot be too large */
+  width: 20000em;
+  position: absolute;
+}
+ 
+/*
+a single item. must be floated in horizontal scrolling.  typically,
+this element is the one that *you* will style the most.
+*/
+.items div {
+  float: left;
 }
