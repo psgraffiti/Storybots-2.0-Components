@@ -197,26 +197,26 @@ $(document).ready(function() {
     var createVideoPlayerTray = function() {
       var props = {
           className: 'video-player-tray',
-          innerHTML: '<a class="prev browse left btn green" id="left"><i class="fa fa-caret-left fa-5x"></i></a>' +
-                      '<div class="scrollable" id="scrollable">' +
+          innerHTML: '<a class="ca-nav-prev btn green" id="left"><i class="fa fa-caret-left fa-5x"></i></a>' +
                       '<div class="videos box-shadow"></div>' +
-                      '<div class="videos items">' +
-                          '<div class="video-thumb"><div class="thumbnail"><input type="image" src="/assets/row.png" alt="be-the-star Videos"></div></div>' +
-                          '<div class="video-thumb"><div class="thumbnail" disabled="disabled"><input type="image" src="/assets/row.png" alt="be-the-star Videos"></div></div>' +
-                          '<div class="video-thumb"><div class="thumbnail"><input type="image" src="/assets/row.png" alt="be-the-star Videos"></div></div>' +
-                          '<div class="video-thumb playing"><div class="thumbnail"><input type="image" src="/assets/row.png" alt="be-the-star Videos"></div></div>' +
-                          '<div class="video-thumb"><div class="thumbnail"><input type="image" src="/assets/row.png" alt="be-the-star Videos"></div></div>' +
-                          '<div class="video-thumb"><div class="thumbnail" disabled="disabled"><input type="image" src="/assets/row.png" alt="be-the-star Videos"></div></div>' +
-                          '<div class="video-thumb"><div class="thumbnail" disabled="disabled"><input type="image" src="/assets/row.png" alt="be-the-star Videos"></div></div>' +
-                          '<div class="video-thumb"><div class="thumbnail"><input type="image" src="/assets/row.png" alt="be-the-star Videos"></div></div>' +
-                          '<div class="video-thumb"><div class="thumbnail"><input type="image" src="/assets/row.png" alt="be-the-star Videos"></div></div>' +
-                          '<div class="video-thumb"><div class="thumbnail"><input type="image" src="/assets/row.png" alt="be-the-star Videos"></div></div>' +
-                          '<div class="video-thumb"><div class="thumbnail" disabled="disabled"><input type="image" src="/assets/row.png" alt="be-the-star Videos"></div></div>' +
-                          '<div class="video-thumb"><div class="thumbnail"><input type="image" src="/assets/row.png" alt="be-the-star Videos"></div></div>' +
-                          '<div class="video-thumb"><div class="thumbnail" disabled="disabled"><input type="image" src="/assets/row.png" alt="be-the-star Videos"></div></div>' +
-                          '<div class="video-thumb"><div class="thumbnail"><input type="image" src="/assets/row.png" alt="be-the-star Videos"></div></div>' +
+                      '<div class="ca-container" id="ca-container">' +
+                      '<div class="videos ca-wrapper">' +
+                          '<div class="video-thumb ca-item"><div class="thumbnail"><input type="image" src="/assets/row.png" alt="be-the-star Videos"></div></div>' +
+                          '<div class="video-thumb ca-item"><div class="thumbnail" disabled="disabled"><input type="image" src="/assets/row.png" alt="be-the-star Videos"></div></div>' +
+                          '<div class="video-thumb ca-item"><div class="thumbnail"><input type="image" src="/assets/row.png" alt="be-the-star Videos"></div></div>' +
+                          '<div class="video-thumb ca-item playing"><div class="thumbnail"><input type="image" src="/assets/row.png" alt="be-the-star Videos"></div></div>' +
+                          '<div class="video-thumb ca-item"><div class="thumbnail"><input type="image" src="/assets/row.png" alt="be-the-star Videos"></div></div>' +
+                          '<div class="video-thumb ca-item"><div class="thumbnail" disabled="disabled"><input type="image" src="/assets/row.png" alt="be-the-star Videos"></div></div>' +
+                          '<div class="video-thumb ca-item"><div class="thumbnail" disabled="disabled"><input type="image" src="/assets/row.png" alt="be-the-star Videos"></div></div>' +
+                          '<div class="video-thumb ca-item"><div class="thumbnail"><input type="image" src="/assets/row.png" alt="be-the-star Videos"></div></div>' +
+                          '<div class="video-thumb ca-item"><div class="thumbnail"><input type="image" src="/assets/row.png" alt="be-the-star Videos"></div></div>' +
+                          '<div class="video-thumb ca-item"><div class="thumbnail"><input type="image" src="/assets/row.png" alt="be-the-star Videos"></div></div>' +
+                          '<div class="video-thumb ca-item"><div class="thumbnail" disabled="disabled"><input type="image" src="/assets/row.png" alt="be-the-star Videos"></div></div>' +
+                          '<div class="video-thumb ca-item"><div class="thumbnail"><input type="image" src="/assets/row.png" alt="be-the-star Videos"></div></div>' +
+                          '<div class="video-thumb ca-item"><div class="thumbnail" disabled="disabled"><input type="image" src="/assets/row.png" alt="be-the-star Videos"></div></div>' +
+                          '<div class="video-thumb ca-item"><div class="thumbnail"><input type="image" src="/assets/row.png" alt="be-the-star Videos"></div></div>' +
                       '</div></div>' +
-                      '<a class="next browse right btn green" id="right"><i class="fa fa-caret-right fa-5x"></i></a>'
+                      '<a class="ca-nav-next btn green" id="right"><i class="fa fa-caret-right fa-5x"></i></a>'
         }
       return videojs.Component.prototype.createEl(null, props)
     }
@@ -250,34 +250,38 @@ $(document).ready(function() {
       var video      = $('#storybots-video.video-js')
       var ccButton   = $('#storybots-video .vjs-captions-button')
 
-      /* Display video player tray and logo in fullscreen */
-      tray.width($('#firefox-sucks').parent().width())
+      function setTrayWidth() {
+        tray.width($('#firefox-sucks').parent().width())
+        $('.videos').width(tray.width()-60)
+        $('.ca-container').width(tray.width()-60)
+        setupScrollVideoTray()
+      }
 
+      $(window).resize(function() {
+        if (!sbPlayer.isFullScreen) {
+          setTrayWidth()
+        }
+      })
+
+      /* Display video player tray and logo in fullscreen */
       sbPlayer.on('fullscreenchange', function() {
         // Subtract video tray and margin, logo bar heights from total height
-        var others     = 151+50+80+5
+        var others     = tray.height()+50+$('.logo').height()+5
         var fullHeight = screen.height-others
 
         if (sbPlayer.isFullScreen) {
           tray.prop('style').removeProperty('width')
           video.css('min-height', fullHeight)
+
+          $('.videos').width(tray.width()-60)
+          $('.ca-container').width(tray.width()-60)
+          setupScrollVideoTray()
         }
         else {
           tray.width($('.logo').width())
           video.prop('style').removeProperty('min-height')
+          setTrayWidth()
         }
-
-        scrollVideoTray()
-      })
-
-      $(window).resize(function() {
-        if (!sbPlayer.isFullScreen) {
-          tray.width($('#firefox-sucks').parent().width())
-        }
-      })
-
-      tray.resize(function() {
-        $('.videos').width(tray.width())
       })
 
       /* Display captions on button click */
@@ -286,20 +290,18 @@ $(document).ready(function() {
         $(this).toggleClass('active')
       })
 
+
       /* Make video tray scrollable */
-      $(".scrollable").scrollable();
-      scrollVideoTray()
-      function scrollVideoTray() {
-        var items           = $('.videos.items .video-thumb')
+      function setupScrollVideoTray() {
         var itemWidth       = parseInt($('.video-thumb').css('width'), 10)
         var trayWidth       = tray.width()
-        var itemsPerSection = Math.floor(trayWidth/itemWidth) - 1
+        var itemsPerSection = Math.round(trayWidth/itemWidth)-1
 
-        for(var i = 0; i <= items.length; i += itemsPerSection) {
-          items.slice(i, i+itemsPerSection).wrapAll('<div />')
-        }
+        $('#ca-container').contentcarousel({scroll:itemsPerSection})
       }
 
+
+      /* Make video thumbnails select from video playlist */
       $('.video-thumb').on('click', function() {
         var $this = $(this)
 
@@ -309,7 +311,8 @@ $(document).ready(function() {
         $('.video-thumb').removeClass('playing')
         $this.addClass('playing')
 
-        sbPlayer.playList(1)
+        var videoIndex = $('.video-thumb').index($this)
+        sbPlayer.playList(videoIndex%3)
       })
 
       /* Insert Custom Dividers to Control Bar */
@@ -327,6 +330,7 @@ $(document).ready(function() {
         $('.thumbnail[disabled="disabled"]').prepend('<div class="member"></div>');
       }
 
+      setTrayWidth()
       insertDividers()
       placeMemberBadges()
     })

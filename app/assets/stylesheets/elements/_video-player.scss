@@ -422,6 +422,11 @@
   left: 50%;
 }
 
+/*.ca-container {
+  padding-left: 60px;
+  background-color: red;
+}*/
+
 .video-player-tray {
   position: absolute;
   bottom: -201px;
@@ -436,7 +441,7 @@
     @include border-radius(7px);
     z-index: 1;
     width: 100%;
-    left: -40px;
+    left: 30px
   }
 
   .btn.green {
@@ -458,7 +463,6 @@
       @include border-radius-left(0px);
       float: right;
       right: -5px;
-      top: -151px;
     }
 
     i {
@@ -502,6 +506,7 @@
     width: 160px;
     height: 151px;
     float: left;
+    margin-left: 26px;
 
     @include border-radius(0px);
     background-color: transparent;
@@ -549,36 +554,4 @@
 .vjs-fullscreen {
   padding-top: 0px;
   max-height: 100px;
-}
-
-
-/*
-root element for the scrollable.  when scrolling occurs this
-element stays still.
-*/
-.scrollable {
-  /* required settings */
-  position: relative;
-  overflow: hidden;
-  height: 151px;
-}
- 
-/*
-root element for scrollable items. Must be absolutely positioned
-and it should have a extremely large width to accommodate scrollable
-items.  it's enough that you set width and height for the root element
-and not for this element.
-*/
-.scrollable .items {
-  /* this cannot be too large */
-  width: 20000em;
-  position: absolute;
-}
- 
-/*
-a single item. must be floated in horizontal scrolling.  typically,
-this element is the one that *you* will style the most.
-*/
-.items div {
-  float: left;
 }
