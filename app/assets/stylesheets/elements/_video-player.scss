@@ -422,11 +422,6 @@
   left: 50%;
 }
 
-/*.ca-container {
-  padding-left: 60px;
-  background-color: red;
-}*/
-
 .video-player-tray {
   position: absolute;
   bottom: -201px;
@@ -438,7 +433,7 @@
 
   .videos.box-shadow {
     @include box-shadow(inset 0px 0px 5px rgba(0,0,0,0.75));
-    @include border-radius(7px);
+    @include border-radius(0px);
     z-index: 1;
     width: 100%;
     left: 30px

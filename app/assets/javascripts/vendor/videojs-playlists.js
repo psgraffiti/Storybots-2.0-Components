@@ -140,10 +140,12 @@ function playList(options,arg){
 
 videojs.Player.prototype.next = function(){
   this.pl._nextPrev('next');
+  this.trigger('playlistNext')
   return this;
 };
 videojs.Player.prototype.prev = function(){
   this.pl._nextPrev('prev');
+  this.trigger('playlistPrev')
   return this;
 };
 

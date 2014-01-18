@@ -34,11 +34,6 @@
             cache.isAnimating = false;
           });
         });
-      },
-      // gets the item's position (0 is first) on the viewport (the visible items)
-      // val is the left value of the item
-      getWinPos : function( val, cache ) {
-         return val % cache.itemW 
       }
     },
     methods = {
@@ -120,15 +115,30 @@
             });
 
             $('div.ca-item').on('click', function() {
-              var $item = $(this)
-              var left  = $item.position().left
+                if( cache.isAnimating ) {
+                  $(this).data('success', false);
+                  return false;
+                }
+
+              var $item = $(this);
+              var left  = $item.position().left;
+
+              /* If it is a partially displayed item, scroll it to first place */
               if( left > 0 && (left / cache.itemW == settings.scroll) ) {
-                if( cache.isAnimating ) return false;
                 cache.isAnimating = true;
                 aux.navigate( 1, $el, $wrapper, settings, cache );
               }
 
-            })
+              /* If it is the hidden last item, scroll it to first place */
+              if( (left / cache.itemW) == (cache.totalItems - 1) ) {
+                cache.isAnimating = true;
+                var oldScroll = settings.scroll;
+                settings.scroll = cache.totalItems - (left / cache.itemW);
+                aux.navigate( -1, $el, $wrapper, settings, cache );
+                settings.scroll = oldScroll;
+              }
+              $(this).data('success', true);
+            });
             
           });
         }
@@ -143,6 +153,7 @@
     } else {
       $.error( 'Method ' +  method + ' does not exist on jQuery.contentcarousel' );
     }
+    return this
   };
   
 })(jQuery);
